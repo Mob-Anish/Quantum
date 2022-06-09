@@ -1,0 +1,8 @@
+{
+  "name": "quantum",
+  "version": "1.0.0",
+  "description": "Blog Application",
+  "main": "index.js",
+  "author": "Shoya",
+  "license": "MIT"
+}
