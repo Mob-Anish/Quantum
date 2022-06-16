@@ -1,6 +1,8 @@
 server/node_modules
 client/node_modules
 
+server/database.sql
+
 config.env
 
 .cache/
@@ -14,8 +16,6 @@ client/coverage
 
 # production
 client/build
-
-database.sql
 
 # misc
 client/.DS_Store
