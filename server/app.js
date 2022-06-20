@@ -1,3 +1,4 @@
+//---------- Express Framework -----------//
 const express = require("express");
 const morgan = require("morgan");
 const helmet = require("helmet");
@@ -7,6 +8,7 @@ const xss = require("xss-clean");
 const cookieParser = require("cookie-parser");
 const compression = require("compression");
 
+const userRouter = require("./routes/userRoutes");
 const AppError = require("./utils/appError");
 
 const app = express();
@@ -15,12 +17,7 @@ const app = express();
 
 // Implement CORS
 app.use(cors());
-
 app.options("*", cors());
-
-if (process.env.NODE_ENV === "development" || "production") {
-  app.use(morgan("dev"));
-}
 
 // Body parser and cookie parser
 app.use(express.json());
@@ -36,6 +33,7 @@ app.use((req, res, next) => {
 });
 
 //---------- Api Routes ------------//
+app.use("/api/v1/users", userRouter);
 
 // Handling unhandled request
 app.all("*", (req, res, next) => {

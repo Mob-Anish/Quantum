@@ -1,0 +1,15 @@
+extends baseEmail
+
+block content
+    h1 Welcome to Quantum 🖖🖖
+    h2 Use the following link to sign up or automatically login to Quantum, be careful who you give it to.
+    table.btn.btn-primary(role='presentation', border='0', cellpadding='0', cellspacing='0')
+        tbody
+            tr
+                td(align='left')
+                    table(role='presentation', border='0', cellpadding='0', cellspacing='0')
+                        tbody
+                            tr
+                                td
+                                    a(href=`${url}`, target='_blank') Click here to sign in
+    p - Anish Manandhar, Qunatum(CEO)

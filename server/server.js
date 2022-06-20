@@ -17,6 +17,14 @@ const db = new Client({
 // Connecting to database
 db.connect();
 
+let querie = `SELECT * FROM users`;
+
+db.query(querie, (err, res) => {
+  if (err) console.log(err);
+
+  console.log(res.rows);
+});
+
 //------- Server is started on port -------//
 const port = process.env.PORT || 3000;
 const server = app.listen(port, () => {
