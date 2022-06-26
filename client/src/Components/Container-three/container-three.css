@@ -1,0 +1,42 @@
+.container__three {
+    height: 100%;
+}
+
+.container__write__profile {
+    display: flex;
+    padding: 1rem;
+}
+
+.container__write__blog {
+    padding: 1.5rem 1.5rem 0 0;
+}
+
+.container__write__blog a {
+    background: rgb(28, 179, 28);
+}
+.container__signup a {
+    background: rgb(28, 179, 28);
+}
+.container__login a {
+    background: rgb(28, 179, 28);
+}
+
+.container__write__blog a, 
+.container__signup a,
+.container__login a
+{
+    border: none;
+     color: #f3f1f1;
+     text-decoration: none;
+     padding: 1rem 1.5rem;
+     border-radius: 2rem;
+     font-size: 1.6rem;
+}
+
+.container__profile__card {
+    background: red;
+    padding: 2rem 2.5rem;
+    width: 22rem;
+    border-radius: 1rem;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
