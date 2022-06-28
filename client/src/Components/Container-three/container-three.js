@@ -65,6 +65,9 @@ const containerThree = () => {
           </div>
         </div>
       </div>
+      <div className="container__trending">
+        <h2>Trending Tags</h2>
+      </div>
     </div>
   );
 };

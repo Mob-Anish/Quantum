@@ -1,5 +1,8 @@
 .container__three {
     height: 100%;
+    width: 30%;
+    background: #2f343d;
+    border-left: 1px solid #444d59;
 }
 
 .container__write__profile {
