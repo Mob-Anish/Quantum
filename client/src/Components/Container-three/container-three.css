@@ -1,6 +1,6 @@
 .container__three {
     height: 100%;
-    width: 30%;
+    width: 23%;
     background: #2f343d;
     border-left: 1px solid #444d59;
 }
@@ -37,7 +37,7 @@
 }
 
 .container__profile__card {
-    background: red;
+    background: #16222e;
     padding: 2rem 2.5rem;
     width: 22rem;
     border-radius: 1rem;

@@ -20,3 +20,11 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.focus:focus{
+  outline: none;
+}
+
+.inlinefont::placeholder {
+  font-family: "Quicksand", sans-serif;
+}

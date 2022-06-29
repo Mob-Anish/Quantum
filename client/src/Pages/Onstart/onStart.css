@@ -1,0 +1,53 @@
+.section__onstart {
+    height: 100vh;
+    background: linear-gradient(to top, #182C61, #182C61);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.google__login {
+    border-radius: 1.8rem !important;
+    cursor: pointer;
+    background: white;
+    color: #000000 !important;
+    font-size: 1.8rem !important;
+    /* font-weight: bolder !important; */
+    margin: 4rem 0 4rem 0;
+    padding: .3rem 2rem !important;
+    font-family: "Quicksand", sans-serif !important;
+}
+
+.google__login > div {
+    border-radius: 1.8rem !important;
+}
+
+.section__continue__email {
+    font-size: 1.8rem;
+    background: #ffffff;
+    font-weight: 500;
+    padding: 1.2rem 1rem;
+    border-radius: 1.8rem;
+    text-align: center;
+    cursor: pointer;
+}
+
+.section__continue__email:hover {
+    opacity: 0.9;
+} 
+
+.section__enter__email {
+    margin-top: 2rem;
+}
+
+.section__enter__email input {
+    font-size: 1.8rem;
+    font-weight: bold;
+    padding: 1.5rem 1.8rem;
+    font-family: "Quicksand", sans-serif;
+    border-radius: 2rem;
+    border: none;
+    width: 50rem;
+    margin-bottom: 2rem;
+}

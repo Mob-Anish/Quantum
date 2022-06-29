@@ -9,15 +9,15 @@ const main = () => {
     <div className="main">
       <div className="main__search__bar">
         <div className="main__search__position">
+          <IoSearchOutline className="search__icon" />
           <input
             type={"text"}
             name="search"
-            className="search"
+            className="search inlinefont focus"
             placeholder="Explore the world"
             value={keyword}
             onChange={(e) => setKeyword(e.target.value)}
           />
-          <IoSearchOutline className="search__icon" />
         </div>
       </div>
       <div className="main__content">

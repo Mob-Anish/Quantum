@@ -2,6 +2,7 @@ import "./container-three.css";
 import { Link } from "react-router-dom";
 import ProfleImg from "../../Assets/img/prof.png";
 import { RiDeleteBack2Fill } from "react-icons/ri";
+import * as routes from "../../Constants/routes";
 
 const viewProfile = () => {
   document.querySelector(".container__profile__card").style.display = "block";
@@ -45,10 +46,20 @@ const containerThree = () => {
               onClick={hideProfile}
             />
             <h2 style={{ fontSize: "1.8rem", color: "#f3f1f1" }}>
-              Enter the dimension of tech
+              Enter the dimension of tech.
             </h2>
+            <h3
+              style={{
+                fontSize: "1.5rem",
+                color: "#f3f1f1",
+                paddingTop: ".5rem",
+                fontWeight: "normal",
+              }}
+            >
+              Sign up or log in to your Quantum account.
+            </h3>
             <div
-              className="container__enter"
+              className="container__entry"
               style={{
                 display: "flex",
                 alignItems: "center",
@@ -56,10 +67,10 @@ const containerThree = () => {
               }}
             >
               <div className="container__signup">
-                <Link to="/onstart">Sign up</Link>
+                <Link to={routes.ONSTART}>Sign up</Link>
               </div>
               <div className="container__login" style={{ paddingLeft: "1rem" }}>
-                <Link to="/onstart">Log in</Link>
+                <Link to={routes.ONSTART}>Log in</Link>
               </div>
             </div>
           </div>
