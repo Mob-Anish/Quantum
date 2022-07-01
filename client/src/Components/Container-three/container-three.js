@@ -3,14 +3,7 @@ import { Link } from "react-router-dom";
 import ProfleImg from "../../Assets/img/prof.png";
 import { RiDeleteBack2Fill } from "react-icons/ri";
 import * as routes from "../../Constants/routes";
-
-const viewProfile = () => {
-  document.querySelector(".container__profile__card").style.display = "block";
-};
-
-const hideProfile = () => {
-  document.querySelector(".container__profile__card").style.display = "none";
-};
+import * as displayFn from "../../Utils/displayFn";
 
 const containerThree = () => {
   return (
@@ -29,7 +22,7 @@ const containerThree = () => {
               cursor: "pointer",
               position: "relative",
             }}
-            onClick={viewProfile}
+            onClick={displayFn.viewProfile}
           />
           <div
             className="container__profile__card"
@@ -43,7 +36,7 @@ const containerThree = () => {
                 cursor: "pointer",
                 color: "#f3f1f1",
               }}
-              onClick={hideProfile}
+              onClick={displayFn.hideProfile}
             />
             <h2 style={{ fontSize: "1.8rem", color: "#f3f1f1" }}>
               Enter the dimension of tech.

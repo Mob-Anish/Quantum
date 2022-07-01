@@ -1,27 +1,27 @@
 .main { 
     height: 100%;
     width: 57%;
-    background: #16222e;
+    background: #1D203E;
 }
 .main__search__bar {
     padding: 1.3rem 0;
-    background: #2f343d;
+    background: #2C2F48;
     display: flex;
     justify-content: center;
 }
 
 .main__search__position {
     position: relative;
-    background: #000000;
+    background: linear-gradient(180deg, rgba(46, 51, 90, 0.3) 0%, rgba(28, 27, 51, 0.3) 100%);
     width: 70%;
     padding: 1.2rem 2rem 1.2rem 4rem;
-    border: 1px solid #444d59;
+    border: 1px solid rgba(255, 255, 255, 0.2);
     border-radius: 2rem;
 }
 
 .search__icon {
     position: absolute;
-    color: #ffffff;
+    color: rgba(235, 235, 245, 0.6);
     font-size: 2.2rem;
     left: 1.2rem;
     top: 1rem;
@@ -41,7 +41,7 @@
 }
 
 .main__content {
-    background: #16222e;
+    background: #1D203E;
     color: #ffffff;
     border-top: 1px solid #444d59;
     overflow-y: auto;

@@ -17,3 +17,13 @@ export const displayLoginOptions = () => {
     ".section__onstart .section__enter__email"
   ).style.display = "none";
 };
+
+// View popup in login
+export const viewProfile = () => {
+  document.querySelector(".container__profile__card").style.display = "block";
+};
+
+// Hide popup in login
+export const hideProfile = () => {
+  document.querySelector(".container__profile__card").style.display = "none";
+};
