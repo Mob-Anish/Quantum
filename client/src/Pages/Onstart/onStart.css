@@ -1,10 +1,33 @@
 .section__onstart {
     height: 100vh;
-    background: linear-gradient(to top, #182C61, #182C61);
+    background: radial-gradient(73.23% 106% at 34.94% 108.33%, #b265bd 0%, #7758D1 100%);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.section__continue__with {
+    /* background: #ffffff;
+    background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3)); */
+    background: rgba(44, 47, 72, 0.5);
+    border-radius: 1.5rem;
+    padding: 5rem;
+    display: flex;
+    align-items: center;
+    width: 60%;
+    justify-content: space-between;
+}
+
+.section__onstart__paragraph {
+    width: 55%;
+    padding-left: 5rem;  
+}
+
+.section__onstart__paragraph p{
+    font-size: 1.8rem;
+    color: #ffffff;
+    font-weight: bold;
 }
 
 .google__login {
@@ -13,10 +36,10 @@
     background: white;
     color: #000000 !important;
     font-size: 1.8rem !important;
-    /* font-weight: bolder !important; */
     margin: 4rem 0 4rem 0;
     padding: .3rem 2rem !important;
     font-family: "Quicksand", sans-serif !important;
+    width: 30rem !important;
 }
 
 .google__login > div {
@@ -31,6 +54,7 @@
     border-radius: 1.8rem;
     text-align: center;
     cursor: pointer;
+    box-shadow: rgb(0 0 0 / 24%) 0px 2px 2px 0px, rgb(0 0 0 / 24%) 0px 0px 1px 0px;
 }
 
 .section__continue__email:hover {
