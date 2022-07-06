@@ -1,4 +1,16 @@
-import { configureStore, applyMiddleware, combineReducers } from "redux";
-import thunk from "redux-thunk";
+import { combineReducers } from "redux";
+import { configureStore } from "@reduxjs/toolkit";
+// import thunk from "redux-thunk";
+import { userRegister } from "./Reducers/userReducers";
 
-// const store = connfigureStore()
+const preloadedState = {};
+
+const reducer = combineReducers({ userRegister });
+
+const store = configureStore({
+  reducer,
+  devTools: process.env.REACT_APP_ENV !== "production",
+  preloadedState,
+});
+
+export default store;
