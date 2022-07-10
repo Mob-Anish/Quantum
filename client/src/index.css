@@ -28,3 +28,10 @@ code {
 .inlinefont::placeholder {
   font-family: "Quicksand", sans-serif;
 }
+
+.error-field {
+  font-size: 1.7rem;
+  height: 1.8rem;
+  color:rgb(236, 102, 102);
+  font-weight: bold;
+}

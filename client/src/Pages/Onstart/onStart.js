@@ -2,9 +2,12 @@ import "./onStart.css";
 import { GoogleLogin } from "react-google-login";
 import { Link } from "react-router-dom";
 import * as routes from "../../Constants/routes";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import * as displayFn from "../../Utils/displayFn";
-import { BsFillArrowLeftCircleFill } from "react-icons/bs";
+import { useDispatch, useSelector } from "react-redux";
+import { RiInboxArchiveLine } from "react-icons/ri";
+import { validation } from "../../Utils/emailValidation";
+import MoreOptions from "../../Components/MoreOptions/moreOptions";
 
 const onStart = () => {
   const successResponse = (googleData) => {
@@ -16,6 +19,18 @@ const onStart = () => {
   };
 
   const [emailLink, setEmailLink] = useState("");
+  const [uiError, setUiError] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // Client Validation
+    const errors = validation(emailLink);
+
+    if (errors) setUiError(errors);
+
+    setTimeout(() => setUiError(""), 2500);
+  };
 
   return (
     <div className="section__onstart">
@@ -75,6 +90,7 @@ const onStart = () => {
                 flexDirection: "column",
                 alignItems: "center",
               }}
+              onSubmit={handleSubmit}
             >
               <span
                 style={{
@@ -93,51 +109,26 @@ const onStart = () => {
                 placeholder="Enter your email address . . . ."
                 onChange={(e) => setEmailLink(e.target.value)}
               />
-              <button
-                style={{
-                  background: "green",
-                  padding: "1.2rem 2rem",
-                  color: "#ffffff",
-                  borderRadius: "1.5rem",
-                  fontSize: "1.8rem",
-                  cursor: "pointer",
-                  fontWeight: "bold",
-                  width: "13rem",
-                  textAlign: "center",
-                  border: "none",
-                }}
-              >
+              <div className="error-field">{uiError ? uiError.email : ""}</div>
+              <button type="submit" className="submit_enter_email">
                 Submit
               </button>
             </form>
-            <div
-              className="section_continue_more_options"
-              style={{
-                marginTop: "5rem",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                cursor: "pointer",
-              }}
-              onClick={displayFn.displayLoginOptions}
-            >
-              <BsFillArrowLeftCircleFill
-                style={{
-                  color: "#ffffff",
-                  fontSize: "1.8rem",
-                  marginRight: ".5rem",
-                }}
-              />
-              <h2
-                style={{
-                  color: "#ffffff",
-                  fontSize: "1.8rem",
-                }}
-              >
-                More options
-              </h2>
-            </div>
+            <MoreOptions />
           </div>
+          {/* <div className="section__check__email">
+            <span style={{ fontSize: "2.5rem", fontWeight: "bold" }}>
+              Check your email for a link to proceed.
+            </span>
+            <RiInboxArchiveLine
+              style={{
+                color: "#ffffff",
+                fontSize: "3rem",
+                marginTop: "1rem",
+              }}
+            />
+            <MoreOptions />
+          </div> */}
         </div>
         <div className="section__onstart__paragraph">
           <p>

@@ -73,5 +73,33 @@
     border-radius: 2rem;
     border: none;
     width: 50rem;
-    margin-bottom: 2rem;
 }
+
+.submit_enter_email {
+    background: green;
+    padding: 1.2rem 2rem;
+    color: #ffffff;
+    border-radius: 1.5rem;
+    font-size: 1.8rem;
+    cursor: pointer;
+    font-weight: bold;
+    width: 13rem;
+    text-align: center;
+    border: none;
+    margin-top: 2rem;
+}
+
+.section__check__email {
+    margin-top: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.section__check__email span {
+    background: radial-gradient(73.23% 106% at 34.94% 108.33%, #fad0ff 0%, #8c68f8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+    
