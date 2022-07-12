@@ -3,9 +3,18 @@ export const displayEmailBox = () => {
   document.querySelector(
     ".section__onstart .section__continue__button"
   ).style.display = "none";
-  document.querySelector(
-    ".section__onstart .section__enter__email"
-  ).style.display = "block";
+
+  if (document.querySelector(".section__onstart .section__enter__email")) {
+    document.querySelector(
+      ".section__onstart .section__enter__email"
+    ).style.display = "block";
+  }
+
+  if (document.querySelector(".section__onstart .section__check__email")) {
+    document.querySelector(
+      ".section__onstart .section__check__email"
+    ).style.display = "flex";
+  }
 };
 
 // Continue with more options
@@ -13,9 +22,18 @@ export const displayLoginOptions = () => {
   document.querySelector(
     ".section__onstart .section__continue__button"
   ).style.display = "block";
-  document.querySelector(
-    ".section__onstart .section__enter__email"
-  ).style.display = "none";
+
+  if (document.querySelector(".section__onstart .section__enter__email")) {
+    document.querySelector(
+      ".section__onstart .section__enter__email"
+    ).style.display = "none";
+  }
+
+  if (document.querySelector(".section__onstart .section__check__email")) {
+    document.querySelector(
+      ".section__onstart .section__check__email"
+    ).style.display = "none";
+  }
 };
 
 // View popup in login

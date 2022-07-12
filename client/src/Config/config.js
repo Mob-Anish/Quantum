@@ -1,8 +1,8 @@
 const config = {
-  baseURL: process.env.REACT_APP_API_URL,
+  baseURL: process.env.REACT_APP_QUANTUM_API_URL,
   apiEndPoint: {
     user: {
-      verifyEmail: "/verifyEmail",
+      verifyEmail: "/users/send-verification-email",
     },
   },
 };

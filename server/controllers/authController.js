@@ -1,35 +1,35 @@
-const jwt = require("jsonwebtoken");
+const catchAsync = require("../utils/catchAsync");
 const Email = require("../utils/email");
-
-// Token creation using jwt
-const createToken = (email) => {
-  return jwt.sign({ email }, process.env.JWT_SECRET, {
-    expiresIn: process.env.JWT_EXPIRES_IN,
-  });
-};
+const createToken = require("../utils/jwt");
+const validator = require("validator");
+const AppError = require("../utils/appError");
 
 // Sending JWT Token
-const sendToken = (email, statusCode, req, res) => {
-  // Create token
-  const token = createToken(email);
+// const sendToken = (email, statusCode, req, res) => {
+//   // Create token
+//   const token = createToken(email);
 
-  // Sending to the browser cookies
-  res.cookie("jwt", token, {
-    // In millisecods
-    expires: new Date(
-      Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000
-    ),
-  });
+//   // Sending to the browser cookies
+//   res.cookie("jwt", token, {
+//     // In millisecods
+//     expires: new Date(
+//       Date.now() + process.env.JWT_COOKIE_EXPIRES_IN * 24 * 60 * 60 * 1000
+//     ),
+//   });
 
-  res.status(statusCode).json({
-    status: "success",
-    message: "Token sent successfully",
-  });
-};
+//   res.status(statusCode).json({
+//     status: "success",
+//     message: "Token sent successfully",
+//   });
+// };
 
 //----- Verify email ------//
-exports.verifyEmail = async (req, res, next) => {
+exports.verifyEmail = catchAsync(async (req, res, next) => {
   const email = req.body.email;
+
+  // Check if email is valid
+  if (!validator.isEmail(email))
+    next(new AppError("Your email is not supported in the system 😅", 400));
 
   // Creating Token
   const token = createToken(email);
@@ -44,4 +44,4 @@ exports.verifyEmail = async (req, res, next) => {
     status: "success",
     message: "verification email sent successfully",
   });
-};
+});

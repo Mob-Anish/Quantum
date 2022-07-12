@@ -9,8 +9,8 @@ const moreOptions = () => {
         marginTop: "5rem",
         display: "flex",
         alignItems: "center",
-        justifyContent: "center",
         cursor: "pointer",
+        width: "15rem",
       }}
       onClick={displayFn.displayLoginOptions}
     >

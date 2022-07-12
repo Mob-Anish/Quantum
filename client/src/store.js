@@ -1,11 +1,11 @@
 import { combineReducers } from "redux";
 import { configureStore } from "@reduxjs/toolkit";
 // import thunk from "redux-thunk";
-import { userRegister } from "./Reducers/userReducers";
+import { userRegister, userVerify } from "./Reducers/userReducers";
 
 const preloadedState = {};
 
-const reducer = combineReducers({ userRegister });
+const reducer = combineReducers({ userRegister, userVerify });
 
 const store = configureStore({
   reducer,

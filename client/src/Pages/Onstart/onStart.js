@@ -2,6 +2,7 @@ import "./onStart.css";
 import { GoogleLogin } from "react-google-login";
 import { Link } from "react-router-dom";
 import * as routes from "../../Constants/routes";
+import * as userAction from "../../Actions/userActions";
 import { useState, useEffect } from "react";
 import * as displayFn from "../../Utils/displayFn";
 import { useDispatch, useSelector } from "react-redux";
@@ -18,18 +19,23 @@ const onStart = () => {
     console.log(result);
   };
 
+  const dispatch = useDispatch();
+
   const [emailLink, setEmailLink] = useState("");
   const [uiError, setUiError] = useState("");
+
+  const userVerifyData = useSelector((state) => state.userVerify);
+  const { success, error } = userVerifyData;
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     // Client Validation
     const errors = validation(emailLink);
-
     if (errors) setUiError(errors);
-
     setTimeout(() => setUiError(""), 2500);
+
+    dispatch(userAction.verify(emailLink));
   };
 
   return (
@@ -79,56 +85,62 @@ const onStart = () => {
               <span>Enter with Email</span>
             </div>
           </div>
-          <div
-            className="section__enter__email"
-            style={{ display: "none", marginTop: "8rem" }}
-          >
-            <form
-              className="section__enter__email__input"
-              style={{
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-              }}
-              onSubmit={handleSubmit}
-            >
-              <span
-                style={{
-                  fontSize: "1.8rem",
-                  marginBottom: "2.5rem",
-                  color: "#ffffff",
-                }}
-              >
-                Sign in using secure link
+          {success ? (
+            <div className="section__check__email">
+              <span style={{ fontSize: "2.5rem", fontWeight: "bold" }}>
+                Check your email for a link to proceed.
               </span>
-              <input
-                type={"text"}
-                name="email"
-                className="inlinefont focus"
-                value={emailLink}
-                placeholder="Enter your email address . . . ."
-                onChange={(e) => setEmailLink(e.target.value)}
+              <RiInboxArchiveLine
+                style={{
+                  color: "#ffffff",
+                  fontSize: "3rem",
+                  marginTop: "1rem",
+                }}
               />
-              <div className="error-field">{uiError ? uiError.email : ""}</div>
-              <button type="submit" className="submit_enter_email">
-                Submit
-              </button>
-            </form>
-            <MoreOptions />
-          </div>
-          {/* <div className="section__check__email">
-            <span style={{ fontSize: "2.5rem", fontWeight: "bold" }}>
-              Check your email for a link to proceed.
-            </span>
-            <RiInboxArchiveLine
-              style={{
-                color: "#ffffff",
-                fontSize: "3rem",
-                marginTop: "1rem",
-              }}
-            />
-            <MoreOptions />
-          </div> */}
+              <MoreOptions />
+            </div>
+          ) : (
+            <div
+              className="section__enter__email"
+              style={{ display: "none", marginTop: "8rem" }}
+            >
+              <form
+                className="section__enter__email__input"
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                }}
+                onSubmit={handleSubmit}
+              >
+                <span
+                  style={{
+                    fontSize: "1.8rem",
+                    marginBottom: "2.5rem",
+                    color: "#ffffff",
+                  }}
+                >
+                  Sign in using secure link
+                </span>
+                <input
+                  type={"text"}
+                  name="email"
+                  className="inlinefont focus"
+                  value={emailLink}
+                  placeholder="Enter your email address . . . ."
+                  onChange={(e) => setEmailLink(e.target.value)}
+                />
+                <div className="error-field">
+                  {uiError ? uiError.email : ""}
+                  {error ? error.message : ""}
+                </div>
+                <button type="submit" className="submit_enter_email">
+                  Submit
+                </button>
+              </form>
+              <MoreOptions />
+            </div>
+          )}
         </div>
         <div className="section__onstart__paragraph">
           <p>

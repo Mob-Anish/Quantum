@@ -10,14 +10,21 @@ const compression = require("compression");
 
 const userRouter = require("./routes/userRoutes");
 const AppError = require("./utils/appError");
+const globalErrorController = require("./controllers/errorController");
 
 const app = express();
 
 //---------- GLOBAL MIDDLEWARE -----------//
 
 // Implement CORS
-app.use(cors());
-app.options("*", cors());
+// app.use(cors());
+// app.options("*", cors());
+// For local development
+app.use(
+  cors({
+    origin: " http://localhost:3000",
+  })
+);
 
 // Body parser and cookie parser
 app.use(express.json());
@@ -40,5 +47,8 @@ app.all("*", (req, res, next) => {
   // Sending Error to global middleware
   next(new AppError(`Can't find ${req.originalUrl} on this server`, 404));
 });
+
+//------- GLOBAL ERROR MIDDLEWARE --------//
+app.use(globalErrorController);
 
 module.exports = app;
