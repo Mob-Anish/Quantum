@@ -8,8 +8,6 @@
 }
 
 .section__continue__with {
-    /* background: #ffffff;
-    background: linear-gradient(to right bottom, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.3)); */
     background: rgba(44, 47, 72, 0.5);
     border-radius: 1.5rem;
     padding: 5rem;
@@ -87,6 +85,11 @@
     text-align: center;
     border: none;
     margin-top: 2rem;
+    transition: all .3s ease-out;
+}
+
+.submit_enter_email:hover {
+    transform: translateY(-3px);
 }
 
 .section__check__email {
@@ -98,6 +101,7 @@
 
 .section__check__email span {
     background: radial-gradient(73.23% 106% at 34.94% 108.33%, #fad0ff 0%, #8c68f8 100%);
+    background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }

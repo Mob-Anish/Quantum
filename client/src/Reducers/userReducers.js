@@ -34,6 +34,8 @@ export const userVerify = (state = {}, action) => {
       return {
         error: action.payload,
       };
+    case userConstants.USER_VERIFY_RESET:
+      return {};
 
     default:
       return state;

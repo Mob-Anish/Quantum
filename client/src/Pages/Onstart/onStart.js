@@ -41,7 +41,7 @@ const onStart = () => {
   return (
     <div className="section__onstart">
       <div className="section__continue__with">
-        <div className="section__continue__buttons ">
+        <div className="section__continue__buttons">
           <div className="section__quantum__logo">
             <Link to={routes.HOME} style={{ textDecoration: "none" }}>
               <span style={{ color: "#ffffff", fontSize: "2.8rem" }}>

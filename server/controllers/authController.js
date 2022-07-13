@@ -35,9 +35,7 @@ exports.verifyEmail = catchAsync(async (req, res, next) => {
   const token = createToken(email);
 
   // Sending Email
-  const url = `${req.protocol}://${req.get(
-    "host"
-  )}/create-account?token=${token}`;
+  const url = `http://localhost:3000/readytogo/create-account?token=${token}`;
   await new Email(email, url).sendVerifyEmail();
 
   res.status(200).json({
