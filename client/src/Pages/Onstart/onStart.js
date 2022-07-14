@@ -100,7 +100,7 @@ const onStart = () => {
               <MoreOptions />
             </div>
           ) : (
-            <div
+            <div  
               className="section__enter__email"
               style={{ display: "none", marginTop: "8rem" }}
             >
