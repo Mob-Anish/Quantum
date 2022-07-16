@@ -73,25 +73,6 @@
     width: 50rem;
 }
 
-.submit_enter_email {
-    background: green;
-    padding: 1.2rem 2rem;
-    color: #ffffff;
-    border-radius: 1.5rem;
-    font-size: 1.8rem;
-    cursor: pointer;
-    font-weight: bold;
-    width: 13rem;
-    text-align: center;
-    border: none;
-    margin-top: 2rem;
-    transition: all .3s ease-out;
-}
-
-.submit_enter_email:hover {
-    transform: translateY(-3px);
-}
-
 .section__check__email {
     margin-top: 5rem;
     display: flex;

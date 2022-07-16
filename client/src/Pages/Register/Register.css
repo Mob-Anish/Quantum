@@ -24,7 +24,7 @@
 .input__field {
     display: flex;
     flex-direction: column;
-    margin-bottom: 3rem;
+    margin-bottom: 2rem;
 }
 
 .form--field {
@@ -43,7 +43,7 @@
 }
 
 .tagline--field input {
-    width: 50rem;
+    width: 75rem;
 }
 
 .input__field label {
@@ -51,4 +51,11 @@
     font-size: 1.6rem;
     color: #ffffff;
     margin-bottom: 1rem;
+}
+
+.privacy--policy {
+    background: radial-gradient(73.23% 106% at 34.94% 108.33%, #fad0ff 0%, #8c68f8 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }

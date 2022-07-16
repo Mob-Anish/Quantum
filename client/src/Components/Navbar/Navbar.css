@@ -1,13 +1,11 @@
 .quantum__navbar__bg {
     height: 100%;
     width: 20%;
-    /* background: linear-gradient(to top, #182C61, #182C61); */
 }
 
 .quantum__navbar {
     height: 100%;
-    background: rgba(44, 47, 72, 0.5);
-    backdrop-filter: blur(40px);
+    background: rgba(44, 47, 72, 0.3);
 }
 
 .navbar__logo {

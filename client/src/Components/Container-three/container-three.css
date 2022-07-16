@@ -14,14 +14,10 @@
     padding: 1.5rem 1.5rem 0 0;
 }
 
-.container__write__blog a {
-    background: rgb(28, 179, 28);
-}
-.container__signup a {
-    background: rgb(28, 179, 28);
-}
+.container__write__blog a ,
+.container__signup a,
 .container__login a {
-    background: rgb(28, 179, 28);
+    background: radial-gradient(73.23% 106% at 34.94% 108.33%, #597dd6 0%, #8c68f8 100%);
 }
 
 .container__write__blog a, 

@@ -1,8 +1,9 @@
 const catchAsync = require("../utils/catchAsync");
 const Email = require("../utils/email");
-const createToken = require("../utils/jwt");
+const jwtToken = require("../utils/jwt");
 const validator = require("validator");
 const AppError = require("../utils/appError");
+const db = require("../database");
 
 // Sending JWT Token
 // const sendToken = (email, statusCode, req, res) => {
@@ -32,7 +33,7 @@ exports.verifyEmail = catchAsync(async (req, res, next) => {
     next(new AppError("Your email is not supported in the system 😅", 400));
 
   // Creating Token
-  const token = createToken(email);
+  const token = jwtToken.createEmailToken(email);
 
   // Sending Email
   const url = `http://localhost:3000/readytogo/create-account?token=${token}`;
@@ -41,5 +42,21 @@ exports.verifyEmail = catchAsync(async (req, res, next) => {
   res.status(200).json({
     status: "success",
     message: "verification email sent successfully",
+  });
+});
+
+//----- Create Account -------//
+exports.register = catchAsync(async (req, res, next) => {
+  const { name, username, email } = req.body;
+
+  // Creating Token
+  const token = jwtToken.createToken(name, email);
+
+  const result = await db.query(
+    `SELECT * FROM users WHERE username = '${username}'`
+  );
+
+  res.status(200).json({
+    data: result.rows[0],
   });
 });

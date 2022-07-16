@@ -11,6 +11,9 @@ import { validation } from "../../Utils/emailValidation";
 import MoreOptions from "../../Components/MoreOptions/moreOptions";
 
 const onStart = () => {
+  const [emailLink, setEmailLink] = useState("");
+  const [uiError, setUiError] = useState("");
+
   const successResponse = (googleData) => {
     console.log(googleData);
   };
@@ -20,9 +23,6 @@ const onStart = () => {
   };
 
   const dispatch = useDispatch();
-
-  const [emailLink, setEmailLink] = useState("");
-  const [uiError, setUiError] = useState("");
 
   const userVerifyData = useSelector((state) => state.userVerify);
   const { success, error } = userVerifyData;
@@ -100,7 +100,7 @@ const onStart = () => {
               <MoreOptions />
             </div>
           ) : (
-            <div  
+            <div
               className="section__enter__email"
               style={{ display: "none", marginTop: "8rem" }}
             >
@@ -134,7 +134,10 @@ const onStart = () => {
                   {uiError ? uiError.email : ""}
                   {error ? error.message : ""}
                 </div>
-                <button type="submit" className="submit_enter_email">
+                <button
+                  type="submit"
+                  className="submit_enter_email submit--button"
+                >
                   Submit
                 </button>
               </form>

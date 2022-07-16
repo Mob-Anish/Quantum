@@ -2,12 +2,23 @@ import "./Register.css";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import * as routes from "../../Constants/routes";
+import { validation } from "../../Utils/formValidation";
 
 const register = () => {
   const [fullName, setFullName] = useState("");
   const [userName, setUserName] = useState("");
   const [emailAddress, setEmailAddress] = useState("");
   const [tagline, setTagline] = useState("");
+  const [uiError, setUiError] = useState("");
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // Form validation
+    const errors = validation(fullName, userName, emailAddress);
+    if (errors) setUiError(errors);
+    setTimeout(() => setUiError(""), 2500);
+  };
 
   return (
     <div className="register">
@@ -27,7 +38,7 @@ const register = () => {
           </span>
         </div>
         <div className="register__form">
-          <form className="register__form__field">
+          <form className="register__form__field" onSubmit={handleSubmit}>
             <div className="form--field">
               <div className="input__field">
                 <label htmlFor="fullname">Full Name *</label>
@@ -40,6 +51,9 @@ const register = () => {
                   onChange={(e) => setFullName(e.target.value)}
                   autoFocus
                 />
+                <div className="error-field">
+                  {uiError ? uiError.fullName : ""}
+                </div>
               </div>
               <div className="input__field" style={{ marginLeft: "2rem" }}>
                 <label htmlFor="username">User Name *</label>
@@ -52,6 +66,9 @@ const register = () => {
                   onChange={(e) => setUserName(e.target.value)}
                   autoFocus
                 />
+                <div className="error-field">
+                  {uiError ? uiError.userName : ""}
+                </div>
               </div>
             </div>
             <div className="input__field">
@@ -65,6 +82,7 @@ const register = () => {
                 onChange={(e) => setEmailAddress(e.target.value)}
                 autoFocus
               />
+              <div className="error-field">{uiError ? uiError.email : ""}</div>
             </div>
             <div className="input__field tagline--field">
               <label htmlFor="tagline">Tell us about what you do:</label>
@@ -78,12 +96,22 @@ const register = () => {
                 autoFocus
               />
             </div>
-            <span>
+            <span
+              className="privacy--policy"
+              style={{
+                color: "#ffffff",
+                fontSize: "1.6rem",
+                fontWeight: "600",
+                fontStyle: "italic",
+              }}
+            >
               By creating account, you agree to Quantum's policy and terms of
               use.
             </span>
             <div className="register__submit">
-              <button type="submit">Create</button>
+              <button type="submit" className="submit--button">
+                Create
+              </button>
             </div>
           </form>
         </div>

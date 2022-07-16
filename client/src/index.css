@@ -35,3 +35,22 @@ code {
   color:rgb(236, 102, 102);
   font-weight: bold;
 }
+
+.submit--button {
+  background: radial-gradient(73.23% 106% at 34.94% 108.33%, #d966e6 0%, #8c68f8 100%);
+    padding: 1.2rem 2rem;
+    color: #ffffff;
+    border-radius: 2rem;
+    font-size: 1.8rem;
+    cursor: pointer;
+    font-weight: bold;
+    width: 13rem;
+    text-align: center;
+    border: none;
+    margin-top: 2rem;
+    transition: all .3s ease-out;
+}
+
+.submit--button:hover {
+  transform: translateY(-3px);
+}
