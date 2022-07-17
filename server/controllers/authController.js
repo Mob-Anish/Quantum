@@ -56,7 +56,16 @@ exports.register = catchAsync(async (req, res, next) => {
     `SELECT * FROM users WHERE username = '${username}'`
   );
 
+  console.log(result);
+
+  if (result.rows) {
+    return res.status(400).json({
+      status: "fail",
+      username: "Username is already taken 🤕",
+    });
+  }
+
   res.status(200).json({
-    data: result.rows[0],
+    data: result.rows,
   });
 });
