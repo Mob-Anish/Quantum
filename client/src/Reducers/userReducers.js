@@ -23,6 +23,25 @@ export const userRegister = (state = {}, action) => {
   }
 };
 
+export const userLogin = (state = {}, action) => {
+  switch (action.type) {
+    case userConstants.USER_LOGIN_SUCCESS:
+      return {
+        message: action.payload,
+        success: true,
+      };
+    case userConstants.USER_LOGIN_FAIL:
+      return {
+        error: action.payload,
+      };
+    case userConstants.USER_LOGIN_RESET:
+      return {};
+
+    default:
+      return state;
+  }
+};
+
 export const userVerify = (state = {}, action) => {
   switch (action.type) {
     case userConstants.USER_VERIFY_SUCCESS:

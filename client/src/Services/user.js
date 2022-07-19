@@ -8,3 +8,11 @@ export const verifyEmail = async (body) => {
 
   return data;
 };
+
+export const loginUser = async (body) => {
+  const { data } = await http.post(config.apiEndPoint.user.login, {
+    body,
+  });
+
+  return data;
+};

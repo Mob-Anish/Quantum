@@ -3,7 +3,7 @@ import { GoogleLogin } from "react-google-login";
 import { Link } from "react-router-dom";
 import * as routes from "../../Constants/routes";
 import * as userAction from "../../Actions/userActions";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import * as displayFn from "../../Utils/displayFn";
 import { useDispatch, useSelector } from "react-redux";
 import { RiInboxArchiveLine } from "react-icons/ri";
@@ -35,7 +35,7 @@ const onStart = () => {
     if (errors) setUiError(errors);
     setTimeout(() => setUiError(""), 2500);
 
-    dispatch(userAction.verify(emailLink));
+    dispatch(userAction.emailVerify(emailLink));
   };
 
   return (

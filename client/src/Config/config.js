@@ -3,6 +3,7 @@ const config = {
   apiEndPoint: {
     user: {
       verifyEmail: "/users/send-verification-email",
+      login: "/users/login",
     },
   },
 };
