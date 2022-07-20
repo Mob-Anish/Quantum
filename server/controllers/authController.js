@@ -35,8 +35,8 @@ exports.verifyEmail = catchAsync(async (req, res, next) => {
   // 3) If user doesnot exists
   const token = jwtToken.createEmailToken(email);
 
-  // Sending Email
-  const url = `http://localhost:3000/readytogo/create-account?token=${token}`;
+  // Sending Email for creating account
+  const url = `http://localhost:3000/readytogo/create-account/${token}`;
   await new Email(email, url).sendVerifyEmail();
 
   res.status(200).json({
@@ -71,7 +71,7 @@ exports.register = catchAsync(async (req, res, next) => {
 });
 
 //----- Google Authentication ------//
-exports.googleAuthentication = catchAsync(async (req, res, next) => {
+exports.googleAuthenticate = catchAsync(async (req, res, next) => {
   const { name, email } = req.body;
 
   // 1) Check if user already exists
@@ -92,15 +92,13 @@ exports.googleAuthentication = catchAsync(async (req, res, next) => {
   }
 
   // 3) If user doesnot exist
-  const { photo } = req.body;
-
   // Creating token for gmail account
-  const token = jwtToken.createGmailToken(name, photo, email);
+  const token = jwtToken.createEmailToken(email);
 
   // Sending response with url
   res.status(200).json({
     status: "success",
-    message: `http://localhost:3000/readytogo/create-account?token=${token}`,
+    url: `/readytogo/create-account/${token}`,
   });
 });
 

@@ -17,7 +17,7 @@ const Home = () => {
     if (message) {
       dispatch({ type: userConstants.USER_VERIFY_RESET });
     }
-  }, []);
+  }, [message]);
 
   return (
     <div className="home">

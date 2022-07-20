@@ -1,26 +1,33 @@
 import "./Register.css";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useState } from "react";
 import * as routes from "../../Constants/routes";
 import { validation } from "../../Utils/formValidation";
+import jwt_decode from "jwt-decode";
+import { currentTime } from "../../Utils/date";
 
 const register = () => {
   const [fullName, setFullName] = useState("");
   const [userName, setUserName] = useState("");
-  const [emailAddress, setEmailAddress] = useState("");
   const [tagline, setTagline] = useState("");
   const [uiError, setUiError] = useState("");
+
+  const params = useParams();
+  const decoded = jwt_decode(params.token);
+  const { email, exp } = decoded;
+
+  console.log(exp);
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
     // Form validation
-    const errors = validation(fullName, userName, emailAddress);
+    const errors = validation(fullName, userName, email);
     if (errors) setUiError(errors);
     setTimeout(() => setUiError(""), 2500);
   };
 
-  return (
+  return decoded && decoded.exp > currentTime ? (
     <div className="register">
       <div className="register__background">
         <div className="register__quantum__logo">
@@ -78,9 +85,8 @@ const register = () => {
                 name="emailaddress"
                 className="inlinefont focus"
                 placeholder="hmm"
-                value={emailAddress}
-                onChange={(e) => setEmailAddress(e.target.value)}
-                autoFocus
+                value={email}
+                readOnly
               />
               <div className="error-field">{uiError ? uiError.email : ""}</div>
             </div>
@@ -116,6 +122,10 @@ const register = () => {
           </form>
         </div>
       </div>
+    </div>
+  ) : (
+    <div className="register__error">
+      <h1>The link has been expired or not supported in the system 😅</h1>
     </div>
   );
 };

@@ -4,6 +4,7 @@ const config = {
     user: {
       verifyEmail: "/users/send-verification-email",
       login: "/users/login",
+      googleAuthenticate: "/users/google-authenticate",
     },
   },
 };

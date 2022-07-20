@@ -16,3 +16,11 @@ export const loginUser = async (body) => {
 
   return data;
 };
+
+export const googleAuthenticate = async (body) => {
+  const { data } = await http.post(config.apiEndPoint.user.googleAuthenticate, {
+    body,
+  });
+
+  return data;
+};

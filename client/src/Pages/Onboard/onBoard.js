@@ -4,6 +4,7 @@ import jwt_decode from "jwt-decode";
 import { useDispatch, useSelector } from "react-redux";
 import * as userAction from "../../Actions/userActions";
 import * as routes from "../../Constants/routes";
+import { currentTime } from "../../Utils/date";
 
 import { css } from "@emotion/react";
 import FadeLoader from "react-spinners/FadeLoader";
@@ -13,12 +14,10 @@ const override = css`
   border-color: red;
 `;
 
-const currentTime = Date.now() / 1000;
-
 const onBoard = () => {
-  let params = useParams();
-  let navigate = useNavigate();
-  let dispatch = useDispatch();
+  const params = useParams();
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const decoded = jwt_decode(params.token);
   const { email } = decoded;
@@ -29,16 +28,18 @@ const onBoard = () => {
   const { success } = userLoginData;
 
   useEffect(() => {
-    if (decoded.email && decoded.exp > currentTime) {
-      dispatch(userAction.login(email));
-    }
-
     if (success) {
       navigate(routes.HOME);
     }
   }, [success]);
 
-  return decoded.email && decoded.exp > currentTime ? (
+  useEffect(() => {
+    if (decoded.email && decoded.exp > currentTime) {
+      dispatch(userAction.login(email));
+    }
+  }, [email]);
+
+  return decoded && decoded.exp > currentTime ? (
     <div className="section__onboard">
       <h1>Verifying your link</h1>
       <FadeLoader color={"black"} loading={true} css={override} size={50} />

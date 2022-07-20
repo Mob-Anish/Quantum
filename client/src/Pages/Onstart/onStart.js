@@ -1,9 +1,9 @@
 import "./onStart.css";
 import { GoogleLogin } from "react-google-login";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import * as routes from "../../Constants/routes";
 import * as userAction from "../../Actions/userActions";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import * as displayFn from "../../Utils/displayFn";
 import { useDispatch, useSelector } from "react-redux";
 import { RiInboxArchiveLine } from "react-icons/ri";
@@ -14,18 +14,35 @@ const onStart = () => {
   const [emailLink, setEmailLink] = useState("");
   const [uiError, setUiError] = useState("");
 
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const userVerifyData = useSelector((state) => state.userVerify);
+  const googleAuthData = useSelector((state) => state.googleAuth);
+
+  const { success, error } = userVerifyData;
+  const { message, isAuthenticated } = googleAuthData;
+
+  // On successfull google-auth
   const successResponse = (googleData) => {
-    console.log(googleData);
+    const { profileObj } = googleData;
+    console.log(profileObj);
+    dispatch(userAction.googleAuth(profileObj.name, profileObj.email));
   };
+
+  useEffect(() => {
+    if (message) {
+      navigate(message);
+    }
+
+    if (isAuthenticated) {
+      navigate(routes.HOME);
+    }
+  }, [message, isAuthenticated]);
 
   const failureResponse = (result) => {
     console.log(result);
   };
-
-  const dispatch = useDispatch();
-
-  const userVerifyData = useSelector((state) => state.userVerify);
-  const { success, error } = userVerifyData;
 
   const handleSubmit = (e) => {
     e.preventDefault();

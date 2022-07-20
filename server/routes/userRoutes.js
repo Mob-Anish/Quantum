@@ -8,7 +8,7 @@ const router = express.Router();
 router.post("/send-verification-email", authController.verifyEmail);
 
 // Google Signup
-router.post("/google-authentication", authController.googleAuthentication);
+router.post("/google-authenticate", authController.googleAuthenticate);
 
 // Create Account
 router.post("/register", authController.register);
