@@ -2,10 +2,6 @@ import * as userConstants from "../Constants/userConstants";
 
 export const userRegister = (state = {}, action) => {
   switch (action.type) {
-    case userConstants.USER_REGISTER_START:
-      return {
-        loading: true,
-      };
     case userConstants.USER_REGISTER_SUCCESS:
       return {
         message: action.payload,
@@ -34,7 +30,7 @@ export const userLogin = (state = {}, action) => {
       return {
         error: action.payload,
       };
-    case userConstants.USER_LOGIN_RESET:
+    case userConstants.RESET:
       return {};
 
     default:

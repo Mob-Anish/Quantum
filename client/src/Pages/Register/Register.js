@@ -2,7 +2,9 @@ import "./Register.css";
 import { Link, useParams } from "react-router-dom";
 import { useState } from "react";
 import * as routes from "../../Constants/routes";
+import * as userAction from "../../Actions/userActions";
 import { validation } from "../../Utils/formValidation";
+import { useDispatch, useSelector } from "react-redux";
 import jwt_decode from "jwt-decode";
 import { currentTime } from "../../Utils/date";
 
@@ -13,10 +15,14 @@ const register = () => {
   const [uiError, setUiError] = useState("");
 
   const params = useParams();
+  const dispatch = useDispatch();
+
+  // Retrieving token
   const decoded = jwt_decode(params.token);
   const { email, exp } = decoded;
 
-  console.log(exp);
+  const userRegisterData = useSelector((state) => state.userRegister);
+  const { success, error } = userRegisterData;
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -25,6 +31,10 @@ const register = () => {
     const errors = validation(fullName, userName, email);
     if (errors) setUiError(errors);
     setTimeout(() => setUiError(""), 2500);
+
+    dispatch(
+      userAction.register(fullName, userName, email, tagline ? tagline : null)
+    );
   };
 
   return decoded && decoded.exp > currentTime ? (
@@ -75,6 +85,7 @@ const register = () => {
                 />
                 <div className="error-field">
                   {uiError ? uiError.userName : ""}
+                  {error ? error.username : ""}
                 </div>
               </div>
             </div>

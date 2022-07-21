@@ -1,18 +1,15 @@
-// Set Token
-export const setToken = (token) => {
-  localStorage.setItem("token", JSON.stringify(token));
-};
-
+// Get token from local storage
 export const getAccessToken = () => {
-  return JSON.parse(localStorage.getItem("token"));
+  const data = JSON.parse(localStorage.getItem("userInfo"));
+  return data.token;
 };
 
-// Set user information
-export const setUserInfo = (userInfo) => {
+// Set Token in local storage
+export const setToken = (userInfo) => {
   localStorage.setItem("userInfo", JSON.stringify(userInfo));
 };
 
+// Remove token from local storage.
 export const removeToken = () => {
-  localStorage.removeItem("token");
   localStorage.removeItem("userInfo");
 };

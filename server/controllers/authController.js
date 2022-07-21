@@ -47,10 +47,10 @@ exports.verifyEmail = catchAsync(async (req, res, next) => {
 
 //----- Create Account -------//
 exports.register = catchAsync(async (req, res, next) => {
-  const { name, username, email } = req.body;
+  const { name, username, email, tagline } = req.body;
 
   // Creating Token
-  const token = jwtToken.createToken(name, email);
+  // const token = jwtToken.createToken(name, email);
 
   // Check if username exists
   const { rows } = await db.query(
@@ -64,10 +64,6 @@ exports.register = catchAsync(async (req, res, next) => {
       username: "Username is already taken 🤕",
     });
   }
-
-  res.status(200).json({
-    data: data.rows,
-  });
 });
 
 //----- Google Authentication ------//
@@ -114,7 +110,6 @@ exports.login = catchAsync(async (req, res, next) => {
   if (rows.length) {
     const token = jwtToken.createToken(rows[0].name, rows[0].email);
 
-    // Sending response
     return res.status(200).json({
       status: "success",
       token,

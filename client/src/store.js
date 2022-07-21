@@ -1,5 +1,6 @@
 import { combineReducers } from "redux";
 import { configureStore } from "@reduxjs/toolkit";
+
 // import thunk from "redux-thunk";
 import {
   userRegister,
@@ -8,14 +9,23 @@ import {
   googleAuth,
 } from "./Reducers/userReducers";
 
-const preloadedState = {};
-
 const reducer = combineReducers({
   userRegister,
   userVerify,
   userLogin,
   googleAuth,
 });
+
+// UserInfo from local storage
+const userInfoFromStorage = localStorage.getItem("userInfo")
+  ? JSON.parse(localStorage.getItem("userInfo"))
+  : null;
+
+const preloadedState = {
+  userLogin: {
+    userInfo: userInfoFromStorage,
+  },
+};
 
 const store = configureStore({
   reducer,
