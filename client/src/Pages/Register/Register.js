@@ -1,6 +1,6 @@
 import "./Register.css";
-import { Link, useParams } from "react-router-dom";
-import { useState } from "react";
+import { Link, useParams, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 import * as routes from "../../Constants/routes";
 import * as userAction from "../../Actions/userActions";
 import { validation } from "../../Utils/formValidation";
@@ -16,6 +16,7 @@ const register = () => {
 
   const params = useParams();
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   // Retrieving token
   const decoded = jwt_decode(params.token);
@@ -36,6 +37,12 @@ const register = () => {
       userAction.register(fullName, userName, email, tagline ? tagline : null)
     );
   };
+
+  useEffect(() => {
+    if (success) {
+      navigate(routes.HOME);
+    }
+  }, [success]);
 
   return decoded && decoded.exp > currentTime ? (
     <div className="register">

@@ -49,9 +49,6 @@ exports.verifyEmail = catchAsync(async (req, res, next) => {
 exports.register = catchAsync(async (req, res, next) => {
   const { name, username, email, tagline } = req.body;
 
-  // Creating Token
-  // const token = jwtToken.createToken(name, email);
-
   // Check if username exists
   const { rows } = await db.query(
     `SELECT * FROM users WHERE username = '${username}'`
@@ -64,6 +61,21 @@ exports.register = catchAsync(async (req, res, next) => {
       username: "Username is already taken 🤕",
     });
   }
+
+  // Inserting data into the db
+  const userData = await db.query(
+    `INSERT INTO users (name, username, email ,tagline)
+    VALUES ('${name}', '${username}', '${email}', '${tagline}') returning *`
+  );
+
+  // Creating Token
+  const token = jwtToken.createToken(name, email);
+
+  res.status(201).json({
+    status: "success",
+    token,
+    data: userData.rows[0],
+  });
 });
 
 //----- Google Authentication ------//

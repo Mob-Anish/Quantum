@@ -29,4 +29,6 @@ export const registerUser = async (body) => {
   const { data } = await http.post(config.apiEndPoint.user.register, {
     body,
   });
+
+  return data;
 };
