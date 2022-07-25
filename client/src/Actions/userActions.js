@@ -36,8 +36,6 @@ export const login = (email) => async (dispatch) => {
 
     const { data, token } = await userServices.loginUser(body);
 
-    console.log(message);
-
     const userInfo = {
       ...data,
       token,
@@ -79,6 +77,12 @@ export const googleAuth = (name, email, photo) => async (dispatch) => {
       // Setting userInfo to the localStorage
       tokenService.setToken(userInfo);
 
+      // Dispatch to userLogin
+      dispatch({
+        type: userConstants.USER_LOGIN_SUCCESS,
+        payload: userInfo,
+      });
+
       return dispatch({
         type: userConstants.GOOGLE_LOGIN_SUCCESS,
         payload: userInfo,
@@ -118,6 +122,12 @@ export const register =
 
       // Set userInfo to the local Storage
       tokenService.setToken(userInfo);
+
+      // Dispatch to userLogin
+      dispatch({
+        type: userConstants.USER_LOGIN_SUCCESS,
+        payload: userInfo,
+      });
 
       dispatch({
         type: userConstants.USER_REGISTER_SUCCESS,

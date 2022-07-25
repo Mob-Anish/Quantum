@@ -95,7 +95,7 @@ exports.googleAuthenticate = catchAsync(async (req, res, next) => {
     return res.status(200).json({
       status: "success",
       token,
-      data: rows,
+      data: rows[0],
     });
   }
 
