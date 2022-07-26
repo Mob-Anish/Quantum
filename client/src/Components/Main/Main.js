@@ -38,7 +38,7 @@ const main = () => {
                 Share your ideas with the world, create your own content and
                 start blogging ✌️.
               </h2>
-              <Link to={routes.ONSTART} />
+              <Link to={routes.ONSTART}>Start</Link>
             </div>
           </div>
         </div>
