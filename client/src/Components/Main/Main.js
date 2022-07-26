@@ -1,5 +1,7 @@
 import "./Main.css";
 import { useState } from "react";
+import { Link } from "react-router-dom";
+import * as routes from "../../Constants/routes";
 import { IoSearchOutline } from "react-icons/io5";
 
 const main = () => {
@@ -21,7 +23,25 @@ const main = () => {
         </div>
       </div>
       <div className="main__content">
-        <span>Content</span>
+        <div className="quantum__main__content">
+          <div className="quantum__introduction__content">
+            <div className="title">
+              <h1>
+                Create your own shell especially for dev community, tech writers
+                and readers.
+              </h1>
+              <h2>
+                The free blogging platform for all the tech community around the
+                world!
+              </h2>
+              <h2>
+                Share your ideas with the world, create your own content and
+                start blogging ✌️.
+              </h2>
+              <Link to={routes.ONSTART} />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
