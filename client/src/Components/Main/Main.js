@@ -41,6 +41,18 @@ const main = () => {
               <Link to={routes.ONSTART}>Start</Link>
             </div>
           </div>
+          <div className="quantum__founder__note">
+            <div className="founder__text">
+              <p>
+                For everyone out there feel free to come here and explore the
+                tech world using the quantum space and express your goddamn
+                ideas to your viewers 🙏.
+              </p>
+              <div className="img-holder"></div>
+              <p>Anish Manandhar aka Shoya</p>
+              <p>Founder, Developer</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>

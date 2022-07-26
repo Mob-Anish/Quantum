@@ -11,6 +11,7 @@ config.env
 # dependencies
 client/.pnp
 client/.pnp.js
+client/src/Assets/img
 
 # testing
 client/coverage
