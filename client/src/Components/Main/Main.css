@@ -47,3 +47,12 @@
     overflow-y: auto;
 }
 
+.main__content .quantum__founder__note .img-holder{
+    background-image: url('../../Assets/img/Wreck.jpg');
+    background-position: 36%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 13rem;
+    width: 13rem;
+    border-radius: 50%;
+}
