@@ -38,19 +38,38 @@ code {
 
 .submit--button {
   background: radial-gradient(73.23% 106% at 34.94% 108.33%, #d966e6 0%, #8c68f8 100%);
-    padding: 1.2rem 2rem;
-    color: #ffffff;
-    border-radius: 2rem;
-    font-size: 1.8rem;
-    cursor: pointer;
-    font-weight: bold;
-    width: 13rem;
-    text-align: center;
-    border: none;
-    margin-top: 2rem;
-    transition: all .3s ease-out;
+}
+
+.link--button {
+  background: radial-gradient(73.23% 106% at 34.94% 108.33%, #597dd6 0%, #8c68f8 100%);
+}
+
+.submit--button,
+.link--button {
+  padding: 1rem 2rem;
+  color: #ffffff;
+  border-radius: 2rem;
+  font-size: 1.75rem;
+  cursor: pointer;
+  font-weight: 600;
+  width: 13rem;
+  text-align: center;
+  border: none;
+  transition: all .3s ease-out;
+  text-decoration: none;
+}
+
+button {  
+  font-family: "Quicksand", sans-serif;
 }
 
 .submit--button:hover {
   transform: translateY(-3px);
+}
+
+.text--color {
+  background: radial-gradient(73.23% 106% at 34.94% 108.33%, #fad0ff 0%, #8c68f8 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

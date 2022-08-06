@@ -52,10 +52,3 @@
     color: #ffffff;
     margin-bottom: 1rem;
 }
-
-.privacy--policy {
-    background: radial-gradient(73.23% 106% at 34.94% 108.33%, #fad0ff 0%, #8c68f8 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}

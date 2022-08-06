@@ -121,7 +121,7 @@ const register = () => {
               />
             </div>
             <span
-              className="privacy--policy"
+              className="privacy--policy text--color"
               style={{
                 color: "#ffffff",
                 fontSize: "1.6rem",

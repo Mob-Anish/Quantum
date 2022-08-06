@@ -47,12 +47,38 @@
     overflow-y: auto;
 }
 
+.quantum__main__content {
+    padding: 5rem 3.5rem;
+}
+
+.quantum__introduction__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+
+.quantum__introduction__content .button {
+    margin-top: 3rem;
+}
+
+.quantum__introduction__image .img-holder {
+    background-image: url('../../Assets/img/quantum.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 30rem;
+    width: 30rem;
+    border-radius: 50%;
+}
+
 .main__content .quantum__founder__note .img-holder{
     background-image: url('../../Assets/img/Wreck.jpg');
     background-position: 36%;
     background-size: cover;
     background-repeat: no-repeat;
-    height: 13rem;
-    width: 13rem;
+    height: 8rem;
+    width: 8rem;
     border-radius: 50%;
 }
+
