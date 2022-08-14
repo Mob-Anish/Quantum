@@ -52,3 +52,7 @@
     color: #ffffff;
     margin-bottom: 1rem;
 }
+
+.register .register__submit {
+    margin-top: 1.5rem;
+}

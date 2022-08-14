@@ -109,7 +109,7 @@ const register = () => {
               <div className="error-field">{uiError ? uiError.email : ""}</div>
             </div>
             <div className="input__field tagline--field">
-              <label htmlFor="tagline">Tell us about what you do:</label>
+              <label htmlFor="tagline">Tell us about what you are:</label>
               <input
                 type={"text"}
                 name="tagline"

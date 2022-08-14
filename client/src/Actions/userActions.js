@@ -58,7 +58,7 @@ export const login = (email) => async (dispatch) => {
 };
 
 // Google login to the account
-export const googleAuth = (name, email, photo) => async (dispatch) => {
+export const googleAuth = (name, email) => async (dispatch) => {
   try {
     const body = {
       name,

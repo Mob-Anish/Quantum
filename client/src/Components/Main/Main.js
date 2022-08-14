@@ -25,7 +25,7 @@ const main = () => {
       <div className="main__content">
         <div className="quantum__main__content">
           <div className="quantum__introduction__content">
-            <div className="title" style={{ width: "65%" }}>
+            <div className="title" style={{ marginRight: "5rem" }}>
               <h1 style={{ fontSize: "4rem", marginBottom: "2rem" }}>
                 <span className="text--color">Create</span> your own shell
                 especially for dev community, tech writers and readers.
@@ -46,20 +46,31 @@ const main = () => {
             </div>
           </div>
           <div className="quantum__founder__note">
-            <div className="founder__text">
-              <p style={{ fontSize: "1.8rem" }}>
-                For everyone out there feel free to come here and explore the
-                tech world using the quantum space and express your goddamn
-                ideas to your viewers 🙏.
-              </p>
+            <div className="founder__profile">
               <div className="img-holder"></div>
+            </div>
+            <div className="founder__text" style={{ marginLeft: "3rem" }}>
+              <p style={{ fontSize: "1.8rem" }}>
+                " For everyone out there feel free to come here and explore the
+                tech world using the quantum space and express your goddamn
+                ideas to your viewers 🙏".
+              </p>
               <p
                 className="text--color"
-                style={{ fontSize: "1.8rem", fontWeight: "bold" }}
+                style={{
+                  fontSize: "1.8rem",
+                  fontWeight: "bold",
+                  marginTop: "1.5rem",
+                }}
               >
                 Anish Manandhar aka Shoya
               </p>
               <p style={{ fontSize: "1.8rem" }}>Founder, Developer</p>
+              <div className="button" style={{ marginTop: "2.8rem" }}>
+                <Link to={routes.ONSTART} className="join--button">
+                  Join the community
+                </Link>
+              </div>
             </div>
           </div>
         </div>
