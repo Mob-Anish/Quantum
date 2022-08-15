@@ -41,8 +41,8 @@
 }
 
 .main__content {
-    background: #1D203E;
-    color: #ffffff;
+    background: #1D203E; 
+    color: #f3f1f1;
     border-top: 1px solid #444d59;
     overflow-y: auto;
 }

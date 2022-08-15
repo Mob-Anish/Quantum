@@ -5,11 +5,8 @@
 
 .quantum__navbar {
     height: 100%;
+    position: relative;
     background: rgba(44, 47, 72, 0.3);
-}
-
-.navbar__logo {
-    padding: 2rem;
 }
 
 .navbar__logo span {
@@ -17,8 +14,9 @@
     color: #f3f1f1;
 }
 
+.navbar__logo,
 .navbar__links {
-    padding: 2rem 2rem;
+    padding: 2rem;
 }
 
 .navbar__links ul{
@@ -48,4 +46,21 @@
 
 .navbar__links span {
     font-size: 1.5rem;
+}
+
+.quantum__navbar__footer  {
+    position: absolute;
+    bottom: 0   ;
+    color: #f3f1f1;
+    width: 100%;
+    padding: .5rem 2rem;
+}
+
+.quantum__navbar .quantum__social__links a:not(:last-child) {
+    margin-right: 4rem;
+}
+
+.quantum__navbar .quantum__social__links a svg{
+    color: #f3f1f1;
+    font-size: 2.2rem;
 }
