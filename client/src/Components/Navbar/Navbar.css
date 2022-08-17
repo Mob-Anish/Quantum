@@ -9,12 +9,7 @@
     background: rgba(44, 47, 72, 0.3);
 }
 
-.navbar__logo span {
-    font-size: 2.8rem;
-    color: #f3f1f1;
-}
-
-.navbar__logo,
+.quantum__logo,
 .navbar__links {
     padding: 2rem;
 }

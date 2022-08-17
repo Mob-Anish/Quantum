@@ -1,0 +1,57 @@
+.quantum__create {
+    min-height: 100vh;
+    background: radial-gradient(73.23% 106% at 34.94% 108.33%, #b265bd 0%, #7758D1 100%);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.quantum__create .create__header{
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 4rem;
+}
+
+.publish__button {
+    transition: all .3s ease-out;
+}
+
+.quantum__create .container {
+    width: 55%;
+}
+
+.create__title input {
+    width: 100%;
+    border: none;
+    font-size: 3rem;
+    font-weight: bold;
+    color: #ffffff;
+    background: rgba(44, 47, 72, 0.5);
+    padding: 2rem;
+    border-radius: 2rem;
+}
+
+.create__title input::placeholder {
+    color: #ffffff;
+}
+
+.create__description textarea {
+    width: 100%;
+    background: none;
+    border: none;
+    padding: 2rem;
+    font-size: 2rem;
+    color: #ffffff;
+    resize: none;
+    line-height: 1.375;
+    overflow: hidden;
+    height: 10rem !important;
+    min-height: 68vh;
+    overflow-y: auto;
+}
+
+.create__description textarea::placeholder {
+    color: #ffffff;
+}

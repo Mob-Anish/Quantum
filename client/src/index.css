@@ -52,7 +52,7 @@ code {
   font-size: 1.75rem;
   cursor: pointer;
   font-weight: 600;
-  width: 13rem;
+  min-width: 13rem;
   text-align: center;
   border: none;
   transition: all .3s ease-out;
@@ -76,6 +76,7 @@ button {
   font-family: "Quicksand", sans-serif;
 }
 
+.link--button:hover,
 .submit--button:hover {
   transform: translateY(-3px);
 }

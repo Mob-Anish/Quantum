@@ -47,7 +47,7 @@ const register = () => {
   return decoded && decoded.exp > currentTime ? (
     <div className="register">
       <div className="register__background">
-        <div className="register__quantum__logo">
+        <div className="quantum__logo">
           <Link to={routes.HOME} style={{ textDecoration: "none" }}>
             <span style={{ color: "#ffffff", fontSize: "2.8rem" }}>
               Quantum
