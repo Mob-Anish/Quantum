@@ -1,6 +1,6 @@
 # Quantum 🔰
 
-- Quantum is a free bloggin platform where anyone can share their opinions and new technologies revolving around the world. Like a pure tech nerd platform 😎.
+- Quantum is a free blogging platform where anyone can share their opinions and new technologies revolving around the world. Like a pure tech nerd platform 😎.
 - Note: Project is under development phase until then enjoy some photos below 👇.
 
 ## Some sneak peak 📷 
