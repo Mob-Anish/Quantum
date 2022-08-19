@@ -8,34 +8,6 @@ const instance = axios.create({
   },
 });
 
-// For uploading image
-const instanceUpload = axios.create({
-  baseURL: config.cloudinaryURL,
-  headers: {
-    "Content-Type": "multipart/form-data",
-  },
-});
-
-// Upload image to cloudinary
-const postImage = (
-  url,
-  { params = {}, body = {}, accessToken = false, headers = {} } = {}
-) => {
-  const authHeaders = {};
-
-  if (accessToken) {
-    authHeaders["Authorization"] = `Bearer token`;
-  }
-
-  return instanceUpload({
-    url,
-    params,
-    data: body,
-    method: "post",
-    headers: { authHeaders, headers },
-  }).then((response) => response);
-};
-
 const get = (
   url,
   { params = {}, body = {}, accessToken = false, headers = {} } = {}
@@ -133,8 +105,6 @@ const remove = (
 
 const http = {
   instance,
-  instanceUpload,
-  postImage,
   get,
   post,
   put,

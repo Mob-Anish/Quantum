@@ -14,7 +14,9 @@ const createOne = () => {
   // Uploading image
   const uploadImage = (e) => {
     const fileData = e.target.files[0];
-    dispatch(postActions.imageUpload(fileData));
+    const formData = new FormData();
+    formData.append("file", fileData);
+    dispatch(postActions.imageCoverUpload(formData));
   };
 
   return (

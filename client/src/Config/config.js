@@ -1,6 +1,5 @@
 const config = {
   baseURL: process.env.REACT_APP_QUANTUM_API_URL,
-  cloudinaryURL: process.env.REACT_APP_CLOUDINARY_URL,
   apiEndPoint: {
     user: {
       verifyEmail: "/users/send-verification-email",
@@ -9,7 +8,7 @@ const config = {
       register: "/users/register",
     },
     post: {
-      uploadImage: `/${process.env.REACT_APP_CLOUD_NAME}/image/upload`,
+      uploadImage: `/posts/uploadImage`,
     },
   },
 };

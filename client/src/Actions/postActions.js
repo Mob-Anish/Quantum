@@ -4,24 +4,13 @@ import * as postServices from "../Services/post";
 import { handleError } from "../Utils/error";
 
 // Uploading image to the cloudinary
-export const imageUpload = (data) => async (dispatch) => {
+export const imageCoverUpload = (data) => async (dispatch) => {
   try {
-    const formData = new FormData();
-    formData.append("file", data);
-    formData.append("upload_preset", "imageUpload");
-    formData.append("folder", "imageCover");
-
-    const body = {
-      formData,
-    };
-
-    const { message } = await postServices.uploadImage(body);
-
-    const { url } = message;
+    const message = await postServices.uploadImageCover(data);
 
     dispatch({
       type: postConstants.UPLOAD_IMAGE_SUCCESS,
-      payload: url,
+      payload: message.data,
     });
   } catch (err) {
     console.log(err);

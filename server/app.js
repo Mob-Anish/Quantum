@@ -6,9 +6,11 @@ const cors = require("cors");
 const hpp = require("hpp");
 const xss = require("xss-clean");
 const cookieParser = require("cookie-parser");
+const fileUpload = require("express-fileupload");
 const compression = require("compression");
 
 const userRouter = require("./routes/userRoutes");
+const postRouter = require("./routes/postRoutes");
 const AppError = require("./utils/appError");
 const globalErrorController = require("./controllers/errorController");
 
@@ -30,6 +32,13 @@ app.use(
 app.use(express.json());
 app.use(cookieParser());
 
+// File parser
+app.use(
+  fileUpload({
+    useTempFiles: true,
+  })
+);
+
 // Data Sanitization against xss
 app.use(xss());
 
@@ -41,6 +50,7 @@ app.use((req, res, next) => {
 
 //---------- Api Routes ------------//
 app.use("/api/v1/users", userRouter);
+app.use("/api/v1/posts", postRouter);
 
 // Handling unhandled request
 app.all("*", (req, res, next) => {
