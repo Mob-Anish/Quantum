@@ -32,3 +32,5 @@ export const registerUser = async (body) => {
 
   return data;
 };
+
+

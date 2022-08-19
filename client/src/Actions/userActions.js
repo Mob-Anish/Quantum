@@ -8,7 +8,7 @@ export const emailVerify = (email) => async (dispatch) => {
   try {
     const body = {
       email,
-    };
+    };    
 
     const { message } = await userServices.verifyEmail(body);
 

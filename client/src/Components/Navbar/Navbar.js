@@ -10,7 +10,7 @@ const Navbar = () => {
   return (
     <div className="quantum__navbar__bg">
       <div className="quantum__navbar">
-        <div className="quantum__logo">
+        <div className="quantum__logo navbar__logo">
           <Link to={routes.HOME} style={{ textDecoration: "none" }}>
             <span style={{ color: "#ffffff", fontSize: "2.8rem" }}>
               Quantum

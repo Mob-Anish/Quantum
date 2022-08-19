@@ -9,11 +9,14 @@ import {
   googleAuth,
 } from "./Reducers/userReducers";
 
+import { postImage } from "./Reducers/postReducers";
+
 const reducer = combineReducers({
   userRegister,
   userVerify,
   userLogin,
   googleAuth,
+  postImage,
 });
 
 // UserInfo from local storage

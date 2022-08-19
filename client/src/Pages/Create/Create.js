@@ -1,11 +1,21 @@
 import "./Create.css";
 import * as routes from "../../Constants/routes";
+import { useDispatch, useSelector } from "react-redux";
+import * as postActions from "../../Actions/postActions";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
 const createOne = () => {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
+
+  const dispatch = useDispatch();
+
+  // Uploading image
+  const uploadImage = (e) => {
+    const fileData = e.target.files[0];
+    dispatch(postActions.imageUpload(fileData));
+  };
 
   return (
     <div className="quantum__create">
@@ -18,18 +28,19 @@ const createOne = () => {
           </Link>
         </div>
         <div className="publish__button button">
-          <div className="link--button">Publish</div>
+          <div className="submit--button">Publish</div>
         </div>
       </div>
       <div className="create__cover__image" style={{ marginBottom: "4rem" }}>
         <label htmlFor="upload-cover">
-          <div className="link--button">Add image cover</div>
+          <div className="submit--button">Add image cover</div>
         </label>
         <input
           accept="image/*"
           type={"file"}
           id="upload-cover"
           style={{ display: "none" }}
+          onChange={(e) => uploadImage(e)}
         />
       </div>
       <div className="container">
