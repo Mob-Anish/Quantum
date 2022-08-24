@@ -4,12 +4,17 @@ import { useDispatch, useSelector } from "react-redux";
 import * as postActions from "../../Actions/postActions";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import FadeLoader from "react-spinners/FadeLoader";
 
 const createOne = () => {
+  const [loading, setLoading] = useState(false);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
 
   const dispatch = useDispatch();
+
+  const imageCoverData = useSelector((state) => state.postImageCover);
+  const { imageUrl, error } = imageCoverData;
 
   // Uploading image
   const uploadImage = (e) => {
@@ -17,6 +22,7 @@ const createOne = () => {
     const formData = new FormData();
     formData.append("file", fileData);
     dispatch(postActions.imageCoverUpload(formData));
+    setLoading(true);
   };
 
   return (
@@ -33,18 +39,25 @@ const createOne = () => {
           <div className="submit--button">Publish</div>
         </div>
       </div>
-      <div className="create__cover__image" style={{ marginBottom: "4rem" }}>
-        <label htmlFor="upload-cover">
-          <div className="submit--button">Add image cover</div>
-        </label>
-        <input
-          accept="image/*"
-          type={"file"}
-          id="upload-cover"
-          style={{ display: "none" }}
-          onChange={(e) => uploadImage(e)}
-        />
-      </div>
+      {imageUrl ? (
+        <div className="create__cover__image" style={{ marginBottom: "4rem" }}>
+          <label htmlFor="upload-cover" style={{ marginRight: "5rem" }}>
+            <div className="submit--button">Add image cover</div>
+          </label>
+          <input
+            accept="image/*"
+            type={"file"}
+            id="upload-cover"
+            style={{ display: "none" }}`````
+            onChange={(e) => uploadImage(e)}
+          />
+          <FadeLoader color={"#ffffff"} loading={loading} size={50} />
+        </div>
+      ) : (
+        <div className="cover__image__bg">
+          <img src={imageUrl} alt="cover--image" />
+        </div>
+      )}
       <div className="container">
         <div className="create__title" style={{ marginBottom: "2rem" }}>
           <input

@@ -18,3 +18,22 @@ export const postImageCover = (state = {}, action) => {
       return state;
   }
 };
+
+export const createStory = (state = {}, action) => {
+  switch (action.type) {
+    case postConstants.CREATE_STORY_SUCCESS:
+      return {
+        message: action.payload,
+        success: true,
+      };
+    case postConstants.CREATE_STORY_FAIL:
+      return {
+        error: action.payload,
+      };
+    case postConstants.CREATE_STORY_RESET:
+      return {};
+
+    default:
+      return state;
+  }
+};

@@ -23,6 +23,11 @@
     width: 55%;
 }
 
+.quantum__create .create__cover__image {
+    display: flex;
+    align-items: center;
+}
+
 .create__title input {
     width: 100%;
     border: none;
