@@ -48,7 +48,7 @@ const createOne = () => {
             accept="image/*"
             type={"file"}
             id="upload-cover"
-            style={{ display: "none" }}`````
+            style={{ display: "none" }}
             onChange={(e) => uploadImage(e)}
           />
           <FadeLoader color={"#ffffff"} loading={loading} size={50} />
