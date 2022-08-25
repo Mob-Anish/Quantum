@@ -5,6 +5,8 @@ import * as postActions from "../../Actions/postActions";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import FadeLoader from "react-spinners/FadeLoader";
+import { RiDeleteBack2Fill } from "react-icons/ri";
+import Photo from "../../Assets/img/quantum.jpg";
 
 const createOne = () => {
   const [loading, setLoading] = useState(false);
@@ -40,6 +42,15 @@ const createOne = () => {
         </div>
       </div>
       {imageUrl ? (
+        <div className="cover__image__bg" style={{ marginBottom: "1rem" }}>
+          <img
+            src={Photo}
+            alt="cover--image"
+            style={{ height: "20rem", width: "30rem", borderRadius: "2rem" }}
+          />
+          <RiDeleteBack2Fill className="cut__cover__image" />
+        </div>
+      ) : (
         <div className="create__cover__image" style={{ marginBottom: "4rem" }}>
           <label htmlFor="upload-cover" style={{ marginRight: "5rem" }}>
             <div className="submit--button">Add image cover</div>
@@ -53,12 +64,8 @@ const createOne = () => {
           />
           <FadeLoader color={"#ffffff"} loading={loading} size={50} />
         </div>
-      ) : (
-        <div className="cover__image__bg">
-          <img src={imageUrl} alt="cover--image" />
-        </div>
       )}
-      <div className="container">
+      <div className="create__container">
         <div className="create__title" style={{ marginBottom: "2rem" }}>
           <input
             type={"text"}
