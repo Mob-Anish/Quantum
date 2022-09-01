@@ -11,10 +11,9 @@ exports.uploadImage = catchAsync(async (req, res, next) => {
 
   //Check file type (only image)
   if (!file.mimetype.startsWith("image"))
-    return res.status(400).json({
-      status: "fail",
-      fileType: "Hmm you uploaded wrong file🤕",
-    });
+    return next(
+      new AppError("Your email is not supported in the system 😅", 400)
+    );
 
   // Uploading image to cloudinary
   const image = await cloudinary.uploader.upload(file.tempFilePath, {

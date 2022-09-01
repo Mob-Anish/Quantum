@@ -18,9 +18,8 @@ const register = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  // Retrieving token
   const decoded = jwt_decode(params.token);
-  const { email, exp } = decoded;
+  const { email } = decoded;
 
   const userRegisterData = useSelector((state) => state.userRegister);
   const { success, error } = userRegisterData;

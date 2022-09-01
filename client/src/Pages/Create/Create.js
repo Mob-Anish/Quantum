@@ -3,22 +3,29 @@ import * as routes from "../../Constants/routes";
 import { useDispatch, useSelector } from "react-redux";
 import * as postActions from "../../Actions/postActions";
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import FadeLoader from "react-spinners/FadeLoader";
 import { RiDeleteBack2Fill } from "react-icons/ri";
 import Photo from "../../Assets/img/quantum.jpg";
 
 const createOne = () => {
+  const [uploadError, setUploadError] = useState("");
   const [loading, setLoading] = useState(false);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
-
   const dispatch = useDispatch();
 
   const imageCoverData = useSelector((state) => state.postImageCover);
   const { imageUrl, error } = imageCoverData;
 
-  // Uploading image
+  useEffect(() => {
+    if (error) {
+      setUploadError(error.message);
+      setLoading(false);
+      setTimeout(() => setUploadError(""), 5000);
+    }
+  }, [error]);
+
   const uploadImage = (e) => {
     const fileData = e.target.files[0];
     const formData = new FormData();
@@ -63,6 +70,7 @@ const createOne = () => {
             onChange={(e) => uploadImage(e)}
           />
           <FadeLoader color={"#ffffff"} loading={loading} size={50} />
+          {uploadError ? <div className="error-field">{uploadError}</div> : ""}
         </div>
       )}
       <div className="create__container">
