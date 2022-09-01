@@ -20,3 +20,19 @@ export const imageCoverUpload = (data) => async (dispatch) => {
     });
   }
 };
+
+export const removeImageCover = (data) => async (dispatch) => {
+  try {
+    const message = await postServices.removeImgCover(data);
+
+    dispatch({
+      type: postConstants.CREATE_STORY_RESET,
+    });
+  } catch (err) {
+    console.log(err);
+    dispatch({
+      type: postConstants.CREATE_STORY_FAIL,
+      payload: handleError(err),
+    });
+  }
+};

@@ -51,9 +51,9 @@ const createOne = () => {
       {imageUrl ? (
         <div className="cover__image__bg" style={{ marginBottom: "1rem" }}>
           <img
-            src={Photo}
+            src={imageUrl}
             alt="cover--image"
-            style={{ height: "20rem", width: "30rem", borderRadius: "2rem" }}
+            style={{ height: "25rem", width: "25rem", borderRadius: "2rem" }}
           />
           <RiDeleteBack2Fill className="cut__cover__image" />
         </div>

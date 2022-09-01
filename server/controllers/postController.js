@@ -27,3 +27,6 @@ exports.uploadImage = catchAsync(async (req, res, next) => {
       data: image.url,
     });
 });
+
+// Remove image from cloudinary
+exports.removeImage = catchAsync(async (req, res, next) => {});
