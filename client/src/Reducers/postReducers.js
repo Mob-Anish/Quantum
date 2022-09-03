@@ -4,7 +4,8 @@ export const postImageCover = (state = {}, action) => {
   switch (action.type) {
     case postConstants.UPLOAD_IMAGE_SUCCESS:
       return {
-        imageUrl: action.payload,
+        imageId: action.payload.public_id,
+        imageUrl: action.payload.secure_url,
         success: true,
       };
     case postConstants.UPLOAD_IMAGE_FAIL:

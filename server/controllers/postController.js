@@ -26,13 +26,21 @@ exports.uploadImage = catchAsync(async (req, res, next) => {
     folder: "imageCover",
   });
 
-  // Sending image url from cloudinary
   if (image)
     return res.status(200).json({
       status: "success",
-      data: image.url,
+      data: image,
     });
 });
 
 // Remove image from cloudinary
-exports.removeImage = catchAsync(async (req, res, next) => {});
+exports.removeImage = catchAsync(async (req, res, next) => {
+  const imageId = req.body.imageID;
+
+  await cloudinary.uploader.destroy(imageId);
+
+  return res.status(204).json({
+    status: "success",
+    data: null,
+  });
+});

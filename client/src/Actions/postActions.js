@@ -21,17 +21,24 @@ export const imageCoverUpload = (data) => async (dispatch) => {
   }
 };
 
-export const removeImageCover = (data) => async (dispatch) => {
+// Removing image from cloudinary
+export const removeImageCover = (imageID) => async (dispatch) => {
   try {
-    const message = await postServices.removeImgCover(data);
+    const body = {
+      imageID,
+    };
+
+    const message = await postServices.removeImgCover(body);
+
+    console.log(message);
 
     dispatch({
-      type: postConstants.CREATE_STORY_RESET,
+      type: postConstants.UPLOAD_IMAGE_RESET,
     });
   } catch (err) {
     console.log(err);
     dispatch({
-      type: postConstants.CREATE_STORY_FAIL,
+      type: postConstants.UPLOAD_IMAGE_FAIL,
       payload: handleError(err),
     });
   }

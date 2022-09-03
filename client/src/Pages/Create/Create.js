@@ -16,7 +16,7 @@ const createOne = () => {
   const dispatch = useDispatch();
 
   const imageCoverData = useSelector((state) => state.postImageCover);
-  const { imageUrl, imageCoverError } = imageCoverData;
+  const { imageUrl, imageId, imageCoverError } = imageCoverData;
 
   useEffect(() => {
     if (imageCoverError) {
@@ -32,6 +32,11 @@ const createOne = () => {
     formData.append("file", fileData);
     dispatch(postActions.imageCoverUpload(formData));
     setLoading(true);
+  };
+
+  const removeImage = () => {
+    dispatch(postActions.removeImageCover(imageId));
+    setLoading(false);
   };
 
   return (
@@ -55,7 +60,10 @@ const createOne = () => {
             alt="cover--image"
             style={{ height: "24rem", width: "25rem", borderRadius: "2rem" }}
           />
-          <RiDeleteBack2Fill className="cut__cover__image" />
+          <RiDeleteBack2Fill
+            className="cut__cover__image"
+            onClick={removeImage}
+          />
         </div>
       ) : (
         <div className="create__cover__image" style={{ marginBottom: "4rem" }}>

@@ -6,6 +6,6 @@ const router = express.Router();
 // Upload image to cloudinary
 router.post("/uploadImage", postController.uploadImage);
 
-router.post("/removeImage", postController.removeImage);
+router.delete("/removeImage", postController.removeImage);
 
 module.exports = router;

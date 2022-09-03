@@ -13,4 +13,6 @@ export const removeImgCover = async (body) => {
   const { data } = await http.remove(config.apiEndPoint.post.removeImage, {
     body,
   });
+
+  return data;
 };
