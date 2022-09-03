@@ -7,12 +7,18 @@ exports.uploadImage = catchAsync(async (req, res, next) => {
   const file = req.files.file;
 
   // If there is no file selected
-  if (!file) next(new AppError("Please select your image 😅", 400));
+  if (!file) return next(new AppError("Please select your image 😅", 400));
 
   //Check file type (only image)
   if (!file.mimetype.startsWith("image"))
     return next(
-      new AppError("Your email is not supported in the system 😅", 400)
+      new AppError("Your file is not supported in the system 😅", 400)
+    );
+
+  // Check file size
+  if (!file.size > process.env.IMAGE_UPLOAD_SIZE)
+    return next(
+      new AppError("Please upload images with less or equal to 10mb 😅", 400)
     );
 
   // Uploading image to cloudinary

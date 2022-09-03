@@ -16,15 +16,15 @@ const createOne = () => {
   const dispatch = useDispatch();
 
   const imageCoverData = useSelector((state) => state.postImageCover);
-  const { imageUrl, error } = imageCoverData;
+  const { imageUrl, imageCoverError } = imageCoverData;
 
   useEffect(() => {
-    if (error) {
-      setUploadError(error.message);
+    if (imageCoverError) {
+      setUploadError(imageCoverError.message);
       setLoading(false);
       setTimeout(() => setUploadError(""), 5000);
     }
-  }, [error]);
+  }, [imageCoverError]);
 
   const uploadImage = (e) => {
     const fileData = e.target.files[0];
@@ -45,7 +45,7 @@ const createOne = () => {
           </Link>
         </div>
         <div className="publish__button button">
-          <div className="submit--button">Publish</div>
+          <div className="submit--button">Publish 🖨️</div>
         </div>
       </div>
       {imageUrl ? (
@@ -53,14 +53,14 @@ const createOne = () => {
           <img
             src={imageUrl}
             alt="cover--image"
-            style={{ height: "25rem", width: "25rem", borderRadius: "2rem" }}
+            style={{ height: "24rem", width: "25rem", borderRadius: "2rem" }}
           />
           <RiDeleteBack2Fill className="cut__cover__image" />
         </div>
       ) : (
         <div className="create__cover__image" style={{ marginBottom: "4rem" }}>
           <label htmlFor="upload-cover" style={{ marginRight: "5rem" }}>
-            <div className="submit--button">Add image cover</div>
+            <div className="submit--button">Add image cover 📔</div>
           </label>
           <input
             accept="image/*"

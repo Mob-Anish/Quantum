@@ -9,7 +9,7 @@ export const postImageCover = (state = {}, action) => {
       };
     case postConstants.UPLOAD_IMAGE_FAIL:
       return {
-        error: action.payload,
+        imageCoverError: action.payload,
       };
     case postConstants.UPLOAD_IMAGE_RESET:
       return {};
