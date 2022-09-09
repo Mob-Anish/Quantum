@@ -54,7 +54,7 @@
     line-height: 1.375;
     overflow: hidden;
     height: 10rem !important;
-    min-height: 68vh;
+    min-height: 63vh;
     overflow-y: auto;
     background: rgba(44, 47, 72, 0.5);
 }
