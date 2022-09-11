@@ -12,7 +12,7 @@ const compression = require("compression");
 const userRouter = require("./routes/userRoutes");
 const postRouter = require("./routes/postRoutes");
 const AppError = require("./utils/appError");
-const globalErrorController = require("./controllers/errorController");
+const globalErrorController = require("./middleware/error");
 
 const app = express();
 

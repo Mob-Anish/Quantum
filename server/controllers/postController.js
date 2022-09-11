@@ -44,3 +44,6 @@ exports.removeImage = catchAsync(async (req, res, next) => {
     data: null,
   });
 });
+
+// Add posts to db.
+exports.createPosts = catchAsync(async (req, res, next) => {});
