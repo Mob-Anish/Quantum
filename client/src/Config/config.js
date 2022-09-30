@@ -10,6 +10,7 @@ const config = {
     post: {
       uploadImage: `/posts/uploadImage`,
       removeImage: `/posts/removeImage`,
+      createPost: `/posts/`,
     },
   },
 };

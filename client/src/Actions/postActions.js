@@ -43,3 +43,29 @@ export const removeImageCover = (imageID) => async (dispatch) => {
     });
   }
 };
+
+// Create post for user blog
+export const createStory = (image, title, description) => async (dispatch) => {
+  try {
+    const body = {
+      image,
+      title,
+      description,
+    };
+
+    const message = await postServices.storyCreate(body);
+
+    console.log(message);
+
+    dispatch({
+      type: postConstants.CREATE_STORY_SUCCESS,
+      payload: message.data,
+    });
+  } catch (err) {
+    console.log(err);
+    dispatch({
+      type: postConstants.CREATE_STORY_FAIL,
+      payload: handleError(err),
+    });
+  }
+};

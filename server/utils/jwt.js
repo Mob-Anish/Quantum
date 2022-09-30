@@ -17,7 +17,7 @@ exports.createToken = (name, email) => {
 
 exports.verifyToken = (token, secretKey) => {
   try {
-    return jwt.verify(token, secret);
+    return jwt.verify(token, secretKey);
   } catch (error) {
     if (error.name === "TokenExpiredError")
       throw new AppError("Token is expired. Please Login", 401);

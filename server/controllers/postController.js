@@ -1,6 +1,7 @@
 const catchAsync = require("../utils/catchAsync");
 const cloudinary = require("../utils/cloudinary");
 const AppError = require("../utils/appError");
+const db = require("../database");
 
 // Uploading image to cloudinary
 exports.uploadImage = catchAsync(async (req, res, next) => {
@@ -46,4 +47,18 @@ exports.removeImage = catchAsync(async (req, res, next) => {
 });
 
 // Add posts to db.
-exports.createPosts = catchAsync(async (req, res, next) => {});
+exports.createPosts = catchAsync(async (req, res, next) => {
+  // const { image, title, description } = req.body;
+  console.log(req.user);
+
+  // // Inserting post data into the db
+  // const postData = await db.query(
+  //   `INSERT INTO posts (image, title, description)
+  //   VALUES ('${image}', '${title}', '${description}') returning *`
+  // );
+
+  // return res.status(201).json({
+  //   status: "success",
+  //   data: postData.rows[0],
+  // });
+});

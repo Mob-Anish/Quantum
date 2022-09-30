@@ -16,3 +16,12 @@ export const removeImgCover = async (body) => {
 
   return data;
 };
+
+export const storyCreate = async (body) => {
+  const { data } = await http.post(config.apiEndPoint.post.createPost, {
+    body,
+    accessToken: true,
+  });
+
+  return data;
+};

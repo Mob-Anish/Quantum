@@ -9,7 +9,7 @@ import {
   googleAuth,
 } from "./Reducers/userReducers";
 
-import { postImageCover } from "./Reducers/postReducers";
+import { postImageCover, createStory } from "./Reducers/postReducers";
 
 const reducer = combineReducers({
   userRegister,
@@ -17,6 +17,7 @@ const reducer = combineReducers({
   userLogin,
   googleAuth,
   postImageCover,
+  createStory,
 });
 
 // UserInfo from local storage
