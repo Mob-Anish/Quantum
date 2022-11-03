@@ -26,7 +26,6 @@ const onStart = () => {
   // On successfull google-auth
   const successResponse = (googleData) => {
     const { profileObj } = googleData;
-    console.log(profileObj);
     dispatch(userAction.googleAuth(profileObj.name, profileObj.email));
   };
 

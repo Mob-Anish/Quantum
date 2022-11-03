@@ -19,7 +19,7 @@ const register = () => {
   const navigate = useNavigate();
 
   const decoded = jwt_decode(params.token);
-  const { email } = decoded;
+  const { name, email } = decoded;
 
   const userRegisterData = useSelector((state) => state.userRegister);
   const { success, error } = userRegisterData;
@@ -33,7 +33,12 @@ const register = () => {
     setTimeout(() => setUiError(""), 2500);
 
     dispatch(
-      userAction.register(fullName, userName, email, tagline ? tagline : null)
+      userAction.register(
+        name ? name : fullName,
+        userName,
+        email,
+        tagline ? tagline : null
+      )
     );
   };
 
@@ -70,11 +75,12 @@ const register = () => {
                   name="fullname"
                   className="inlinefont focus"
                   placeholder="Write your name . . ."
-                  value={fullName}
+                  value={name ? name : fullName}
                   onChange={(e) => setFullName(e.target.value)}
                   autoFocus
                 />
                 <div className="error-field">
+                  {name ? "Changing name will make your gmail useless 😅" : ""}
                   {uiError ? uiError.fullName : ""}
                 </div>
               </div>

@@ -7,6 +7,7 @@ const { decode } = require("jsonwebtoken");
 // Check if user is authenticated
 exports.protect = catchAsync(async (req, res, next) => {
   const authorization = req.headers["authorization"];
+  console.log(authorization);
   if (!(authorization && authorization.toLowerCase().startsWith("bearer")))
     next(new AppError("Oops you are not allowed 😅", 401));
 

@@ -11,13 +11,19 @@ const Home = () => {
 
   // User Verify Data
   const userVerifyData = useSelector((state) => state.userVerify);
+  const googleAuthenticateData = useSelector((state) => state.googleAuth);
+  const { googleAuth } = googleAuthenticateData;
   const { message } = userVerifyData;
 
   useEffect(() => {
     if (message) {
       dispatch({ type: userConstants.USER_VERIFY_RESET });
     }
-  }, [message]);
+
+    if (googleAuth) {
+      dispatch({ type: userConstants.GOOGLE_AUTH_RESET });
+    }
+  }, [message, googleAuth]);
 
   return (
     <div className="home">

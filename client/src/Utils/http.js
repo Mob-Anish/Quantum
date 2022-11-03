@@ -1,5 +1,6 @@
 import axios from "axios";
 import config from "../Config/config";
+import * as tokenService from "../Services/token";
 
 const instance = axios.create({
   baseURL: config.baseURL,
@@ -10,20 +11,20 @@ const instance = axios.create({
 
 const get = (
   url,
-  { params = {}, body = {}, accessToken = false, headers = {} } = {}
+  { params = {}, accessToken = false, responseType = "json", headers = {} } = {}
 ) => {
   const authHeaders = {};
 
   if (accessToken) {
-    authHeaders["Authorization"] = `Bearer token`;
+    authHeaders["Authorization"] = `Bearer ${tokenService.getAccessToken()}`;
   }
 
   return instance({
     url,
     params,
-    data: body,
+    responseType,
     method: "get",
-    headers: { authHeaders, headers },
+    headers: { ...authHeaders, ...headers },
   }).then((response) => response);
 };
 
@@ -34,7 +35,7 @@ const post = (
   const authHeaders = {};
 
   if (accessToken) {
-    authHeaders["Authorization"] = `Bearer token`;
+    authHeaders["Authorization"] = `Bearer ${tokenService.getAccessToken()}`;
   }
 
   return instance({
@@ -42,7 +43,7 @@ const post = (
     params,
     data: body,
     method: "post",
-    headers: { authHeaders, headers },
+    headers: { ...authHeaders, ...headers },
   }).then((response) => response);
 };
 
@@ -53,7 +54,7 @@ const put = (
   const authHeaders = {};
 
   if (accessToken) {
-    authHeaders["Authorization"] = `Bearer token`;
+    authHeaders["Authorization"] = `Bearer ${tokenService.getAccessToken()}`;
   }
 
   return instance({
@@ -61,7 +62,7 @@ const put = (
     params,
     data: body,
     method: "put",
-    headers: { authHeaders, headers },
+    headers: { ...authHeaders, ...headers },
   }).then((response) => response);
 };
 
@@ -72,7 +73,7 @@ const patch = (
   const authHeaders = {};
 
   if (accessToken) {
-    authHeaders["Authorization"] = `Bearer token`;
+    authHeaders["Authorization"] = `Bearer ${tokenService.getAccessToken()}`;
   }
 
   return instance({
@@ -80,7 +81,7 @@ const patch = (
     params,
     data: body,
     method: "patch",
-    headers: { authHeaders, headers },
+    headers: { ...authHeaders, ...headers },
   }).then((response) => response);
 };
 
@@ -91,7 +92,7 @@ const remove = (
   const authHeaders = {};
 
   if (accessToken) {
-    authHeaders["Authorization"] = `Bearer token`;
+    authHeaders["Authorization"] = `Bearer ${tokenService.getAccessToken()}`;
   }
 
   return instance({
@@ -99,7 +100,7 @@ const remove = (
     params,
     data: body,
     method: "delete",
-    headers: { authHeaders, headers },
+    headers: { ...authHeaders, ...headers },
   }).then((response) => response);
 };
 

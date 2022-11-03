@@ -101,7 +101,7 @@ exports.googleAuthenticate = catchAsync(async (req, res, next) => {
 
   // 3) If user doesnot exist
   // Creating token for gmail account
-  const token = jwtToken.createEmailToken(email);
+  const token = jwtToken.createGAuthToken(name, email);
 
   // Sending response with url
   res.status(200).json({

@@ -63,6 +63,7 @@ export const googleAuth = (state = {}, action) => {
       return {
         message: action.payload,
         success: true,
+        googleAuth: true,
       };
     case userConstants.GOOGLE_LOGIN_SUCCESS:
       return {

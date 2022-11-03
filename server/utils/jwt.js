@@ -8,6 +8,13 @@ exports.createEmailToken = (email) => {
   });
 };
 
+// Token creation for gAuth
+exports.createGAuthToken = (name, email) => {
+  return jwt.sign({ name, email }, process.env.JWT_SECRET, {
+    expiresIn: process.env.JWT_EMAIL_EXPIRES_IN,
+  });
+};
+
 // Token after account creation
 exports.createToken = (name, email) => {
   return jwt.sign({ name, email }, process.env.JWT_SECRET, {
