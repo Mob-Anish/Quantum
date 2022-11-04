@@ -51,12 +51,12 @@ exports.createPosts = catchAsync(async (req, res, next) => {
   const { title, description, photo } = req.body;
 
   // Getting user id
-  const id = req.user.id;
+  const user_id = req.user.id;
 
   // Inserting post data into the db
   const postData = await db.query(
-    `INSERT INTO posts (title, description, photo, id)
-    VALUES ('${title}', '${description}', '${photo}', '${id}') returning *`
+    `INSERT INTO posts (title, description, photo, user_id)
+    VALUES ('${title}', '${description}', '${photo}', '${user_id}') returning *`
   );
 
   return res.status(201).json({

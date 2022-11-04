@@ -22,8 +22,6 @@ const onBoard = () => {
   const decoded = jwt_decode(params.token);
   const { email } = decoded;
 
-  console.log(decoded.exp, currentTime);
-
   const userLoginData = useSelector((state) => state.userLogin);
   const { success } = userLoginData;
 
