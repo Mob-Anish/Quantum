@@ -52,7 +52,6 @@ code {
   font-size: 1.75rem;
   cursor: pointer;
   font-weight: 600;
-  min-width: 13rem;
   text-align: center;
   border: none;
   transition: all .3s ease-out;

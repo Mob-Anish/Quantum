@@ -35,7 +35,7 @@ const main = () => {
                 world! Share your ideas with the world, create your own content
                 and start blogging ✌️.
               </span>
-              <div className="button">
+              <div className="button" style={{ width: "17rem" }}>
                 <Link to={routes.ONSTART} className="link--button">
                   Init Journey 🤙
                 </Link>
@@ -66,7 +66,10 @@ const main = () => {
                 Anish Manandhar aka Shoya
               </p>
               <p style={{ fontSize: "1.8rem" }}>Founder, Developer</p>
-              <div className="button" style={{ marginTop: "2.8rem" }}>
+              <div
+                className="button"
+                style={{ marginTop: "2.8rem", width: "17.2rem" }}
+              >
                 <Link to={routes.ONSTART} className="join--button">
                   Join the community
                 </Link>
