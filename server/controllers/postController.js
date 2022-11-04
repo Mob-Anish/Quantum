@@ -48,17 +48,19 @@ exports.removeImage = catchAsync(async (req, res, next) => {
 
 // Add posts to db.
 exports.createPosts = catchAsync(async (req, res, next) => {
-  // const { image, title, description } = req.body;
-  console.log(req.user);
+  const { title, description, photo } = req.body;
 
-  // // Inserting post data into the db
-  // const postData = await db.query(
-  //   `INSERT INTO posts (image, title, description)
-  //   VALUES ('${image}', '${title}', '${description}') returning *`
-  // );
+  // Getting user id
+  const id = req.user.id;
 
-  // return res.status(201).json({
-  //   status: "success",
-  //   data: postData.rows[0],
-  // });
+  // Inserting post data into the db
+  const postData = await db.query(
+    `INSERT INTO posts (title, description, photo, id)
+    VALUES ('${title}', '${description}', '${photo}', '${id}') returning *`
+  );
+
+  return res.status(201).json({
+    status: "success",
+    data: postData.rows[0],
+  });
 });

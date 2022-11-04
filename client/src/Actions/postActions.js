@@ -45,12 +45,12 @@ export const removeImageCover = (imageID) => async (dispatch) => {
 };
 
 // Create post for user blog
-export const createStory = (image, title, description) => async (dispatch) => {
+export const createStory = (photo, title, description) => async (dispatch) => {
   try {
     const body = {
-      image,
       title,
       description,
+      photo,
     };
 
     const message = await postServices.storyCreate(body);
