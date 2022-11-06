@@ -5,7 +5,7 @@
     border-left: 1px solid #444d59;
 }
 
-.container__write__profile {
+.container__three__profile {
     display: flex;
     padding: 1rem;
 }
@@ -34,9 +34,31 @@
 }
 
 .container__profile__card {
-    background: #2C2F48;
     padding: 2rem 2.5rem;
+}
+
+.user__profile__card,
+.container__profile__card {
+    background: #2C2F48;
     width: 22rem;
     border-radius: 1rem;
     box-shadow: rgba(0, 0, 0, 0.25) 0px 0.0625em 0.0625em, rgba(0, 0, 0, 0.25) 0px 0.125em 0.5em, rgba(255, 255, 255, 0.1) 0px 0px 0px 1px inset;
+}
+
+.user__profile__card {
+    flex-direction: column;
+    color:#f3f1f1;
+    font-size: 1.4rem;
+    position: relative;
+}
+
+.user__profile__name ,
+.user__account__settings {
+    text-decoration: none;
+    color: #f3f1f1;
+}
+
+.user__account__settings,
+.user__logout {
+    padding: 1.3rem 1.5rem;
 }
