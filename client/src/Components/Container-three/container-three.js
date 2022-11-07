@@ -10,7 +10,7 @@ import { useSelector } from "react-redux";
 const containerThree = () => {
   const userLoginData = useSelector((state) => state.userLogin);
 
-  const { userInfo, success, message } = userLoginData;
+  const { userInfo } = userLoginData;
 
   return (
     <div className="container__three">
@@ -20,10 +20,26 @@ const containerThree = () => {
             Create
           </Link>
         </div>
-        {userInfo || success ? (
+        {userInfo ? (
           <div className="container__profile__user">
-            <h3>{wordBreak(userInfo, message)}</h3>
-            <div className="user__profile__card" style={{ display: "none" }}>
+            {userInfo.photo != null ? (
+              <img
+                src={userInfo.photo}
+                alt="profile--icon"
+                style={{
+                  height: "4.7rem",
+                  borderRadius: "50%",
+                  cursor: "pointer",
+                  position: "relative",
+                }}
+                onClick={displayFn.viewProfile}
+              />
+            ) : (
+              <div className="user__profile--icon">
+                <span>{wordBreak(userInfo)}</span>
+              </div>
+            )}
+            <div className="user__profile__card">
               <RiDeleteBack2Fill
                 style={{
                   fontSize: "2.5rem",
@@ -42,8 +58,8 @@ const containerThree = () => {
                   padding: "1.5rem",
                 }}
               >
-                <h3>{userInfo ? userInfo.name : message.name}</h3>
-                <h4>({userInfo ? userInfo.username : message.username})</h4>
+                <h3>{userInfo.name}</h3>
+                <h4>{userInfo.username}</h4>
               </Link>
               <Link to={routes.ONSTART} className="user__account__settings">
                 <h3>Account Settings</h3>

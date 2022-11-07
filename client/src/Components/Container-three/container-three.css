@@ -7,12 +7,14 @@
 
 .container__three__profile {
     display: flex;
-    padding: 1rem;
+    padding: 1.4rem 2rem;
 }
 
 .container__write__blog {
-    padding: 1.5rem 1.5rem 0 0;
     font-weight: 500;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .container__write__blog a ,
@@ -33,6 +35,10 @@
      font-size: 1.6rem;
 }
 
+.container__profile__user, .container__profile__login {
+    padding: 0 2rem;
+}
+
 .container__profile__card {
     padding: 2rem 2.5rem;
 }
@@ -46,12 +52,14 @@
 }
 
 .user__profile__card {
+    display: flex;
     flex-direction: column;
     color:#f3f1f1;
     font-size: 1.4rem;
-    position: relative;
+    position: absolute;
 }
 
+.user__profile--icon span,
 .user__profile__name ,
 .user__account__settings {
     text-decoration: none;
@@ -61,4 +69,20 @@
 .user__account__settings,
 .user__logout {
     padding: 1.3rem 1.5rem;
+}
+
+.user__profile--icon {
+    height: 4.7rem;
+    width: 4.7rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+    background: radial-gradient(73.23% 106% at 34.94% 108.33%, #b265bd 0%, #7758D1 100%);
+} 
+
+.user__profile--icon span {
+    font-size: 1.8rem;
+    font-weight: bold;
 }

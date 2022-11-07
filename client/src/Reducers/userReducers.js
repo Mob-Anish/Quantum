@@ -23,7 +23,7 @@ export const userLogin = (state = {}, action) => {
   switch (action.type) {
     case userConstants.USER_LOGIN_SUCCESS:
       return {
-        message: action.payload,
+        userInfo: action.payload,
         success: true,
       };
     case userConstants.USER_LOGIN_FAIL:
