@@ -35,7 +35,10 @@ const containerThree = () => {
                 onClick={displayFn.viewProfile}
               />
             ) : (
-              <div className="user__profile--icon">
+              <div
+                className="user__profile--icon pointer"
+                onClick={displayFn.viewProfile}
+              >
                 <span>{wordBreak(userInfo)}</span>
               </div>
             )}
@@ -44,28 +47,30 @@ const containerThree = () => {
                 style={{
                   fontSize: "2.5rem",
                   position: "absolute",
-                  right: "1px",
-                  top: "0",
+                  right: "0",
+                  top: "12px",
                   cursor: "pointer",
                   color: "#f3f1f1",
                 }}
                 onClick={displayFn.hideProfile}
               />
-              <Link
-                to={routes.ONSTART}
+              <div
                 className="user__profile__name"
                 style={{
-                  padding: "1.5rem",
+                  padding: "1.6rem",
                 }}
               >
                 <h3>{userInfo.name}</h3>
-                <h4>{userInfo.username}</h4>
+                <h4>({userInfo.username})</h4>
+              </div>
+              <Link to={routes.ONSTART} className="user__view__profile">
+                <h3>Profile 😎</h3>
               </Link>
               <Link to={routes.ONSTART} className="user__account__settings">
-                <h3>Account Settings</h3>
+                <h3>Account Settings 👷‍♂️</h3>
               </Link>
-              <div className="user__logout">
-                <h3>Log out</h3>
+              <div className="user__logout pointer">
+                <h3>Log out 👈</h3>
               </div>
             </div>
           </div>

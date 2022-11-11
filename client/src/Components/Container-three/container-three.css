@@ -60,15 +60,16 @@
 }
 
 .user__profile--icon span,
-.user__profile__name ,
+.user__view__profile ,
 .user__account__settings {
     text-decoration: none;
     color: #f3f1f1;
 }
 
+.user__view__profile,
 .user__account__settings,
 .user__logout {
-    padding: 1.3rem 1.5rem;
+    padding: 1.3rem 1.6rem;
 }
 
 .user__profile--icon {
@@ -78,7 +79,6 @@
     align-items: center;
     justify-content: center;
     border-radius: 50%;
-    cursor: pointer;
     background: radial-gradient(73.23% 106% at 34.94% 108.33%, #b265bd 0%, #7758D1 100%);
 } 
 
