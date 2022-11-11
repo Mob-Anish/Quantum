@@ -38,10 +38,19 @@ export const displayLoginOptions = () => {
 
 // View popup in login
 export const viewProfile = () => {
-  document.querySelector(".container__profile__card").style.display = "block";
+  if (document.querySelector(".container__profile__card")) {
+    document.querySelector(".container__profile__card").style.display = "block";
+  }
+  document.querySelector(".user__profile__card").style.display = "flex";
 };
 
 // Hide popup in login
 export const hideProfile = () => {
-  document.querySelector(".container__profile__card").style.display = "none";
+  if (document.querySelector(".container__profile__card")) {
+    document.querySelector(".container__profile__card").style.display = "none";
+  }
+
+  if (document.querySelector(".user__profile__card")) {
+    document.querySelector(".user__profile__card").style.display = "none";
+  }
 };
