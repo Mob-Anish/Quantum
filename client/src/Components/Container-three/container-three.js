@@ -5,12 +5,19 @@ import { RiDeleteBack2Fill } from "react-icons/ri";
 import * as routes from "../../Constants/routes";
 import * as displayFn from "../../Utils/displayFn";
 import { wordBreak } from "../../Utils/wordBreak";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+// import * as userConstants from "../../Constants/userConstants";
+import * as userActions from "../../Actions/userActions";
 
 const containerThree = () => {
   const userLoginData = useSelector((state) => state.userLogin);
+  const dispatch = useDispatch();
 
   const { userInfo } = userLoginData;
+
+  const logoutUser = () => {
+    dispatch(userActions.logout());
+  };
 
   return (
     <div className="container__three">
@@ -69,7 +76,7 @@ const containerThree = () => {
               <Link to={routes.ONSTART} className="user__account__settings">
                 <h3>Account Settings 👷‍♂️</h3>
               </Link>
-              <div className="user__logout pointer">
+              <div className="user__logout pointer" onClick={logoutUser}>
                 <h3>Log out 👈</h3>
               </div>
             </div>

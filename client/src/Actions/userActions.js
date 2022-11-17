@@ -8,7 +8,7 @@ export const emailVerify = (email) => async (dispatch) => {
   try {
     const body = {
       email,
-    };    
+    };
 
     const { message } = await userServices.verifyEmail(body);
 
@@ -144,9 +144,11 @@ export const register =
 
 // Logout user from system
 export const logout = () => (dispatch) => {
-  // Removing token from localStorage
   tokenService.removeToken();
   dispatch({
     type: userConstants.RESET,
+  });
+  dispatch({
+    type: userConstants.GOOGLE_AUTH_RESET,
   });
 };
