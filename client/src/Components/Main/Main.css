@@ -4,6 +4,7 @@
     background: #1D203E;
 }
 .main__search__bar {
+    height: 7.3%;
     padding: 1.4rem 0;
     background: #2C2F48;
     display: flex;
@@ -41,6 +42,7 @@
 }
 
 .main__content {
+    height: 92.7%;
     background: #1D203E; 
     color: #f3f1f1;
     border-top: 1px solid #444d59;
