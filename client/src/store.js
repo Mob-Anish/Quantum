@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
 import { configureStore } from "@reduxjs/toolkit";
-
 // import thunk from "redux-thunk";
+
 import {
   userRegister,
   userVerify,
@@ -9,9 +9,12 @@ import {
   googleAuth,
 } from "./Reducers/userReducers";
 
+import { activeUI } from "./Reducers/activeReducers";
+
 import { postImageCover, createStory } from "./Reducers/postReducers";
 
 const reducer = combineReducers({
+  activeUI,
   userRegister,
   userVerify,
   userLogin,

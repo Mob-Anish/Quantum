@@ -30,8 +30,8 @@ const Navbar = () => {
               </div>
             </li>
             <li>
-              <div className="navbar__feed">
-                <span>My Feed</span>
+              <div className="navbar__about">
+                <span>About</span>
               </div>
             </li>
           </ul>
