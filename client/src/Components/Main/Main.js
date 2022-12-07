@@ -3,9 +3,12 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import * as routes from "../../Constants/routes";
 import { IoSearchOutline } from "react-icons/io5";
+import { useSelector } from "react-redux";
 
 const main = () => {
   const [keyword, setKeyword] = useState("");
+
+  const activeUiData = useSelector((state) => state.activeUI);
 
   return (
     <div className="main">

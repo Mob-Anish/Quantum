@@ -4,7 +4,7 @@ export const activeUI = (state = {}, action) => {
   switch (action.type) {
     case activeConstants.ACTIVE_FEED:
       return {
-        activefeed: true,
+        activeFeed: true,
       };
     case activeConstants.ACTIVE_EXPLORE:
       return {

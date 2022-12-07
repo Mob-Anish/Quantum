@@ -32,6 +32,9 @@ const preloadedState = {
   userLogin: {
     userInfo: userInfoFromStorage,
   },
+  activeUI: {
+    activeFeed: true,
+  },
 };
 
 const store = configureStore({

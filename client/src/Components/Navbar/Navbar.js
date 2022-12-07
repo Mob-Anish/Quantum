@@ -3,10 +3,27 @@ import * as routes from "../../Constants/routes";
 import { Link } from "react-router-dom";
 import { GrTwitter } from "react-icons/gr";
 import { BsInstagram, BsLinkedin, BsGithub } from "react-icons/bs";
+import { useDispatch, useSelector } from "react-redux";
+import * as activeConstants from "../../Constants/activeConstants";
 
 const year = new Date().getFullYear();
 
 const Navbar = () => {
+  const dispatch = useDispatch();
+  const activeUiData = useSelector((state) => state.activeUI);
+
+  const activeFeed = () => {
+    dispatch({ type: activeConstants.ACTIVE_FEED });
+  };
+
+  const activeExplore = () => {
+    dispatch({ type: activeConstants.ACTIVE_EXPLORE });
+  };
+
+  const activeAbout = () => {
+    dispatch({ type: activeConstants.ACTIVE_ABOUT });
+  };
+
   return (
     <div className="quantum__navbar__bg">
       <div className="quantum__navbar">
@@ -19,17 +36,26 @@ const Navbar = () => {
         </div>
         <div className="navbar__links">
           <ul>
-            <li className="navbar__active">
+            <li
+              className={activeUiData.activeFeed ? "navbar__active" : ""}
+              onClick={activeFeed}
+            >
               <div className="navbar__feed">
                 <span>My Feed</span>
               </div>
             </li>
-            <li>
+            <li
+              className={activeUiData.activeExplore ? "navbar__active" : ""}
+              onClick={activeExplore}
+            >
               <div className="navbar__explore">
                 <span>Explore</span>
               </div>
             </li>
-            <li>
+            <li
+              className={activeUiData.activeAbout ? "navbar__active" : ""}
+              onClick={activeAbout}
+            >
               <div className="navbar__about">
                 <span>About</span>
               </div>
