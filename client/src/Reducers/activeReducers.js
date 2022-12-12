@@ -14,7 +14,8 @@ export const activeUI = (state = {}, action) => {
       return {
         activeAbout: true,
       };
-
+    case activeConstants.ACTIVE_RESET:
+      return {};
     default:
       return state;
   }

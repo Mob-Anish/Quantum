@@ -1,0 +1,50 @@
+.quantum__main__content {
+    padding: 5rem 3.5rem;
+}
+
+.quantum__introduction__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 9rem;
+}
+
+.quantum__introduction__content .button {
+    margin-top: 3rem;
+}
+
+.quantum__introduction__content .quantum__introduction__image .img-holder {
+    background-image: url('../../Assets/img/quantum.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 30rem;
+    width: 30rem;
+    border-radius: 50%;
+}
+
+.quantum__main__content .quantum__founder__note {
+    display: flex;
+    padding: 3rem;
+    background: #2C2F48;
+    border-radius: 1rem;
+    box-shadow: rgb(0 0 0 / 25%) 0px 0.0625em 0.0625em, rgb(0 0 0 / 25%) 0px 0.125em 0.5em, rgb(255 255 255 / 10%) 0px 0px 0px 1px inset;
+}
+
+.quantum__main__content .quantum__founder__note .img-holder{
+    background-image: url('../../Assets/img/Wreck.jpg');
+    background-position: 36%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 10rem;
+    width: 10rem;
+    border-radius: 50%;
+}
+
+.quantum__main__content .button{
+    transition: all .3s ease-out;
+}
+
+.quantum__main__content .button:hover {
+    transform: translateY(-3px);
+}

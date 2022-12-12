@@ -24,10 +24,14 @@ const Navbar = () => {
     dispatch({ type: activeConstants.ACTIVE_ABOUT });
   };
 
+  const clearActive = () => {
+    dispatch({ type: activeConstants.ACTIVE_RESET });
+  };
+
   return (
     <div className="quantum__navbar__bg">
       <div className="quantum__navbar">
-        <div className="quantum__logo navbar__logo">
+        <div className="quantum__logo navbar__logo" onClick={clearActive}>
           <Link to={routes.HOME} style={{ textDecoration: "none" }}>
             <span style={{ color: "#ffffff", fontSize: "2.8rem" }}>
               Quantum
