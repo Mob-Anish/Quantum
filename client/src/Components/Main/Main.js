@@ -4,6 +4,7 @@ import { IoSearchOutline } from "react-icons/io5";
 import { useSelector, useDispatch } from "react-redux";
 import * as activeConstants from "../../Constants/activeConstants";
 import MainContent from "../Main-Content/mainContent";
+import Feed from "../Feed/Feed";
 
 const main = () => {
   const [keyword, setKeyword] = useState("");
@@ -42,7 +43,7 @@ const main = () => {
         ) : (
           ""
         )}
-        {activeFeed ? <h1>This is feed</h1> : ""}
+        {activeFeed ? <Feed /> : ""}
         {activeExplore ? <h1>This is explore</h1> : ""}
         {activeAbout ? <h1>This is about</h1> : ""}
       </div>
