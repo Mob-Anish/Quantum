@@ -1,0 +1,13 @@
+.user__feed--profile a{
+    text-decoration: none;
+    color: #f3f1f1;
+}
+
+.user__feed--profile {
+    display: flex;
+    align-items: center;
+}
+
+.feed__name--username {
+    margin-left: 1.3rem;
+}
