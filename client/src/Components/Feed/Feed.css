@@ -1,4 +1,5 @@
-.user__feed--profile a{
+.user__feed--container a,
+.user__feed--container p{
     text-decoration: none;
     color: #f3f1f1;
 }
@@ -8,6 +9,26 @@
     align-items: center;
 }
 
+.user__feed--name {
+    display: inline-block;
+}
+
 .feed__name--username {
     margin-left: 1.3rem;
+}
+
+.user__feed--title {
+    display: inline-block;
+}
+
+.user__feed--content {
+    margin-top: 1rem;
+}
+
+.user__feed--title {
+    margin-bottom: 1rem;
+}
+
+.user__feed--description p {
+    font-size: 1.5rem;
 }

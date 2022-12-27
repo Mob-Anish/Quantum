@@ -45,7 +45,23 @@ const Feed = () => {
               </div>
             </div>
           </div>
-          <div className="user__feed--content"></div>
+          <div className="user__feed--content">
+            <div className="user__feed--title">
+              <h1 style={{ fontSize: "2.5rem" }}>
+                <Link to="/">Hello World Welcome to the Programming!!</Link>
+              </h1>
+            </div>
+            <div className="user__feed--description">
+              <p>
+                <Link to="/">
+                  I am an Engineering Student. I wanted to take Computer Science
+                  but due to some reasons, I ended up taking Electronics and
+                  Communication. But I never lost interest in coding which is
+                  the reason I'm cur…
+                </Link>
+              </p>
+            </div>
+          </div>
           {/* <div className="user__feed--reaction"></div> */}
         </div>
       </div>
