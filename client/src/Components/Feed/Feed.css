@@ -4,6 +4,18 @@
     color: #f3f1f1;
 }
 
+.user__feed {
+    padding: 1.5rem;
+}
+
+.user__feed--container {
+    padding: 1.5rem;
+    background: #2C2F48;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 1rem;
+    margin-bottom: 1.5rem;
+}
+
 .user__feed--profile {
     display: flex;
     align-items: center;
@@ -31,4 +43,16 @@
 
 .user__feed--description p {
     font-size: 1.5rem;
+}
+
+.feed__image {
+    width: 15rem;
+    height: 15rem;
+}
+
+.feed__content--image {
+    display: block;
+    overflow: hidden;
+    border-radius: 0.75rem;
+    object-fit: cover;
 }
