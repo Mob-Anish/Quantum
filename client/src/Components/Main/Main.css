@@ -48,6 +48,11 @@
     color: #f3f1f1;
     border-top: 1px solid #444d59;
     overflow-y: auto;
+    scrollbar-width: none;
+}
+
+.main__content::-webkit-scrollbar {
+    display: none;
 }
 
 

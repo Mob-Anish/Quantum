@@ -51,7 +51,6 @@
 }
 
 .feed__content--image {
-    display: block;
     overflow: hidden;
     border-radius: 0.75rem;
     object-fit: cover;
