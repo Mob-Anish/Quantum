@@ -18,10 +18,12 @@ const onStart = () => {
   const navigate = useNavigate();
 
   const userVerifyData = useSelector((state) => state.userVerify);
+  const userLoginData = useSelector((state) => state.userLogin);
   const googleAuthData = useSelector((state) => state.googleAuth);
 
   const { success, error } = userVerifyData;
   const { message, isAuthenticated } = googleAuthData;
+  const { userInfo } = userLoginData;
 
   // On successfull google-auth
   const successResponse = (googleData) => {
@@ -34,10 +36,10 @@ const onStart = () => {
       navigate(message);
     }
 
-    if (isAuthenticated) {
+    if (userInfo || isAuthenticated) {
       navigate(routes.HOME);
     }
-  }, [message, isAuthenticated]);
+  }, [message, isAuthenticated, userInfo]);
 
   const failureResponse = (result) => {
     console.log(result);
