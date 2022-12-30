@@ -54,7 +54,9 @@ const Feed = () => {
             >
               <div className="user__feed--title">
                 <h1 style={{ fontSize: "2.5rem" }}>
-                  <Link to="/">Hello World Welcome to the Programming!!</Link>
+                  <Link to="/" target="_blank">
+                    Hello World Welcome to the Programming!!
+                  </Link>
                 </h1>
               </div>
               <div
@@ -68,7 +70,7 @@ const Feed = () => {
                     overflowWrap: "anywhere",
                   }}
                 >
-                  <Link to="/" style={{ display: "block" }}>
+                  <Link to="/" target="_blank" style={{ display: "block" }}>
                     I am an Engineering Student. I wanted to take Computer
                     Science but due to some reasons, I ended up taking
                     Electronics and Communication. But I never lost interest in
@@ -78,7 +80,7 @@ const Feed = () => {
               </div>
             </div>
             <div className="feed__content--2">
-              <Link to="/" className="feed__content--image">
+              <Link to="/" target="_blank" className="feed__content--image">
                 <img src={ProfleImg} alt="title" className="feed__image" />
               </Link>
             </div>

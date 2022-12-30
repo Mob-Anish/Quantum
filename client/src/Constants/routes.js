@@ -3,7 +3,8 @@ export const ONSTART = "/readytogo/next";
 export const CREATEONE = "/createOne";
 export const REGISTER = "/readytogo/create-account/:token";
 export const ONBOARD = "/readytogo/onboard/:token";
-export const PROFILE = "/name";
+export const PROFILE = "/:username";
+export const STORY = "/story/:username/:storyId";
 
 // External Link
 export const TWITTER = "https://mobile.twitter.com/mob_anish";

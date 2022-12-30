@@ -5,8 +5,9 @@ import Onstart from "../Pages/Onstart/onStart";
 import Register from "../Pages/Register/Register";
 import OnBoard from "../Pages/Onboard/onBoard";
 import Profile from "../Pages/Profile/Profile";
-import PrivateRoute from "../Routes/PrivateRoutes";
+// import PrivateRoute from "../Routes/PrivateRoutes";
 import * as routes from "../Constants/routes";
+import Story from "../Pages/Story/Story";
 
 export default function App() {
   return (
@@ -17,10 +18,8 @@ export default function App() {
         <Route path={routes.CREATEONE} element={<CreateOne />} />
         <Route path={routes.REGISTER} element={<Register />} />
         <Route path={routes.ONBOARD} element={<OnBoard />} />
-        <Route
-          path={routes.PROFILE}
-          element={<PrivateRoute component={Profile} />}
-        />
+        <Route path={routes.PROFILE} element={<Profile />} />
+        <Route path={routes.STORY} element={<Story />} />
       </Routes>
     </Router>
   );
