@@ -1,0 +1,37 @@
+.quantum__profile--container
+{
+    display: flex;
+    height: 100vh;
+}
+
+.quantum__profile--container .profile__container--sidebar {
+    background: radial-gradient(73.23% 106% at 34.94% 108.33%, #b265bd 0%, #7758D1 100%);
+    width: 20%;
+}
+
+.quantum__profile--container .profile__container--main {
+    background: #2C2F48;
+    width: 80%;
+}
+
+.shape__outer {
+    display: flex;
+    flex-shrink: 0;
+    height: 124px;
+    width: 124px;
+    background-image: linear-gradient(to bottom right,#2C2F48, #2C2F48);
+}
+
+
+.shape__inner {	
+    height: 114px;
+    width: 114px;
+    background: url(https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=300&h=300&fit=crop&crop=faces) no-repeat center;
+    background-size: cover;
+    margin: auto;
+}
+
+.heptagon {
+    -webkit-clip-path: polygon(50% 0%, 90% 20%, 100% 60%, 75% 100%, 25% 100%, 0% 60%, 10% 20%);
+    clip-path: polygon(50% 0%, 90% 20%, 100% 60%, 75% 100%, 25% 100%, 0% 60%, 10% 20%);
+}

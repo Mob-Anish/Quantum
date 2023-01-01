@@ -1,3 +1,7 @@
+import { Link } from "react-router-dom";
+import "./Profile.css";
+import * as routes from "../../Constants/routes";
+
 const Profile = () => {
   return (
     <div className="quantum__profile--container">
@@ -10,7 +14,9 @@ const Profile = () => {
           </Link>
         </div>
         <div className="profile">
-          <div className="image"></div>
+          <div className="image-holder shape__outer heptagon">
+            <div className="shape__inner heptagon bg-image"></div>
+          </div>
           <div className="name"></div>
           <div className="tagline"></div>
         </div>
@@ -19,9 +25,7 @@ const Profile = () => {
         <div className="title">
           <h1>Posts</h1>
         </div>
-        <div className="posts">
-
-        </div>
+        <div className="posts"></div>
       </div>
     </div>
   );
