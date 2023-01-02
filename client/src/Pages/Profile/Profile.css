@@ -7,31 +7,58 @@
 .quantum__profile--container .profile__container--sidebar {
     background: radial-gradient(73.23% 106% at 34.94% 108.33%, #b265bd 0%, #7758D1 100%);
     width: 20%;
+    color: #ffffff;
+}
+
+.quantum__profile--container .profile__container--sidebar a {
+    text-decoration: none;
+    color: #ffffff;
 }
 
 .quantum__profile--container .profile__container--main {
     background: #2C2F48;
     width: 80%;
+    color: #ffffff;
+}
+
+.quantum__profile--container .image__holder {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .shape__outer {
     display: flex;
     flex-shrink: 0;
-    height: 124px;
-    width: 124px;
-    background-image: linear-gradient(to bottom right,#2C2F48, #2C2F48);
+    height: 140px;
+    width: 140px;
+    background-image: linear-gradient(to bottom right,#ffffff, #ffffff);
 }
 
-
 .shape__inner {	
-    height: 114px;
-    width: 114px;
+    height: 130px;
+    width: 130px;
     background: url(https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=300&h=300&fit=crop&crop=faces) no-repeat center;
     background-size: cover;
     margin: auto;
 }
 
-.heptagon {
-    -webkit-clip-path: polygon(50% 0%, 90% 20%, 100% 60%, 75% 100%, 25% 100%, 0% 60%, 10% 20%);
-    clip-path: polygon(50% 0%, 90% 20%, 100% 60%, 75% 100%, 25% 100%, 0% 60%, 10% 20%);
+.circle {
+    -webkit-clip-path: circle(50% at 50% 50%);
+    clip-path: circle(50% at 50% 50%);
+}
+
+.quantum__profile--container .profile .name {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.quantum__profile--container .profile .tagline,
+.quantum__profile--container .profile .membership__date ,
+.quantum__profile--container .profile .email__address {
+    background: rgba(44, 47, 72, 0.5);
+    border-radius: .5rem;
+    margin: 3rem 1rem;
+    padding: 1rem;
 }

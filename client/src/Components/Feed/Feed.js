@@ -70,7 +70,7 @@ const Feed = () => {
                     overflowWrap: "anywhere",
                   }}
                 >
-                  <Link to="/" target="_blank" style={{ display: "block" }}>
+                  <Link to="/" target="_blank">
                     I am an Engineering Student. I wanted to take Computer
                     Science but due to some reasons, I ended up taking
                     Electronics and Communication. But I never lost interest in
