@@ -59,6 +59,16 @@
 .quantum__profile--container .profile .email__address {
     background: rgba(44, 47, 72, 0.5);
     border-radius: .5rem;
-    margin: 3rem 1rem;
+    margin: 3rem 1.5rem;
     padding: 1rem;
+}
+
+.quantum__profile--container .profile__container--main{
+    overflow-y: auto;
+    scrollbar-width: none;
+    height: 100%;
+}
+
+.quantum__profile--container .profile__container--main::-webkit-scrollbar{
+    display: none;
 }
