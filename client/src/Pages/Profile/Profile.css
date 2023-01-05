@@ -72,3 +72,8 @@
 .quantum__profile--container .profile__container--main::-webkit-scrollbar{
     display: none;
 }
+
+.quantum__profile--container .profile__container--main .posts .user__feed--container {
+    width: 105rem;
+    margin-bottom: 3rem;
+}

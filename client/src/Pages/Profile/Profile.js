@@ -71,7 +71,7 @@ const Profile = () => {
           <h1>Stories 📃</h1>
         </div>
         <div className="posts">
-          <div className="user__feed--container" style={{ width: "105rem" }}>
+          <div className="user__feed--container">
             <div className="user__feed--profile">
               <div className="feed__username--date">
                 <Link to="/" className="user__feed--date">
@@ -122,7 +122,7 @@ const Profile = () => {
             </div>
             {/* <div className="user__feed--reaction"></div> */}
           </div>
-          <div className="user__feed--container" style={{ width: "105rem" }}>
+          <div className="user__feed--container">
             <div className="user__feed--profile">
               <div className="feed__username--date">
                 <Link to="/" className="user__feed--date">
@@ -173,7 +173,7 @@ const Profile = () => {
             </div>
             {/* <div className="user__feed--reaction"></div> */}
           </div>
-          <div className="user__feed--container" style={{ width: "105rem" }}>
+          <div className="user__feed--container">
             <div className="user__feed--profile">
               <div className="feed__username--date">
                 <Link to="/" className="user__feed--date">
@@ -224,7 +224,7 @@ const Profile = () => {
             </div>
             {/* <div className="user__feed--reaction"></div> */}
           </div>
-          <div className="user__feed--container" style={{ width: "105rem" }}>
+          <div className="user__feed--container">
             <div className="user__feed--profile">
               <div className="feed__username--date">
                 <Link to="/" className="user__feed--date">
