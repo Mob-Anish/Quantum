@@ -1,9 +1,12 @@
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import "./Profile.css";
 import ProfleImg from "../../Assets/img/prof.png";
 import * as routes from "../../Constants/routes";
 
 const Profile = () => {
+  const { username } = useParams();
+  console.log(username);
+
   return (
     <div className="quantum__profile--container">
       <div className="profile__container--sidebar">
@@ -37,7 +40,7 @@ const Profile = () => {
             </h2>
           </div>
           <div className="tagline">
-            <h2 style={{ marginBottom: "1rem" }}>Tagline :</h2>
+            <h2 style={{ marginBottom: "1rem" }}>About Me :</h2>
             <p style={{ fontSize: "1.5rem", lineHeight: "1.375" }}>
               Senior Software Engineer. Google Developers Expert. Entrepreneur.
               Mountain Climber. Cat Lover. Gardener. World traveler.

@@ -1,0 +1,40 @@
+.quantum__story--container {
+    background: #2C2F48;
+    min-height: 100vh;
+    overflow-y: auto;
+    scrollbar-width: none;
+    padding: 2rem 3rem;
+    color: #ffffff;
+}
+
+.quantum__story--container a {
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.quantum__story--container::-webkit-scrollbar {
+    display: none;
+}
+
+.quantum__story--container .content__holder .profile, .quantum__story--container .content__holder .story__header {
+    display: flex;
+    align-items: center;
+}
+
+.quantum__story--container .content__holder .story__header {
+    justify-content: space-between;
+}
+
+.quantum__story--container .content__holder .profile .outer__circle{
+    border-radius: 50%;
+    height: 5rem;
+    width: 5rem;
+}
+
+.quantum__story--container .content__holder {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    flex-direction: column;
+}

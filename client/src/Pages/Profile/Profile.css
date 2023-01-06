@@ -27,7 +27,7 @@
     justify-content: center;
 }
 
-.shape__outer {
+.quantum__profile--container .shape__outer {
     display: flex;
     flex-shrink: 0;
     height: 140px;
@@ -35,7 +35,7 @@
     background-image: linear-gradient(to bottom right,#ffffff, #ffffff);
 }
 
-.shape__inner {	
+.quantum__profile--container .shape__inner {	
     height: 130px;
     width: 130px;
     background: url(https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=300&h=300&fit=crop&crop=faces) no-repeat center;
@@ -43,7 +43,7 @@
     margin: auto;
 }
 
-.circle {
+.quantum__profile--container .circle {
     -webkit-clip-path: circle(50% at 50% 50%);
     clip-path: circle(50% at 50% 50%);
 }
