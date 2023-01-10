@@ -1,8 +1,6 @@
 .quantum__story--container {
     background: #2C2F48;
     min-height: 100vh;
-    overflow-y: auto;
-    scrollbar-width: none;
     padding: 2rem 3rem;
     color: #ffffff;
 }
@@ -12,17 +10,25 @@
     color: #ffffff;
 }
 
-.quantum__story--container::-webkit-scrollbar {
-    display: none;
+.quantum__story--container .content__holder {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
 }
 
-.quantum__story--container .content__holder .profile, .quantum__story--container .content__holder .story__header {
+.quantum__story--container .content__holder .story__title {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.quantum__story--container .content__holder .profile, .quantum__story--container .content__holder .creater__header {
     display: flex;
     align-items: center;
 }
 
-.quantum__story--container .content__holder .story__header {
-    justify-content: space-between;
+.quantum__story--container .content__holder .creater__header  {
+    font-size: 1.7rem;
 }
 
 .quantum__story--container .content__holder .profile .outer__circle{
@@ -31,10 +37,10 @@
     width: 5rem;
 }
 
-.quantum__story--container .content__holder {
-    width: 100%;
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-    flex-direction: column;
+.quantum__story--container .content__holder .story__description {
+    margin-top: 5rem;
+    line-height: 1.8;
+    font-size: 1.7rem;
+    max-width: 60%;
+    text-align: justify;
 }
