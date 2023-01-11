@@ -1,7 +1,7 @@
 .quantum__story--container {
     background: #2C2F48;
     min-height: 100vh;
-    padding: 2rem 3rem;
+    padding: 3rem 3rem;
     color: #ffffff;
 }
 
@@ -43,4 +43,8 @@
     font-size: 1.7rem;
     max-width: 60%;
     text-align: justify;
+}
+
+.quantum__story--container .content__holder .story__description p {
+    margin-bottom: 1rem;
 }
