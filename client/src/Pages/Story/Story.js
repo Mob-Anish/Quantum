@@ -16,7 +16,7 @@ const Story = () => {
       </div>
       <div className="content__holder">
         <div className="story__title">
-          <h1>Hello World Welcome to the Programming!!</h1>
+          <h1>Building a global reverse proxy with on-demand SSL support</h1>
         </div>
         <div className="creater__header">
           <div className="profile">

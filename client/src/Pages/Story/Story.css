@@ -1,7 +1,7 @@
 .quantum__story--container {
     background: #2C2F48;
     min-height: 100vh;
-    padding: 3rem 3rem;
+    padding: 2rem 3rem;
     color: #ffffff;
 }
 
@@ -20,6 +20,11 @@
 .quantum__story--container .content__holder .story__title {
     font-size: 2rem;
     margin-bottom: 2rem;
+    line-height: 1.5;
+    max-width: 70%;
+    overflow-wrap: break-word;
+    text-align: center;
+    hyphens: auto;
 }
 
 .quantum__story--container .content__holder .profile, .quantum__story--container .content__holder .creater__header {
@@ -39,12 +44,12 @@
 
 .quantum__story--container .content__holder .story__description {
     margin-top: 5rem;
-    line-height: 1.8;
-    font-size: 1.7rem;
+    font-size: 1.75rem;
     max-width: 60%;
     text-align: justify;
 }
 
 .quantum__story--container .content__holder .story__description p {
-    margin-bottom: 1rem;
+    margin-bottom: 2rem;
+    line-height: 2;
 }
