@@ -2,7 +2,6 @@ import "./Main.css";
 import { useState, useEffect } from "react";
 import { IoSearchOutline } from "react-icons/io5";
 import { useSelector, useDispatch } from "react-redux";
-import * as activeConstants from "../../Constants/activeConstants";
 import MainContent from "../Main-Content/mainContent";
 import Feed from "../Feed/Feed";
 
@@ -15,12 +14,6 @@ const main = () => {
 
   const { activeFeed, activeExplore, activeAbout } = activeUiData;
   const { userInfo } = userLoginData;
-
-  useEffect(() => {
-    if (userInfo) {
-      dispatch({ type: activeConstants.ACTIVE_FEED });
-    }
-  }, [userInfo]);
 
   return (
     <div className="main">

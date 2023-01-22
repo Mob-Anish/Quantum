@@ -12,6 +12,10 @@ const Navbar = () => {
   const dispatch = useDispatch();
   const activeUiData = useSelector((state) => state.activeUI);
 
+  // User Login Data
+  const userLoginData = useSelector((state) => state.userLogin);
+  const { userInfo } = userLoginData;
+
   const activeFeed = () => {
     dispatch({ type: activeConstants.ACTIVE_FEED });
   };
@@ -31,7 +35,10 @@ const Navbar = () => {
   return (
     <div className="quantum__navbar__bg">
       <div className="quantum__navbar">
-        <div className="quantum__logo navbar__logo" onClick={clearActive}>
+        <div
+          className="quantum__logo navbar__logo"
+          onClick={!userInfo ? clearActive : ""}
+        >
           <Link to={routes.HOME} style={{ textDecoration: "none" }}>
             <span style={{ color: "#ffffff", fontSize: "2.8rem" }}>
               Quantum
