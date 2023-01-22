@@ -69,3 +69,22 @@ export const createStory = (photo, title, description) => async (dispatch) => {
     });
   }
 };
+
+export const getStories = () => async (dispatch) => {
+  try {
+    const message = await postServices.storyCreate();
+
+    console.log(message);
+
+    dispatch({
+      type: postConstants.STORIES_FETCH_SUCCESS,
+      payload: message.data,
+    });
+  } catch (err) {
+    console.log(err);
+    dispatch({
+      type: postConstants.STORIES_FETCH_FAIL,
+      payload: handleError(err),
+    });
+  }
+};

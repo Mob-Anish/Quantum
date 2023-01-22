@@ -10,6 +10,9 @@ router.post("/uploadImage", postController.uploadImage);
 router.delete("/removeImage", postController.removeImage);
 
 // Add posts
-router.post("/", auth.protect, postController.createPosts);
+router
+  .route("/")
+  .get(postController.getPosts)
+  .post(auth.protect, postController.createPost);
 
 module.exports = router;

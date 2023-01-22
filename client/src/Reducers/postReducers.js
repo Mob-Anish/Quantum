@@ -38,3 +38,22 @@ export const createStory = (state = {}, action) => {
       return state;
   }
 };
+
+export const storyList = (state = {}, action) => {
+  switch (action.type) {
+    case postConstants.STORIES_FETCH_SUCCESS:
+      return {
+        message: action.payload,
+        success: true,
+      };
+    case postConstants.STORIES_FETCH_FAIL:
+      return {
+        error: action.payload,
+      };
+    case postConstants.STORIES_FETCH_RESET:
+      return {};
+
+    default:
+      return state;
+  }
+};

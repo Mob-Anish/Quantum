@@ -46,8 +46,8 @@ exports.removeImage = catchAsync(async (req, res, next) => {
   });
 });
 
-// Add posts to db.
-exports.createPosts = catchAsync(async (req, res, next) => {
+// Add post to db.
+exports.createPost = catchAsync(async (req, res, next) => {
   const { title, description, photo } = req.body;
 
   // Getting user id
@@ -62,5 +62,18 @@ exports.createPosts = catchAsync(async (req, res, next) => {
   return res.status(201).json({
     status: "success",
     data: postData.rows[0],
+  });
+});
+
+// Get all posts from DB.
+exports.getPosts = catchAsync(async (req, res, next) => {
+  const postsData = await db.query(`SELECT * FROM posts`);
+
+  const posts = postsData.rows;
+
+  return res.status(200).json({
+    status: "success",
+    results: posts.length,
+    data: { posts },
   });
 });
