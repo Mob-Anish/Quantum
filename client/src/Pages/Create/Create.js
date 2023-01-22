@@ -42,8 +42,11 @@ const createOne = () => {
 
   const handleSubmit = () => {
     const errors = validation(title, description);
-    if (errors) setUiError(errors);
-    setTimeout(() => setUiError(""), 2500);
+    if (errors) {
+      setUiError(errors);
+      setTimeout(() => setUiError(""), 2500);
+      return;
+    }
     dispatch(
       postActions.createStory(imageUrl ? imageUrl : null, title, description)
     );

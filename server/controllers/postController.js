@@ -66,7 +66,7 @@ exports.createPost = catchAsync(async (req, res, next) => {
 });
 
 // Get all posts from DB.
-exports.getPosts = catchAsync(async (req, res, next) => {
+exports.getAllPosts = catchAsync(async (req, res, next) => {
   const postsData = await db.query(`SELECT * FROM posts`);
 
   const posts = postsData.rows;
@@ -74,6 +74,34 @@ exports.getPosts = catchAsync(async (req, res, next) => {
   return res.status(200).json({
     status: "success",
     results: posts.length,
-    data: { posts },
+    data: {
+      posts,
+    },
+  });
+});
+
+// Get posts from specific userId.
+exports.getUserPosts = catchAsync(async (req, res, next) => {
+  const userId = req.params.userId;
+
+  const postsData = await db.query(
+    `SELECT * FROM posts WHERE user_id = ${userId}`
+  );
+
+  const posts = postsData.rows;
+
+  if (!posts.length) {
+    return res.status(200).json({
+      status: "success",
+      data: null,
+    });
+  }
+
+  return res.status(200).json({
+    status: "success",
+    results: posts.length,
+    data: {
+      posts,
+    },
   });
 });

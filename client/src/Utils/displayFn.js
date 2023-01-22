@@ -41,7 +41,10 @@ export const viewProfile = () => {
   if (document.querySelector(".container__profile__card")) {
     document.querySelector(".container__profile__card").style.display = "block";
   }
-  document.querySelector(".user__profile__card").style.display = "flex";
+
+  if (document.querySelector(".user__profile__card")) {
+    document.querySelector(".user__profile__card").style.display = "flex";
+  }
 };
 
 // Hide popup in login

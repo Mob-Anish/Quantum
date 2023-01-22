@@ -12,7 +12,9 @@ router.delete("/removeImage", postController.removeImage);
 // Add posts
 router
   .route("/")
-  .get(postController.getPosts)
+  .get(postController.getAllPosts)
   .post(auth.protect, postController.createPost);
+
+router.route("/:userId").get(postController.getUserPosts);
 
 module.exports = router;
