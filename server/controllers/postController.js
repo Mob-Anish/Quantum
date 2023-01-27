@@ -2,6 +2,7 @@ const catchAsync = require("../utils/catchAsync");
 const cloudinary = require("../utils/cloudinary");
 const AppError = require("../utils/appError");
 const db = require("../database");
+const { post } = require("../routes/postRoutes");
 
 // Uploading image to cloudinary
 exports.uploadImage = catchAsync(async (req, res, next) => {
@@ -53,6 +54,19 @@ exports.createPost = catchAsync(async (req, res, next) => {
   // Getting user id
   const user_id = req.user.id;
 
+  // Check if title exists
+  const { rows } = await db.query(
+    `SELECT * FROM posts WHERE title = '${title}'`
+  );
+
+  // If title already exists
+  if (rows.length) {
+    return res.status(400).json({
+      status: "fail",
+      title: "Hmm find the unique title buddy🤕",
+    });
+  }
+
   // Inserting post data into the db
   const postData = await db.query(
     `INSERT INTO posts (title, description, photo, user_id)
@@ -94,6 +108,7 @@ exports.getUserPosts = catchAsync(async (req, res, next) => {
     return res.status(200).json({
       status: "success",
       data: null,
+      message: "Buddy you need to post some stories 🖊️",
     });
   }
 
@@ -102,6 +117,28 @@ exports.getUserPosts = catchAsync(async (req, res, next) => {
     results: posts.length,
     data: {
       posts,
+    },
+  });
+});
+
+// Get specific post
+exports.getPost = catchAsync(async (req, res, next) => {
+  const postTitle = req.params.postTitle;
+
+  const postData = await db.query(
+    `SELECT * FROM posts WHERE title = '${postTitle}'`
+  );
+
+  const post = postData.rows;
+
+  if (!post.length) {
+    return next(new AppError("Oops not found 💁", 404));
+  }
+
+  return res.status(200).json({
+    status: "success",
+    data: {
+      post,
     },
   });
 });
