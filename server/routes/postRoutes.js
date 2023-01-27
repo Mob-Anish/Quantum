@@ -17,4 +17,6 @@ router
 
 router.route("/:userId").get(postController.getUserPosts);
 
+router.route("/:postId").get(postController.getPost);
+
 module.exports = router;

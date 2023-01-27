@@ -123,10 +123,10 @@ exports.getUserPosts = catchAsync(async (req, res, next) => {
 
 // Get specific post
 exports.getPost = catchAsync(async (req, res, next) => {
-  const postTitle = req.params.postTitle;
+  const postId = req.params.postId;
 
   const postData = await db.query(
-    `SELECT * FROM posts WHERE title = '${postTitle}'`
+    `SELECT * FROM posts WHERE id = '${postId}'`
   );
 
   const post = postData.rows;
