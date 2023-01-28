@@ -54,19 +54,6 @@ exports.createPost = catchAsync(async (req, res, next) => {
   // Getting user id
   const user_id = req.user.id;
 
-  // Check if title exists
-  const { rows } = await db.query(
-    `SELECT * FROM posts WHERE title = '${title}'`
-  );
-
-  // If title already exists
-  if (rows.length) {
-    return res.status(400).json({
-      status: "fail",
-      title: "Hmm find the unique title buddy🤕",
-    });
-  }
-
   // Inserting post data into the db
   const postData = await db.query(
     `INSERT INTO posts (title, description, photo, user_id)

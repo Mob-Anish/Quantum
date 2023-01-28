@@ -18,10 +18,33 @@ export const removeImgCover = async (body) => {
 };
 
 export const storyCreate = async (body) => {
-  const { data } = await http.post(config.apiEndPoint.post.createPost, {
+  const { data } = await http.post(config.apiEndPoint.post.postApi, {
     body,
     accessToken: true,
   });
 
   return data;
 };
+
+// Get all stories
+export const fetchStories = async () => {
+  const { data } = await http.get(config.apiEndPoint.post.postApi);
+
+  return data;
+};
+
+// Get specific story
+export const fetchStory = async (storyId) => {
+  const { data } = await http.get(config.apiEndPoint.post.postApi + storyId);
+
+  return data;
+};
+
+// Get user stories.
+export const fetchUserStories = async (userId) => {
+  const { data } = await http.get(config.apiEndPoint.post.postApi + userId);
+
+  return data;
+};
+
+

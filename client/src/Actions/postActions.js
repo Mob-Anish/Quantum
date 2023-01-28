@@ -70,9 +70,10 @@ export const createStory = (photo, title, description) => async (dispatch) => {
   }
 };
 
-export const getStories = () => async (dispatch) => {
+// Get all stories.
+export const getAllStories = () => async (dispatch) => {
   try {
-    const message = await postServices.storyCreate();
+    const message = await postServices.fetchStories();
 
     console.log(message);
 
@@ -84,6 +85,46 @@ export const getStories = () => async (dispatch) => {
     console.log(err);
     dispatch({
       type: postConstants.STORIES_FETCH_FAIL,
+      payload: handleError(err),
+    });
+  }
+};
+
+// Get specific story.
+export const getStory = (storyId) => async (dispatch) => {
+  try {
+    const message = await postServices.fetchStory(storyId);
+
+    console.log(message);
+
+    dispatch({
+      type: postConstants.STORY_FETCH_SUCCESS,
+      payload: message.data,
+    });
+  } catch (err) {
+    console.log(err);
+    dispatch({
+      type: postConstants.STORY_FETCH_FAIL,
+      payload: handleError(err),
+    });
+  }
+};
+
+// Get user stories.
+export const getUserStories = (userId) => async (dispatch) => {
+  try {
+    const message = await postServices.fetchUserStories(userId);
+
+    console.log(message);
+
+    dispatch({
+      type: postConstants.USER_STORY_FETCH_SUCCESS,
+      payload: message.data,
+    });
+  } catch (err) {
+    console.log(err);
+    dispatch({
+      type: postConstants.USER_STORY_FETCH_FAIL,
       payload: handleError(err),
     });
   }
