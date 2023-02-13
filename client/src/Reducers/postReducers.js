@@ -50,8 +50,6 @@ export const storyList = (state = {}, action) => {
       return {
         error: action.payload,
       };
-    case postConstants.STORIES_FETCH_RESET:
-      return {};
 
     default:
       return state;
