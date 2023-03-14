@@ -1,15 +1,15 @@
 import "./container-three.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import ProfleImg from "../../Assets/img/prof.png";
 import { RiDeleteBack2Fill } from "react-icons/ri";
 import * as routes from "../../Constants/routes";
 import * as displayFn from "../../Utils/displayFn";
 import { wordBreak } from "../../Utils/wordBreak";
 import { useSelector, useDispatch } from "react-redux";
-// import * as userConstants from "../../Constants/userConstants";
 import * as userActions from "../../Actions/userActions";
 
 const containerThree = () => {
+  const navigate = useNavigate();
   const userLoginData = useSelector((state) => state.userLogin);
   const dispatch = useDispatch();
 
@@ -17,6 +17,7 @@ const containerThree = () => {
 
   const logoutUser = () => {
     dispatch(userActions.logout());
+    navigate(routes.HOME);
   };
 
   return (
