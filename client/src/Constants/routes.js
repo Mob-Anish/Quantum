@@ -5,6 +5,7 @@ export const REGISTER = "/readytogo/create-account/:token";
 export const ONBOARD = "/readytogo/onboard/:token";
 export const PROFILE = "/:username";
 export const STORY = "/story/:storyTitle";
+export const SETTINGS = "/settings";
 
 // External Link
 export const TWITTER = "https://mobile.twitter.com/mob_anish";

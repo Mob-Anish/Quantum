@@ -8,6 +8,7 @@ import Profile from "../Pages/Profile/Profile";
 // import PrivateRoute from "../Routes/PrivateRoutes";
 import * as routes from "../Constants/routes";
 import Story from "../Pages/Story/Story";
+import Settings from "../Pages/Settings/Settings";
 
 export default function App() {
   return (
@@ -20,6 +21,7 @@ export default function App() {
         <Route path={routes.ONBOARD} element={<OnBoard />} />
         <Route path={routes.PROFILE} element={<Profile />} />
         <Route path={routes.STORY} element={<Story />} />
+        <Route path={routes.SETTINGS} element={<Settings />} />
       </Routes>
     </Router>
   );
