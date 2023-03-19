@@ -2,10 +2,11 @@
 {
     display: flex;
     height: 100vh;
+    background: radial-gradient(73.23% 106% at 34.94% 108.33%, #597dd6 0%, #8c68f8 100%);
 }
 
 .quantum__profile--container .profile__container--sidebar {
-    background: radial-gradient(73.23% 106% at 34.94% 108.33%, #b265bd 0%, #7758D1 100%);
+    background: rgba(44, 47, 72, 0.3);
     width: 20%;
     color: #ffffff;
 }
