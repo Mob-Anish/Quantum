@@ -9,11 +9,8 @@ const Profile = () => {
 
   return (
     <div className="quantum__profile--container">
-      <div className="profile__container--sidebar">
-        <div
-          className="logo"
-          style={{ marginBottom: "5rem", padding: "1rem 1.5rem" }}
-        >
+      <div className="profile__container--sidebar" style={{ padding: "2rem" }}>
+        <div className="logo" style={{ marginBottom: "5rem" }}>
           <Link to={routes.HOME} style={{ textDecoration: "none" }}>
             <span style={{ color: "#ffffff", fontSize: "2.8rem" }}>
               Quantum

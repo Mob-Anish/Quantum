@@ -60,7 +60,7 @@
 .quantum__profile--container .profile .email__address {
     background: rgba(44, 47, 72, 0.5);
     border-radius: .5rem;
-    margin: 3rem 1.5rem;
+    margin: 3rem 0;
     padding: 1rem;
 }
 

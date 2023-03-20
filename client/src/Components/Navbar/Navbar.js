@@ -45,7 +45,7 @@ const Navbar = () => {
             </span>
           </Link>
         </div>
-        <div className="navbar__links">
+        <div className="navbar__links quantum__navbar--links">
           <ul>
             <li
               className={activeUiData.activeFeed ? "navbar__active" : ""}

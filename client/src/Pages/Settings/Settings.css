@@ -1,0 +1,19 @@
+.quantum__settings_--container
+{
+    display: flex;
+    height: 100vh;
+    background: radial-gradient(73.23% 106% at 34.94% 108.33%, #597dd6 0%, #8c68f8 100%);
+}
+
+.quantum__settings_--container .settings__navbar {
+    background: rgba(44, 47, 72, 0.3);
+    width: 20%;
+    color: #ffffff;
+}
+
+.quantum__settings_--container .settings__main {
+    background: #2C2F48;
+    width: 80%;
+    color: #ffffff;
+}
+

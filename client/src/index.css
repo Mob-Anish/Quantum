@@ -91,3 +91,33 @@ button {
 .pointer {
   cursor: pointer;
 }
+
+.navbar__links ul{
+  list-style: none;
+}
+
+.navbar__links ul li {
+  padding: 1rem 1.5rem;
+  cursor: pointer;
+}
+
+.navbar__links ul li:not(:last-child) {
+  margin-bottom: .5rem;
+}
+
+.navbar__links ul li:hover ,
+.navbar__active {
+  border-radius: .6rem;
+  background: rgba(0, 0, 0, 0.5);
+  background-blend-mode: overlay;
+  color: #f3f1f1;
+}
+
+.navbar__links ul li div {
+  color: #f3f1f1;
+}
+
+.navbar__links span {
+  font-weight: bold;
+  font-size: 1.6rem;
+}
