@@ -2,12 +2,12 @@
     background: #2C2F48;
     min-height: 100vh;
     padding: 2rem 3rem;
-    color: #ffffff;
+    color: #f3f1f1;
 }
 
 .quantum__story--container a {
     text-decoration: none;
-    color: #ffffff;
+    color: #f3f1f1;
 }
 
 .quantum__story--container .content__holder {

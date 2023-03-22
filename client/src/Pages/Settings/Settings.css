@@ -8,12 +8,12 @@
 .quantum__settings_--container .settings__navbar {
     background: rgba(44, 47, 72, 0.3);
     width: 20%;
-    color: #ffffff;
+    color: #f3f1f1;
 }
 
 .quantum__settings_--container .settings__main {
     background: #2C2F48;
     width: 80%;
-    color: #ffffff;
+    color: #f3f1f1;
 }
 

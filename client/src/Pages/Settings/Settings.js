@@ -54,14 +54,6 @@ const Settings = () => {
                 <span>Account</span>
               </div>
             </li>
-            <li
-              className={activeUiData.activeAbout ? "navbar__active" : ""}
-              onClick={activeAbout}
-            >
-              <div className="navbar__about">
-                <span>About</span>
-              </div>
-            </li>
           </ul>
         </div>
       </div>

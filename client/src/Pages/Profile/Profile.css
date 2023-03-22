@@ -8,18 +8,18 @@
 .quantum__profile--container .profile__container--sidebar {
     background: rgba(44, 47, 72, 0.3);
     width: 20%;
-    color: #ffffff;
+    color: #f3f1f1;
 }
 
 .quantum__profile--container .profile__container--sidebar a {
     text-decoration: none;
-    color: #ffffff;
+    color: #f3f1f1;
 }
 
 .quantum__profile--container .profile__container--main {
     background: #2C2F48;
     width: 80%;
-    color: #ffffff;
+    color: #f3f1f1;
 }
 
 .quantum__profile--container .image__holder {
@@ -33,7 +33,7 @@
     flex-shrink: 0;
     height: 140px;
     width: 140px;
-    background-image: linear-gradient(to bottom right,#ffffff, #ffffff);
+    background-image: linear-gradient(to bottom right,#f3f1f1, #f3f1f1);
 }
 
 .quantum__profile--container .shape__inner {	

@@ -48,7 +48,7 @@ code {
 .submit--button,
 .link--button {
   padding: 1rem 2rem;
-  color: #ffffff;
+  color: #f3f1f1;
   border-radius: 2rem;
   font-size: 1.75rem;
   cursor: pointer;
@@ -61,7 +61,7 @@ code {
 
 .join--button {
   padding: .8rem 1.5rem;
-  color: #ffffff;
+  color: #f3f1f1;
   border-radius: 2rem;
   font-size: 1.5rem;
   text-align: center;
