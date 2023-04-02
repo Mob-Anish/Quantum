@@ -71,14 +71,16 @@ const containerThree = () => {
                 <h3>{userInfo.name}</h3>
                 <h4>({userInfo.username})</h4>
               </div>
-              <Link to={routes.ONSTART} className="user__view__profile">
-                <h3>Profile 😎</h3>
-              </Link>
-              <Link to={routes.ONSTART} className="user__account__settings">
-                <h3>Account Settings 👷‍♂️</h3>
-              </Link>
-              <div className="user__logout pointer" onClick={logoutUser}>
-                <h3>Log out 👈</h3>
+              <div className="user__profile--list">
+                <Link to={routes.ONSTART} className="user__view__profile">
+                  <h3>🙅 &nbsp; &nbsp;Profile</h3>
+                </Link>
+                <Link to={routes.ONSTART} className="user__account__settings">
+                  <h3>⚙️ &nbsp; &nbsp;Account Settings</h3>
+                </Link>
+                <div className="user__logout pointer" onClick={logoutUser}>
+                  <h3>👉 &nbsp; &nbsp;Log out </h3>
+                </div>
               </div>
             </div>
           </div>

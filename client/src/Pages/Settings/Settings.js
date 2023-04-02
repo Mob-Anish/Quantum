@@ -43,7 +43,7 @@ const Settings = () => {
               onClick={activeFeed}
             >
               <div className="navbar__feed">
-                <span>Profile Settings</span>
+                <span>🙍 &nbsp; &nbsp;Profile Settings</span>
               </div>
             </li>
             <li
@@ -51,7 +51,7 @@ const Settings = () => {
               onClick={activeExplore}
             >
               <div className="navbar__explore">
-                <span>Account</span>
+                <span>⚙️ &nbsp; &nbsp;Account</span>
               </div>
             </li>
           </ul>

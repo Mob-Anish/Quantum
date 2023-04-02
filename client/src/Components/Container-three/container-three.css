@@ -66,10 +66,15 @@
     color: #f3f1f1;
 }
 
+.user__profile--list{
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+}
+
 .user__view__profile,
-.user__account__settings,
-.user__logout {
-    padding: 1.3rem 1.6rem;
+.user__account__settings {
+    margin-bottom: 2rem;
 }
 
 .user__profile--icon {
