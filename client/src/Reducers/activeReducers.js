@@ -6,6 +6,14 @@ export const activeUI = (state = {}, action) => {
       return {
         activeFeed: true,
       };
+    case activeConstants.ACTIVE_PROFILE_SETTINGS:
+      return {
+        activeProfileSetting: true,
+      };
+    case activeConstants.ACTIVE_ACCOUNT:
+      return {
+        activeAccount: true,
+      };
     case activeConstants.ACTIVE_EXPLORE:
       return {
         activeExplore: true,

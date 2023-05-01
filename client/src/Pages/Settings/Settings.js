@@ -2,25 +2,18 @@ import "./Settings.css";
 import { Link } from "react-router-dom";
 import * as routes from "../../Constants/routes";
 import { useDispatch, useSelector } from "react-redux";
+import * as activeConstants from "../../Constants/activeConstants";
 
 const Settings = () => {
   const dispatch = useDispatch();
   const activeUiData = useSelector((state) => state.activeUI);
 
-  const activeFeed = () => {
-    dispatch({ type: activeConstants.ACTIVE_FEED });
+  const activeProfileSettings = () => {
+    dispatch({ type: activeConstants.ACTIVE_PROFILE_SETTINGS });
   };
 
-  const activeExplore = () => {
-    dispatch({ type: activeConstants.ACTIVE_EXPLORE });
-  };
-
-  const activeAbout = () => {
-    dispatch({ type: activeConstants.ACTIVE_ABOUT });
-  };
-
-  const clearActive = () => {
-    dispatch({ type: activeConstants.ACTIVE_RESET });
+  const activeAccount = () => {
+    dispatch({ type: activeConstants.ACTIVE_ACCOUNT });
   };
 
   return (
@@ -34,21 +27,23 @@ const Settings = () => {
           </Link>
         </div>
         <h2 style={{ fontSize: "2.3rem", marginBottom: "3rem" }}>
-          Settings 🧑‍🔧
+          User Settings 🧑‍🔧
         </h2>
         <div className="navbar__links">
           <ul>
             <li
-              className={activeUiData.activeFeed ? "navbar__active" : ""}
-              onClick={activeFeed}
+              className={
+                activeUiData.activeProfileSetting ? "navbar__active" : ""
+              }
+              onClick={activeProfileSettings}
             >
               <div className="navbar__feed">
                 <span>🙍 &nbsp; &nbsp;Profile Settings</span>
               </div>
             </li>
             <li
-              className={activeUiData.activeExplore ? "navbar__active" : ""}
-              onClick={activeExplore}
+              className={activeUiData.activeAccount ? "navbar__active" : ""}
+              onClick={activeAccount}
             >
               <div className="navbar__explore">
                 <span>⚙️ &nbsp; &nbsp;Account</span>
