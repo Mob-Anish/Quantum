@@ -121,3 +121,25 @@ button {
   font-weight: bold;
   font-size: 1.6rem;
 }
+
+.privacy--policy{
+  font-size: 1.6rem;
+  font-weight: 600;
+  font-style: italic;
+}
+
+.upload__profile--button {
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #8c68f8 ;
+  border-radius: 50%;
+  width: 16rem;
+  height: 16rem;
+  font-weight: 600;
+  font-size: 1.6rem;
+  color: #f3f1f1;
+  text-transform: uppercase;
+}

@@ -17,3 +17,13 @@
     color: #f3f1f1;
 }
 
+.quantum__settings_--container .input__field input {
+    background: none;
+    border: 1px solid #f3f1f1;
+    color: #f3f1f1;
+}
+
+.quantum__settings_--container .input__field input::placeholder{
+    color: #f3f1f1;
+}
+

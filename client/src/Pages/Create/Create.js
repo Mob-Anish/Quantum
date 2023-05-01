@@ -93,7 +93,7 @@ const createOne = () => {
             onChange={(e) => uploadImage(e)}
           />
           <FadeLoader color={"#ffffff"} loading={loading} size={50} />
-          {uploadError ? <div className="error-field">{uploadError}</div> : ""}
+          {uploadError && <div className="error-field">{uploadError}</div>}
         </div>
       )}
       <div className="create__container">
@@ -108,7 +108,7 @@ const createOne = () => {
             autoFocus
           />
           <div className="error-field" style={{ textAlign: "center" }}>
-            {uiError ? uiError.title : ""}
+            {uiError && uiError.title}
           </div>
         </div>
         <div className="create__description" style={{ marginBottom: "2rem" }}>
@@ -119,7 +119,7 @@ const createOne = () => {
             onChange={(e) => setDescription(e.target.value)}
           ></textarea>
           <div className="error-field" style={{ textAlign: "center" }}>
-            {uiError ? uiError.description : ""}
+            {uiError && uiError.description}
           </div>
         </div>
       </div>

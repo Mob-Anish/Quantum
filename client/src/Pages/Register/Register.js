@@ -80,8 +80,8 @@ const register = () => {
                   autoFocus
                 />
                 <div className="error-field">
-                  {name ? "Changing name will make your gmail useless 😅" : ""}
-                  {uiError ? uiError.fullName : ""}
+                  {name && "Changing name will make your gmail useless 😅"}
+                  {uiError && uiError.fullName}
                 </div>
               </div>
               <div className="input__field" style={{ marginLeft: "2rem" }}>
@@ -96,8 +96,8 @@ const register = () => {
                   autoFocus
                 />
                 <div className="error-field">
-                  {uiError ? uiError.userName : ""}
-                  {error ? error.username : ""}
+                  {uiError && uiError.userName}
+                  {error && error.username}
                 </div>
               </div>
             </div>
@@ -111,7 +111,7 @@ const register = () => {
                 value={email}
                 readOnly
               />
-              <div className="error-field">{uiError ? uiError.email : ""}</div>
+              <div className="error-field">{uiError && uiError.email}</div>
             </div>
             <div className="input__field tagline--field">
               <label htmlFor="tagline">Tell us about what you are:</label>
@@ -125,15 +125,7 @@ const register = () => {
                 autoFocus
               />
             </div>
-            <span
-              className="privacy--policy text--color"
-              style={{
-                color: "#ffffff",
-                fontSize: "1.6rem",
-                fontWeight: "600",
-                fontStyle: "italic",
-              }}
-            >
+            <span className="privacy--policy text--color">
               By creating account, you agree to Quantum's policy and terms of
               use.
             </span>
