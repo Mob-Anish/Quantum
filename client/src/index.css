@@ -149,3 +149,11 @@ button {
   color: #f3f1f1;
   text-transform: uppercase;
 }
+
+.profile__image {
+  border-radius: 50%;
+  width: 16rem;
+  height: 16rem;
+  cursor: pointer;
+  vertical-align: middle;
+}

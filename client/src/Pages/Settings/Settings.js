@@ -7,6 +7,7 @@ import * as postActions from "../../Actions/postActions";
 import * as activeConstants from "../../Constants/activeConstants";
 import { validation } from "../../Utils/formValidation";
 import FadeLoader from "react-spinners/FadeLoader";
+import { RiDeleteBack2Fill } from "react-icons/ri";
 
 const Settings = () => {
   const [fullName, setFullName] = useState("");
@@ -196,21 +197,44 @@ const Settings = () => {
               </div>
             </form>
             <div className="profile__upload" style={{ marginBottom: "4rem" }}>
-              <label htmlFor="upload-profile" style={{ marginRight: "5rem" }}>
-                <div className="upload__profile--button">
-                  <div>🤞</div>
-                  <div>Upload Photo</div>
+              {imageUrl ? (
+                <div style={{ marginBottom: "1rem", display: "flex" }}>
+                  <a href={imageUrl} target="_blank" rel="noreferrer">
+                    <img
+                      src={imageUrl}
+                      alt="cover--image"
+                      className="profile__image"
+                    />
+                  </a>
+                  <RiDeleteBack2Fill
+                    onClick={removeImage}
+                    style={{ fontSize: "2.5rem", cursor: "pointer" }}
+                  />
                 </div>
-              </label>
-              <input
-                accept="image/*"
-                type={"file"}
-                id="upload-profile"
-                style={{ display: "none" }}
-                onChange={(e) => uploadImage(e)}
-              />
-              <FadeLoader color={"#ffffff"} loading={loading} size={50} />
-              {uploadError && <div className="error-field">{uploadError}</div>}
+              ) : (
+                <div style={{ display: "flex", alignItems: "center" }}>
+                  <label
+                    htmlFor="upload-profile"
+                    style={{ marginRight: "5rem" }}
+                  >
+                    <div className="upload__profile--button">
+                      <div>🤞</div>
+                      <div>Upload Photo</div>
+                    </div>
+                  </label>
+                  <input
+                    accept="image/*"
+                    type={"file"}
+                    id="upload-profile"
+                    style={{ display: "none" }}
+                    onChange={(e) => uploadImage(e)}
+                  />
+                  <FadeLoader color={"#ffffff"} loading={loading} size={50} />
+                  {uploadError && (
+                    <div className="error-field">{uploadError}</div>
+                  )}
+                </div>
+              )}
             </div>
           </div>
         )}

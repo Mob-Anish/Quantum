@@ -25,7 +25,7 @@ exports.uploadImage = catchAsync(async (req, res, next) => {
 
   // Uploading image to cloudinary
   const image = await cloudinary.uploader.upload(file.tempFilePath, {
-    folder: "imageCover",
+    folder: "QuantumImages",
   });
 
   if (image)
@@ -112,9 +112,7 @@ exports.getUserPosts = catchAsync(async (req, res, next) => {
 exports.getPost = catchAsync(async (req, res, next) => {
   const postId = req.params.postId;
 
-  const postData = await db.query(
-    `SELECT * FROM posts WHERE id = '${postId}'`
-  );
+  const postData = await db.query(`SELECT * FROM posts WHERE id = '${postId}'`);
 
   const post = postData.rows;
 
