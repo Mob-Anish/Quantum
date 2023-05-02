@@ -110,102 +110,125 @@ const Settings = () => {
       </div>
       <div className="settings__main" style={{ padding: "7rem 5rem" }}>
         <div className="title" style={{ marginBottom: "4rem" }}>
-          <h1>Basic Info 📃</h1>
+          {activeUiData.activeProfileSetting && <h1>Basic Info 📃</h1>}
+          {activeUiData.activeAccount && (
+            <h1 style={{ color: "rgb(236, 102, 102)" }}>Delete Account 🙍</h1>
+          )}
         </div>
-        <div className="profile__form" style={{ display: "flex" }}>
-          <form className="profile__form__field" onSubmit={handleSubmit}>
-            <div>
-              <div className="input__field">
-                <label htmlFor="fullname">Full Name *</label>
-                <input
-                  type={"text"}
-                  name="fullname"
-                  className="inlinefont focus"
-                  placeholder="Write your name . . ."
-                  value={fullName}
-                  onChange={(e) => setFullName(e.target.value)}
-                />
-                <div className="error-field">
-                  {name ? "Changing name will make your gmail useless 😅" : ""}
-                  {uiError && uiError.fullName}
+        {activeUiData.activeProfileSetting && (
+          <div className="profile__form" style={{ display: "flex" }}>
+            <form className="profile__form__field" onSubmit={handleSubmit}>
+              <div>
+                <div className="input__field">
+                  <label htmlFor="fullname">Full Name *</label>
+                  <input
+                    type={"text"}
+                    name="fullname"
+                    className="inlinefont focus"
+                    placeholder="Write your name . . ."
+                    value={fullName}
+                    onChange={(e) => setFullName(e.target.value)}
+                  />
+                  <div className="error-field">
+                    {name
+                      ? "Changing name will make your gmail useless 😅"
+                      : ""}
+                    {uiError && uiError.fullName}
+                  </div>
+                </div>
+                <div className="input__field">
+                  <label htmlFor="username">User Name</label>
+                  <span
+                    className="text--color privacy--policy"
+                    style={{ marginBottom: "1rem", width: "35rem" }}
+                  >
+                    You can change username once. This is the last chance.
+                  </span>
+                  <input
+                    type={"text"}
+                    name="username"
+                    className="inlinefont focus"
+                    placeholder="Pick your username . . ."
+                    value={userName}
+                    onChange={(e) => setUserName(e.target.value)}
+                  />
+                  <div className="error-field">
+                    {uiError && uiError.userName}
+                    {error && error.username}
+                  </div>
+                </div>
+                <div className="input__field">
+                  <label htmlFor="emailaddress">Email Address</label>
+                  <span
+                    className="text--color privacy--policy"
+                    style={{ marginBottom: "1rem", width: "35rem" }}
+                  >
+                    Changing your email address might break your OAuth sign-in
+                    if your social media accounts do not use the same email
+                    address.
+                  </span>
+                  <input
+                    type={"text"}
+                    name="emailaddress"
+                    className="inlinefont focus"
+                    placeholder="Email Address ..."
+                    value={""}
+                    readOnly
+                  />
+                  <div className="error-field">{uiError && uiError.email}</div>
+                </div>
+                <div className="input__field tagline--field">
+                  <label htmlFor="tagline">Profile Tagline:</label>
+                  <input
+                    type={"text"}
+                    name="tagline"
+                    className="inlinefont focus"
+                    placeholder="Software Developer, FullStack Developer . . ."
+                    value={tagline}
+                    onChange={(e) => setTagline(e.target.value)}
+                  />
                 </div>
               </div>
-              <div className="input__field">
-                <label htmlFor="username">User Name</label>
-                <span
-                  className="text--color privacy--policy"
-                  style={{ marginBottom: "1rem", width: "35rem" }}
-                >
-                  You can change username once. This is the last chance.
-                </span>
-                <input
-                  type={"text"}
-                  name="username"
-                  className="inlinefont focus"
-                  placeholder="Pick your username . . ."
-                  value={userName}
-                  onChange={(e) => setUserName(e.target.value)}
-                />
-                <div className="error-field">
-                  {uiError && uiError.userName}
-                  {error && error.username}
+              <div className="button">
+                <button type="submit" className="link--button">
+                  Update
+                </button>
+              </div>
+            </form>
+            <div className="profile__upload" style={{ marginBottom: "4rem" }}>
+              <label htmlFor="upload-profile" style={{ marginRight: "5rem" }}>
+                <div className="upload__profile--button">
+                  <div>🤞</div>
+                  <div>Upload Photo</div>
                 </div>
-              </div>
-              <div className="input__field">
-                <label htmlFor="emailaddress">Email Address</label>
-                <span
-                  className="text--color privacy--policy"
-                  style={{ marginBottom: "1rem", width: "35rem" }}
-                >
-                  Changing your email address might break your OAuth sign-in if
-                  your social media accounts do not use the same email address.
-                </span>
-                <input
-                  type={"text"}
-                  name="emailaddress"
-                  className="inlinefont focus"
-                  placeholder="hmm"
-                  value={""}
-                  readOnly
-                />
-                <div className="error-field">{uiError && uiError.email}</div>
-              </div>
-              <div className="input__field tagline--field">
-                <label htmlFor="tagline">Profile Tagline:</label>
-                <input
-                  type={"text"}
-                  name="tagline"
-                  className="inlinefont focus"
-                  placeholder="(Software Developer) Tell us about who you are . . ."
-                  value={tagline}
-                  onChange={(e) => setTagline(e.target.value)}
-                />
-              </div>
+              </label>
+              <input
+                accept="image/*"
+                type={"file"}
+                id="upload-profile"
+                style={{ display: "none" }}
+                onChange={(e) => uploadImage(e)}
+              />
+              <FadeLoader color={"#ffffff"} loading={loading} size={50} />
+              {uploadError && <div className="error-field">{uploadError}</div>}
             </div>
-            <div className="button">
-              <button type="submit" className="link--button">
-                Update
-              </button>
-            </div>
-          </form>
-          <div className="profile__upload" style={{ marginBottom: "4rem" }}>
-            <label htmlFor="upload-profile" style={{ marginRight: "5rem" }}>
-              <div className="upload__profile--button">
-                <div>🤞</div>
-                <div>Upload Photo</div>
-              </div>
-            </label>
-            <input
-              accept="image/*"
-              type={"file"}
-              id="upload-profile"
-              style={{ display: "none" }}
-              onChange={(e) => uploadImage(e)}
-            />
-            <FadeLoader color={"#ffffff"} loading={loading} size={50} />
-            {uploadError && <div className="error-field">{uploadError}</div>}
           </div>
-        </div>
+        )}
+        {activeUiData.activeAccount && (
+          <>
+            <div>
+              <p style={{ fontSize: "1.6rem", marginBottom: "3rem" }}>
+                Your personal data will be deleted permanently when you delete
+                your account on Quantum. This action is irreversible.
+              </p>
+              <div className="button">
+                <button type="submit" className="delete--button">
+                  Delete Your Account
+                </button>
+              </div>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );
