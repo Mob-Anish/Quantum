@@ -23,3 +23,36 @@ exports.getUser = catchAsync(async (req, res, next) => {
     },
   });
 });
+
+// Update User details
+exports.updateUser = catchAsync(async (req, res, next) => {
+  const userId = req.params.userId;
+
+  const { name, username, email, tagline, photo } = req.body;
+
+  // Check if username exists
+  const { rows } = await db.query(
+    `SELECT * FROM users WHERE username = '${username}'`
+  );
+
+  // If username already exists
+  if (rows.length) {
+    return res.status(400).json({
+      status: "fail",
+      username: "Username is already taken 🤕",
+    });
+  }
+
+  // Update user data
+  const updatedUserData = await db.query(
+    `UPDATE users SET name = '${name}', username = '${username}', email = '${email}', photo = '${photo}', tagline = '${tagline}'
+     WHERE id = '${userId}' returning *`
+  );
+
+  return res.status(200).json({
+    status: "success",
+    data: {
+      updatedUserData,
+    },
+  });
+});
