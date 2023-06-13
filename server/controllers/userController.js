@@ -49,10 +49,36 @@ exports.updateUser = catchAsync(async (req, res, next) => {
      WHERE id = '${userId}' returning *`
   );
 
+  const user = updatedUserData.rows;
+
+  if (!user.length) {
+    return next(new AppError("User not found💁", 401));
+  }
+
   return res.status(200).json({
     status: "success",
     data: {
       updatedUserData,
     },
+  });
+});
+
+// Delete User
+exports.deleteUser = catchAsync(async (req, res, next) => {
+  const userId = req.params.userId;
+
+  const userData = await db.query(
+    `DELETE FROM users WHERE userId = '${userId}'`
+  );
+
+  const user = userData.rows;
+
+  if (!user.length) {
+    return next(new AppError("User not found💁", 401));
+  }
+
+  return res.status(200).json({
+    status: "success",
+    data: null,
   });
 });
