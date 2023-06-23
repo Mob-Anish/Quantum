@@ -6,6 +6,7 @@ const config = {
       login: "/users/login",
       googleAuthenticate: "/users/google-authenticate",
       register: "/users/register",
+      update: "/users/update",
     },
     post: {
       uploadImage: `/posts/uploadImage`,

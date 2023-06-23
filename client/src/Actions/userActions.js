@@ -142,6 +142,33 @@ export const register =
     }
   };
 
+// Update user info
+export const updateUserInfo =
+  (name, username, email, tagline, photo, userId) => async (dispatch) => {
+    try {
+      const body = {
+        name,
+        username,
+        email,
+        tagline,
+        photo,
+      };
+
+      const { data } = await userServices.updateUser(body, userId);
+
+      dispatch({
+        type: userConstants.USER_INFO_UPDATE,
+        payload: data,
+      });
+    } catch (err) {
+      console.log(err);
+      dispatch({
+        type: userConstants.USER_INFO_UPDATE_FAIL,
+        payload: handleError(err),
+      });
+    }
+  };
+
 // Logout user from system
 export const logout = () => (dispatch) => {
   tokenService.removeToken();

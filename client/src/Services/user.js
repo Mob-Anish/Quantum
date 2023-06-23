@@ -33,4 +33,13 @@ export const registerUser = async (body) => {
   return data;
 };
 
+export const updateUser = async (body, userId) => {
+  const { data } = await http.post(
+    config.apiEndPoint.user.update + `/${userId}`,
+    {
+      body,
+    }
+  );
 
+  return data;
+};
