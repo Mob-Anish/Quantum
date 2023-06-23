@@ -26,6 +26,10 @@ export const userLogin = (state = {}, action) => {
         userInfo: action.payload,
         success: true,
       };
+    case userConstants.USER_INFO_UPDATE:
+      return {
+        userInfo: action.payload,
+      };
     case userConstants.USER_LOGIN_FAIL:
       return {
         error: action.payload,

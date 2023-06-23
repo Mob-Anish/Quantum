@@ -7,6 +7,7 @@ export const USER_VERIFY_FAIL = "USER_VERIFY_FAIL";
 export const USER_VERIFY_RESET = "USER_VERIFY_RESET";
 
 export const USER_LOGIN_SUCCESS = "USER_LOGIN_SUCCESS";
+export const USER_INFO_UPDATE = "USER_INFO_UPDATE";
 export const USER_LOGIN_FAIL = "USER_LOGIN_FAIL";
 export const RESET = "RESET";
 
