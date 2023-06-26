@@ -36,6 +36,7 @@ const containerThree = () => {
                 alt="profile--icon"
                 style={{
                   height: "4.7rem",
+                  width: "4.7rem",
                   borderRadius: "50%",
                   cursor: "pointer",
                   position: "relative",

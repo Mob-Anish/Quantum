@@ -27,3 +27,22 @@
     color: #f3f1f1;
 }
 
+.test--image {
+    margin-bottom: 1rem;
+    display: block;
+    height: 16rem;
+    width: 16rem;
+    border-radius: 9999px;
+}
+
+.test--image a {
+    display: block;
+    overflow: hidden;
+    border-radius: 50%;
+    height: 100%;
+}
+
+.test--image .prof--image{
+    max-width: 100%;
+    height: auto;
+}

@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import * as userAction from "../../Actions/userActions";
 import * as postActions from "../../Actions/postActions";
 import * as activeConstants from "../../Constants/activeConstants";
+import * as postConstants from "../../Constants/postConstants";
 import { validation } from "../../Utils/formValidation";
 import FadeLoader from "react-spinners/FadeLoader";
 import { RiDeleteBack2Fill } from "react-icons/ri";
@@ -44,7 +45,8 @@ const Settings = () => {
     if (imageCoverError) {
       setUploadError(imageCoverError.message);
       setLoading(false);
-      setTimeout(() => setUploadError(""), 6000);
+      setTimeout(() => setUploadError(""), 4000);
+      dispatch({ type: postConstants.UPLOAD_IMAGE_RESET });
     }
   }, [userInfo, imageCoverError]);
 
@@ -210,61 +212,62 @@ const Settings = () => {
             </form>
             <div className="profile__upload" style={{ marginBottom: "4rem" }}>
               {userInfo && userInfo.photo !== "null" && (
-                <div style={{ marginBottom: "1rem", display: "flex" }}>
-                  <a href={photo} target="_blank" rel="noreferrer">
+                <div className="test--image">
+                  <a href={userInfo.photo} target="_blank" rel="noreferrer">
                     <img
-                      src={photo}
+                      src={userInfo.photo}
                       alt="cover--image"
-                      className="profile__image"
+                      className="prof--image"
                     />
                   </a>
                 </div>
               )}
-              {userInfo && userInfo.photo === "null" && imageUrl && (
-                <div style={{ marginBottom: "1rem", display: "flex" }}>
-                  <a href={imageUrl} target="_blank" rel="noreferrer">
-                    <img
-                      src={imageUrl}
-                      alt="cover--image"
-                      className="profile__image"
+              {userInfo &&
+                userInfo.photo === "null" &&
+                (imageUrl ? (
+                  <div style={{ marginBottom: "1rem", display: "flex" }}>
+                    <a href={imageUrl} target="_blank" rel="noreferrer">
+                      <img
+                        src={imageUrl}
+                        alt="cover--image"
+                        className="profile__image"
+                      />
+                    </a>
+                    <RiDeleteBack2Fill
+                      onClick={removeImage}
+                      style={{ fontSize: "2.5rem", cursor: "pointer" }}
                     />
-                  </a>
-                  <RiDeleteBack2Fill
-                    onClick={removeImage}
-                    style={{ fontSize: "2.5rem", cursor: "pointer" }}
-                  />
-                </div>
-              )}
-              {userInfo && userInfo.photo === "null" && (
-                <div
-                  style={{
-                    display: "flex",
-                    flexDirection: "row",
-                    alignItems: "center",
-                  }}
-                >
-                  <label
-                    htmlFor="upload-profile"
-                    style={{ marginRight: "5rem" }}
+                  </div>
+                ) : (
+                  <div
+                    style={{
+                      display: "flex",
+                      flexDirection: "row",
+                      alignItems: "center",
+                    }}
                   >
-                    <div className="upload__profile--button">
-                      <div>🤞</div>
-                      <div>Upload Photo</div>
-                    </div>
-                  </label>
-                  <input
-                    accept="image/*"
-                    type={"file"}
-                    id="upload-profile"
-                    style={{ display: "none" }}
-                    onChange={(e) => uploadImage(e)}
-                  />
-                  <FadeLoader color={"#ffffff"} loading={loading} size={50} />
-                  {uploadError && (
-                    <div className="error-field">{uploadError}</div>
-                  )}
-                </div>
-              )}
+                    <label
+                      htmlFor="upload-profile"
+                      style={{ marginRight: "5rem" }}
+                    >
+                      <div className="upload__profile--button">
+                        <div>🤞</div>
+                        <div>Upload Photo</div>
+                      </div>
+                    </label>
+                    <input
+                      accept="image/*"
+                      type={"file"}
+                      id="upload-profile"
+                      style={{ display: "none" }}
+                      onChange={(e) => uploadImage(e)}
+                    />
+                    <FadeLoader color={"#ffffff"} loading={loading} size={50} />
+                    {uploadError && (
+                      <div className="error-field">{uploadError}</div>
+                    )}
+                  </div>
+                ))}
             </div>
           </div>
         )}
