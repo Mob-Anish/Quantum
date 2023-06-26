@@ -29,6 +29,7 @@ export const userLogin = (state = {}, action) => {
     case userConstants.USER_INFO_UPDATE:
       return {
         userInfo: action.payload,
+        success: true,
       };
     case userConstants.USER_LOGIN_FAIL:
       return {
@@ -37,6 +38,22 @@ export const userLogin = (state = {}, action) => {
     case userConstants.RESET:
       return {};
 
+    default:
+      return state;
+  }
+};
+
+export const userInfo = (state = {}, action) => {
+  switch (action.type) {
+    case userConstants.USER_INFO_UPDATE:
+      return {
+        userInfo: action.payload,
+        success: true,
+      };
+    case userConstants.USER_INFO_UPDATE_FAIL:
+      return {
+        error: action.payload,
+      };
     default:
       return state;
   }

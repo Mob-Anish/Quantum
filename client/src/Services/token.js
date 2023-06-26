@@ -1,5 +1,5 @@
 // Get token from local storage
-export const getAccessToken = () => {
+export const  getAccessToken = () => {
   const data = JSON.parse(localStorage.getItem("userInfo"));
   return data.token;
 };

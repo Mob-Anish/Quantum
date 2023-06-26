@@ -30,7 +30,7 @@ const containerThree = () => {
         </div>
         {userInfo ? (
           <div className="container__profile__user">
-            {userInfo.photo != null ? (
+            {userInfo.photo !== "null" ? (
               <img
                 src={userInfo.photo}
                 alt="profile--icon"

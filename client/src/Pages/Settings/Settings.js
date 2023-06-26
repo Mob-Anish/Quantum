@@ -3,9 +3,9 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import * as routes from "../../Constants/routes";
 import { useDispatch, useSelector } from "react-redux";
+import * as userAction from "../../Actions/userActions";
 import * as postActions from "../../Actions/postActions";
 import * as activeConstants from "../../Constants/activeConstants";
-import { validation } from "../../Utils/formValidation";
 import FadeLoader from "react-spinners/FadeLoader";
 import { RiDeleteBack2Fill } from "react-icons/ri";
 
@@ -21,10 +21,10 @@ const Settings = () => {
   const imageCoverData = useSelector((state) => state.postImageCover);
   const { imageUrl, imageId, imageCoverError } = imageCoverData;
 
-  const userRegisterData = useSelector((state) => state.userRegister);
-  const { success, error } = userRegisterData;
   const userLoginData = useSelector((state) => state.userLogin);
-  const { userInfo } = userLoginData;
+  const { userInfo, success } = userLoginData;
+  const userInfoData = useSelector((state) => state.userInfo);
+  const { error } = userInfoData;
   const activeUiData = useSelector((state) => state.activeUI);
 
   const activeProfileSettings = () => {
@@ -47,6 +47,14 @@ const Settings = () => {
     }
   }, [userInfo, imageCoverError]);
 
+  useEffect(() => {
+    if (userInfo || success) {
+      setFullName(userInfo.name);
+      setUserName(userInfo.username);
+      setTagline(userInfo.tagline);
+    }
+  }, [userInfo, success]);
+
   const uploadImage = (e) => {
     const fileData = e.target.files[0];
     const formData = new FormData();
@@ -62,14 +70,17 @@ const Settings = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-
-    // Form validation
-    const errors = validation(fullName, userName, email);
-    if (errors) setUiError(errors);
-    setTimeout(() => setUiError(""), 2500);
+    const { id, email } = userInfo;
 
     dispatch(
-      userAction.register(fullName, userName, email, tagline ? tagline : null)
+      userAction.updateUserInfo(
+        fullName,
+        userName,
+        email,
+        tagline ? tagline : null,
+        imageUrl ? imageUrl : null,
+        id
+      )
     );
   };
 
@@ -173,7 +184,7 @@ const Settings = () => {
                     name="emailaddress"
                     className="inlinefont focus"
                     placeholder="Email Address ..."
-                    value={""}
+                    value={userInfo.email}
                     readOnly
                   />
                   <div className="error-field">{uiError && uiError.email}</div>
@@ -197,7 +208,18 @@ const Settings = () => {
               </div>
             </form>
             <div className="profile__upload" style={{ marginBottom: "4rem" }}>
-              {imageUrl ? (
+              {userInfo && userInfo.photo !== "null" && (
+                <div style={{ marginBottom: "1rem", display: "flex" }}>
+                  <a href={photo} target="_blank" rel="noreferrer">
+                    <img
+                      src={photo}
+                      alt="cover--image"
+                      className="profile__image"
+                    />
+                  </a>
+                </div>
+              )}
+              {userInfo && userInfo.photo === "null" && imageUrl && (
                 <div style={{ marginBottom: "1rem", display: "flex" }}>
                   <a href={imageUrl} target="_blank" rel="noreferrer">
                     <img
@@ -211,7 +233,8 @@ const Settings = () => {
                     style={{ fontSize: "2.5rem", cursor: "pointer" }}
                   />
                 </div>
-              ) : (
+              )}
+              {userInfo && userInfo.photo === "null" && (
                 <div style={{ display: "flex", alignItems: "center" }}>
                   <label
                     htmlFor="upload-profile"

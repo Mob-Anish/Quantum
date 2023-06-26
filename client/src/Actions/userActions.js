@@ -156,12 +156,21 @@ export const updateUserInfo =
 
       const { data } = await userServices.updateUser(body, userId);
 
+      const token = tokenService.getAccessToken();
+
+      const userInfo = {
+        ...data,
+        token,
+      };
+
+      // Set userInfo to the local Storage
+      tokenService.setToken(userInfo);
+
       dispatch({
         type: userConstants.USER_INFO_UPDATE,
         payload: data,
       });
     } catch (err) {
-      console.log(err);
       dispatch({
         type: userConstants.USER_INFO_UPDATE_FAIL,
         payload: handleError(err),

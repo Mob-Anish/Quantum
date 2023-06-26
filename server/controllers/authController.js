@@ -84,7 +84,7 @@ exports.googleAuthenticate = catchAsync(async (req, res, next) => {
 
   // 1) Check if user already exists
   const { rows } = await db.query(
-    `SELECT * FROM users WHERE name = '${name}' AND email = '${email}'`
+    `SELECT * FROM users WHERE email = '${email}'`
   );
 
   // 2) If user exist then providing token

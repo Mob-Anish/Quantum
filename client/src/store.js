@@ -6,6 +6,7 @@ import {
   userRegister,
   userVerify,
   userLogin,
+  userInfo,
   googleAuth,
 } from "./Reducers/userReducers";
 
@@ -18,6 +19,7 @@ const reducer = combineReducers({
   userRegister,
   userVerify,
   userLogin,
+  userInfo,
   googleAuth,
   postImageCover,
   createStory,

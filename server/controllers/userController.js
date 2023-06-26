@@ -18,9 +18,7 @@ exports.getUser = catchAsync(async (req, res, next) => {
 
   return res.status(200).json({
     status: "success",
-    data: {
-      user,
-    },
+    data: user[0],
   });
 });
 
@@ -32,7 +30,7 @@ exports.updateUser = catchAsync(async (req, res, next) => {
 
   // Check if username exists
   const { rows } = await db.query(
-    `SELECT * FROM users WHERE username = '${username}'`
+    `SELECT * FROM users WHERE username = '${username}' AND id != '${userId}' `
   );
 
   // If username already exists
@@ -49,17 +47,15 @@ exports.updateUser = catchAsync(async (req, res, next) => {
      WHERE id = '${userId}' returning *`
   );
 
-  const user = updatedUserData.rows;
+  const updateUser = updatedUserData.rows;
 
-  if (!user.length) {
+  if (!updateUser.length) {
     return next(new AppError("User not found💁", 401));
   }
 
   return res.status(200).json({
     status: "success",
-    data: {
-      updatedUserData,
-    },
+    data: updateUser[0],
   });
 });
 

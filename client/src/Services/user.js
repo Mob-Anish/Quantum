@@ -34,10 +34,11 @@ export const registerUser = async (body) => {
 };
 
 export const updateUser = async (body, userId) => {
-  const { data } = await http.post(
+  const { data } = await http.patch(
     config.apiEndPoint.user.update + `/${userId}`,
     {
       body,
+      accessToken: true,
     }
   );
 

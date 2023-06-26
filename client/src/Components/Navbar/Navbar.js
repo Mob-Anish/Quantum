@@ -37,7 +37,7 @@ const Navbar = () => {
       <div className="quantum__navbar">
         <div
           className="quantum__logo navbar__logo"
-          onClick={!userInfo ? clearActive : ""}
+          onClick={!userInfo && clearActive}
         >
           <Link to={routes.HOME} style={{ textDecoration: "none" }}>
             <span style={{ color: "#ffffff", fontSize: "2.8rem" }}>
