@@ -29,8 +29,10 @@ const register = () => {
 
     // Form validation
     const errors = validation(fullName, userName, email);
-    if (errors) setUiError(errors);
-    setTimeout(() => setUiError(""), 2500);
+    if (errors) {
+      setUiError(errors);
+      return setTimeout(() => setUiError(""), 2500);
+    }
 
     dispatch(
       userAction.register(

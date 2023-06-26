@@ -7,6 +7,7 @@ const { post } = require("../routes/postRoutes");
 // Uploading image to cloudinary
 exports.uploadImage = catchAsync(async (req, res, next) => {
   const file = req.files.file;
+  console.log(file.size);
 
   // If there is no file selected
   if (!file) return next(new AppError("Please select your image 😅", 400));
@@ -18,7 +19,7 @@ exports.uploadImage = catchAsync(async (req, res, next) => {
     );
 
   // Check file size
-  if (!file.size > process.env.IMAGE_UPLOAD_SIZE)
+  if (file.size > process.env.IMAGE_UPLOAD_SIZE)
     return next(
       new AppError("Please upload images with less or equal to 10mb 😅", 400)
     );

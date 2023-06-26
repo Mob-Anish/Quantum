@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import * as userAction from "../../Actions/userActions";
 import * as postActions from "../../Actions/postActions";
 import * as activeConstants from "../../Constants/activeConstants";
+import { validation } from "../../Utils/formValidation";
 import FadeLoader from "react-spinners/FadeLoader";
 import { RiDeleteBack2Fill } from "react-icons/ri";
 
@@ -43,7 +44,7 @@ const Settings = () => {
     if (imageCoverError) {
       setUploadError(imageCoverError.message);
       setLoading(false);
-      setTimeout(() => setUploadError(""), 4000);
+      setTimeout(() => setUploadError(""), 6000);
     }
   }, [userInfo, imageCoverError]);
 
@@ -71,6 +72,13 @@ const Settings = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const { id, email } = userInfo;
+
+    // Form validation
+    const errors = validation(fullName, userName, email);
+    if (errors) {
+      setUiError(errors);
+      return setTimeout(() => setUiError(""), 2500);
+    }
 
     dispatch(
       userAction.updateUserInfo(
@@ -150,12 +158,6 @@ const Settings = () => {
                 </div>
                 <div className="input__field">
                   <label htmlFor="username">User Name</label>
-                  <span
-                    className="text--color privacy--policy"
-                    style={{ marginBottom: "1rem", width: "35rem" }}
-                  >
-                    You can change username once. This is the last chance.
-                  </span>
                   <input
                     type={"text"}
                     name="username"
@@ -187,7 +189,6 @@ const Settings = () => {
                     value={userInfo.email}
                     readOnly
                   />
-                  <div className="error-field">{uiError && uiError.email}</div>
                 </div>
                 <div className="input__field tagline--field">
                   <label htmlFor="tagline">Profile Tagline:</label>
@@ -235,7 +236,13 @@ const Settings = () => {
                 </div>
               )}
               {userInfo && userInfo.photo === "null" && (
-                <div style={{ display: "flex", alignItems: "center" }}>
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    alignItems: "center",
+                  }}
+                >
                   <label
                     htmlFor="upload-profile"
                     style={{ marginRight: "5rem" }}
