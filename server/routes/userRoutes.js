@@ -18,7 +18,7 @@ router.post("/register", authController.register);
 router.post("/login", authController.login);
 
 // User
-router.route("/update/:userId").patch(auth.protect, userController.updateUser);
+router.route("/update/:userId").put(auth.protect, userController.updateUser);
 
 router.route("/:username").get(userController.getUser);
 

@@ -34,7 +34,7 @@ export const registerUser = async (body) => {
 };
 
 export const updateUser = async (body, userId) => {
-  const { data } = await http.patch(
+  const { data } = await http.put(
     config.apiEndPoint.user.update + `/${userId}`,
     {
       body,
