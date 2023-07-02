@@ -6,3 +6,9 @@ export const wordBreak = (userInfo) => {
   const sName = secondWord.split("")[0];
   return fName + sName;
 };
+
+export const imageUrlBreak = (imageUrl) => {
+  const url = imageUrl.split("/");
+  const image = url[7] + "/" + url[8];
+  return image;
+};

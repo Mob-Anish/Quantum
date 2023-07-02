@@ -10,6 +10,10 @@ import * as postConstants from "../../Constants/postConstants";
 import { validation } from "../../Utils/formValidation";
 import FadeLoader from "react-spinners/FadeLoader";
 import { RiDeleteBack2Fill } from "react-icons/ri";
+import { cld } from "../../Utils/cloudinary";
+import { fill } from "@cloudinary/url-gen/actions/resize";
+import { autoGravity } from "@cloudinary/url-gen/qualifiers/gravity";
+import { imageUrlBreak } from "../../Utils/wordBreak";
 
 const Settings = () => {
   const [fullName, setFullName] = useState("");
@@ -211,19 +215,33 @@ const Settings = () => {
               </div>
             </form>
             <div className="profile__upload" style={{ marginBottom: "4rem" }}>
-              {userInfo && userInfo.photo !== "null" && (
-                <div className="test--image">
-                  <a href={userInfo.photo} target="_blank" rel="noreferrer">
-                    <img
-                      src={userInfo.photo}
-                      alt="cover--image"
-                      className="prof--image"
-                    />
-                  </a>
+              {userInfo && userInfo.photo !== null && (
+                <div style={{ display: "flex" }}>
+                  <div className="test--image">
+                    <a href={userInfo.photo} target="_blank" rel="noreferrer">
+                      <img
+                        src={cld
+                          .image(`${imageUrlBreak(userInfo.photo)}`)
+                          // .image(`${imageUrlBreak(userInfo.photo)}`)
+                          .resize(
+                            fill().width(600).height(600).gravity(autoGravity())
+                          )
+                          .quality("auto")
+                          .format("auto")
+                          .toURL()}
+                        alt="cover--image"
+                        className="prof--image"
+                      />
+                    </a>
+                  </div>
+                  <RiDeleteBack2Fill
+                    onClick={removeImage}
+                    style={{ fontSize: "2.5rem", cursor: "pointer" }}
+                  />
                 </div>
               )}
               {userInfo &&
-                userInfo.photo === "null" &&
+                userInfo.photo === null &&
                 (imageUrl ? (
                   <div style={{ marginBottom: "1rem", display: "flex" }}>
                     <a href={imageUrl} target="_blank" rel="noreferrer">

@@ -14,6 +14,7 @@ const containerThree = () => {
   const dispatch = useDispatch();
 
   const { userInfo } = userLoginData;
+  console.log(userInfo.photo);
 
   const logoutUser = () => {
     dispatch(userActions.logout());
@@ -30,7 +31,7 @@ const containerThree = () => {
         </div>
         {userInfo ? (
           <div className="container__profile__user">
-            {userInfo.photo !== "null" ? (
+            {userInfo.photo !== null ? (
               <img
                 src={userInfo.photo}
                 alt="profile--icon"
@@ -73,10 +74,10 @@ const containerThree = () => {
                 <h4>({userInfo.username})</h4>
               </div>
               <div className="user__profile--list">
-                <Link to={routes.ONSTART} className="user__view__profile">
+                <Link to={routes.PROFILE} className="user__view__profile">
                   <h3>🙅 &nbsp; &nbsp;Profile</h3>
                 </Link>
-                <Link to={routes.ONSTART} className="user__account__settings">
+                <Link to={routes.SETTINGS} className="user__account__settings">
                   <h3>⚙️ &nbsp; &nbsp;Account Settings</h3>
                 </Link>
                 <div className="user__logout pointer" onClick={logoutUser}>
