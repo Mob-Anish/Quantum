@@ -224,7 +224,10 @@ const Settings = () => {
                           .image(`${imageUrlBreak(userInfo.photo)}`)
                           // .image(`${imageUrlBreak(userInfo.photo)}`)
                           .resize(
-                            fill().width(600).height(600).gravity(autoGravity())
+                            fill()
+                              .width(2500)
+                              .height(2500)
+                              .gravity(autoGravity())
                           )
                           .quality("auto")
                           .format("auto")
