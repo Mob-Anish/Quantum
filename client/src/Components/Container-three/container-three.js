@@ -7,6 +7,10 @@ import * as displayFn from "../../Utils/displayFn";
 import { wordBreak } from "../../Utils/wordBreak";
 import { useSelector, useDispatch } from "react-redux";
 import * as userActions from "../../Actions/userActions";
+import { cld } from "../../Utils/cloudinary";
+import { fill } from "@cloudinary/url-gen/actions/resize";
+import { autoGravity } from "@cloudinary/url-gen/qualifiers/gravity";
+import { imageUrlBreak } from "../../Utils/wordBreak";
 
 const containerThree = () => {
   const navigate = useNavigate();
@@ -33,16 +37,23 @@ const containerThree = () => {
           <div className="container__profile__user">
             {userInfo.photo !== null ? (
               <img
-                src={userInfo.photo}
+                src={cld
+                  .image(`${imageUrlBreak(userInfo.photo)}`)
+                  // .image(`${imageUrlBreak(userInfo.photo)}`)
+                  .resize(
+                    fill().width(2500).height(2500).gravity(autoGravity())
+                  )
+                  .quality("auto")
+                  .format("auto")
+                  .toURL()}
                 alt="profile--icon"
+                className="prof--image"
+                onClick={displayFn.viewProfile}
                 style={{
-                  height: "4.7rem",
-                  width: "4.7rem",
                   borderRadius: "50%",
                   cursor: "pointer",
                   position: "relative",
                 }}
-                onClick={displayFn.viewProfile}
               />
             ) : (
               <div
