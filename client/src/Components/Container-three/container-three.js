@@ -36,25 +36,34 @@ const containerThree = () => {
         {userInfo ? (
           <div className="container__profile__user">
             {userInfo.photo !== null ? (
-              <img
-                src={cld
-                  .image(`${imageUrlBreak(userInfo.photo)}`)
-                  // .image(`${imageUrlBreak(userInfo.photo)}`)
-                  .resize(
-                    fill().width(2500).height(2500).gravity(autoGravity())
-                  )
-                  .quality("auto")
-                  .format("auto")
-                  .toURL()}
-                alt="profile--icon"
-                className="prof--image"
-                onClick={displayFn.viewProfile}
+              <div
                 style={{
-                  borderRadius: "50%",
-                  cursor: "pointer",
-                  position: "relative",
+                  display: "block",
+                  height: "4.6rem",
                 }}
-              />
+                className="pointer"
+              >
+                <img
+                  src={cld
+                    .image(`${imageUrlBreak(userInfo.photo)}`)
+                    // .image(`${imageUrlBreak(userInfo.photo)}`)
+                    .resize(
+                      fill().width(2500).height(2500).gravity(autoGravity())
+                    )
+                    .quality("auto")
+                    .format("auto")
+                    .toURL()}
+                  alt="profile--icon"
+                  className="prof--image"
+                  onClick={displayFn.viewProfile}
+                  style={{
+                    display: "block",
+                    maxWidth: "100%",
+                    height: "100%",
+                    borderRadius: "50%",
+                  }}
+                />
+              </div>
             ) : (
               <div
                 className="user__profile--icon pointer"

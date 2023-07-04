@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import * as routes from "../../Constants/routes";
 import { useDispatch, useSelector } from "react-redux";
-import * as userAction from "../../Actions/userActions";
+import * as userActions from "../../Actions/userActions";
 import * as postActions from "../../Actions/postActions";
 import * as activeConstants from "../../Constants/activeConstants";
 import * as postConstants from "../../Constants/postConstants";
@@ -14,6 +14,7 @@ import { cld } from "../../Utils/cloudinary";
 import { fill } from "@cloudinary/url-gen/actions/resize";
 import { autoGravity } from "@cloudinary/url-gen/qualifiers/gravity";
 import { imageUrlBreak } from "../../Utils/wordBreak";
+import * as imageUrlService from "../../Services/imageUrl";
 
 const Settings = () => {
   const [fullName, setFullName] = useState("");
@@ -71,8 +72,10 @@ const Settings = () => {
   };
 
   const removeImage = () => {
+    if (imageUrlService.getImageUrl()) {
+      dispatch(userActions.deleteProfImage(userInfo));
+    }
     dispatch(postActions.removeImageCover(imageId));
-    setLoading(false);
   };
 
   const handleSubmit = (e) => {
@@ -87,7 +90,7 @@ const Settings = () => {
     }
 
     dispatch(
-      userAction.updateUserInfo(
+      userActions.updateUserInfo(
         fullName,
         userName,
         email,
@@ -249,9 +252,20 @@ const Settings = () => {
                   <div style={{ marginBottom: "1rem", display: "flex" }}>
                     <a href={imageUrl} target="_blank" rel="noreferrer">
                       <img
-                        src={imageUrl}
+                        src={cld
+                          .image(`${imageUrlBreak(imageUrl)}`)
+                          // .image(`${imageUrlBreak(userInfo.photo)}`)
+                          .resize(
+                            fill()
+                              .width(2500)
+                              .height(2500)
+                              .gravity(autoGravity())
+                          )
+                          .quality("auto")
+                          .format("auto")
+                          .toURL()}
                         alt="cover--image"
-                        className="profile__image"
+                        className="prof--image"
                       />
                     </a>
                     <RiDeleteBack2Fill
