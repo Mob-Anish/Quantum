@@ -12,3 +12,9 @@ export const imageUrlBreak = (imageUrl) => {
   const image = url[7] + "/" + url[8];
   return image;
 };
+
+export const getImageId = (imageUrl) => {
+  const url = imageUrl.split("/");
+  const image = url[7] + "/" + url[8].split(".")[0];
+  return image;
+};

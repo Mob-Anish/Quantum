@@ -13,7 +13,7 @@ import { RiDeleteBack2Fill } from "react-icons/ri";
 import { cld } from "../../Utils/cloudinary";
 import { fill } from "@cloudinary/url-gen/actions/resize";
 import { autoGravity } from "@cloudinary/url-gen/qualifiers/gravity";
-import { imageUrlBreak } from "../../Utils/wordBreak";
+import { imageUrlBreak, getImageId } from "../../Utils/wordBreak";
 import * as imageUrlService from "../../Services/imageUrl";
 
 const Settings = () => {
@@ -73,9 +73,16 @@ const Settings = () => {
 
   const removeImage = () => {
     if (imageUrlService.getImageUrl()) {
-      dispatch(userActions.deleteProfImage(userInfo));
+      const { name, username, email, tagline, photo, id } = userInfo;
+      dispatch(
+        userActions.updateUserInfo(name, username, email, tagline, "", id)
+      );
     }
-    dispatch(postActions.removeImageCover(imageId));
+    dispatch(
+      postActions.removeImageCover(
+        imageId ? imageId : getImageId(userInfo.photo)
+      )
+    );
   };
 
   const handleSubmit = (e) => {
@@ -94,8 +101,8 @@ const Settings = () => {
         fullName,
         userName,
         email,
-        tagline ? tagline : null,
-        imageUrl ? imageUrl : null,
+        tagline ? tagline : "",
+        imageUrl ? imageUrl : "",
         id
       )
     );
@@ -227,10 +234,7 @@ const Settings = () => {
                           .image(`${imageUrlBreak(userInfo.photo)}`)
                           // .image(`${imageUrlBreak(userInfo.photo)}`)
                           .resize(
-                            fill()
-                              .width(2500)
-                              .height(2500)
-                              .gravity(autoGravity())
+                            fill().width(250).height(250).gravity(autoGravity())
                           )
                           .quality("auto")
                           .format("auto")
@@ -246,20 +250,16 @@ const Settings = () => {
                   />
                 </div>
               )}
-              {userInfo &&
-                userInfo.photo === null &&
-                (imageUrl ? (
-                  <div style={{ marginBottom: "1rem", display: "flex" }}>
+              {userInfo && userInfo.photo === null && imageUrl && (
+                <div style={{ marginBottom: "1rem", display: "flex" }}>
+                  <div className="test--image">
                     <a href={imageUrl} target="_blank" rel="noreferrer">
                       <img
                         src={cld
                           .image(`${imageUrlBreak(imageUrl)}`)
                           // .image(`${imageUrlBreak(userInfo.photo)}`)
                           .resize(
-                            fill()
-                              .width(2500)
-                              .height(2500)
-                              .gravity(autoGravity())
+                            fill().width(250).height(250).gravity(autoGravity())
                           )
                           .quality("auto")
                           .format("auto")
@@ -268,41 +268,43 @@ const Settings = () => {
                         className="prof--image"
                       />
                     </a>
-                    <RiDeleteBack2Fill
-                      onClick={removeImage}
-                      style={{ fontSize: "2.5rem", cursor: "pointer" }}
-                    />
                   </div>
-                ) : (
-                  <div
-                    style={{
-                      display: "flex",
-                      flexDirection: "row",
-                      alignItems: "center",
-                    }}
+                  <RiDeleteBack2Fill
+                    onClick={removeImage}
+                    style={{ fontSize: "2.5rem", cursor: "pointer" }}
+                  />
+                </div>
+              )}
+              {userInfo && userInfo.photo === null && !imageUrl && (
+                <div
+                  style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    alignItems: "center",
+                  }}
+                >
+                  <label
+                    htmlFor="upload-profile"
+                    style={{ marginRight: "5rem" }}
                   >
-                    <label
-                      htmlFor="upload-profile"
-                      style={{ marginRight: "5rem" }}
-                    >
-                      <div className="upload__profile--button">
-                        <div>🤞</div>
-                        <div>Upload Photo</div>
-                      </div>
-                    </label>
-                    <input
-                      accept="image/*"
-                      type={"file"}
-                      id="upload-profile"
-                      style={{ display: "none" }}
-                      onChange={(e) => uploadImage(e)}
-                    />
-                    <FadeLoader color={"#ffffff"} loading={loading} size={50} />
-                    {uploadError && (
-                      <div className="error-field">{uploadError}</div>
-                    )}
-                  </div>
-                ))}
+                    <div className="upload__profile--button">
+                      <div>🤞</div>
+                      <div>Upload Photo</div>
+                    </div>
+                  </label>
+                  <input
+                    accept="image/*"
+                    type={"file"}
+                    id="upload-profile"
+                    style={{ display: "none" }}
+                    onChange={(e) => uploadImage(e)}
+                  />
+                  <FadeLoader color={"#ffffff"} loading={loading} size={50} />
+                  {uploadError && (
+                    <div className="error-field">{uploadError}</div>
+                  )}
+                </div>
+              )}
             </div>
           </div>
         )}

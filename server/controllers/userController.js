@@ -43,7 +43,7 @@ exports.updateUser = catchAsync(async (req, res, next) => {
 
   // Update user data
   const updatedUserData = await db.query(
-    `UPDATE users SET name = '${name}', username = '${username}', email = '${email}', photo = '${photo}', tagline = '${tagline}'
+    `UPDATE users SET name = '${name}', username = '${username}', email = '${email}', photo = NULLIF('${photo}', ''), tagline = NULLIF('${tagline}', '')
      WHERE id = '${userId}' returning *`
   );
 

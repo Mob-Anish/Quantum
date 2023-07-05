@@ -18,7 +18,6 @@ const containerThree = () => {
   const dispatch = useDispatch();
 
   const { userInfo } = userLoginData;
-  console.log(userInfo.photo);
 
   const logoutUser = () => {
     dispatch(userActions.logout());

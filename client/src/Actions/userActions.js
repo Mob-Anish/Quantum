@@ -178,42 +178,6 @@ export const updateUserInfo =
     }
   };
 
-export const deleteProfImage = (userInfo) => async (dispatch) => {
-  try {
-    const { id, name, username, email, photo, tagline, tags } = userInfo;
-
-    const data = {
-      id: id,
-      name: name,
-      username: username,
-      email: email,
-      photo: null,
-      tagline: tagline,
-      tags: tags,
-    };
-
-    const token = tokenService.getAccessToken();
-
-    const userInfo = {
-      ...data,
-      token,
-    };
-
-    // Set userInfo to the local Storage
-    tokenService.setToken(userInfo);
-
-    dispatch({
-      type: userConstants.PROF_IMAGE_DELETE,
-      payload: data,
-    });
-  } catch (err) {
-    dispatch({
-      type: userConstants.PROF_IMAGE_DELETE_FAIL,
-      payload: handleError(err),
-    });
-  }
-};
-
 // Logout user from system
 export const logout = () => (dispatch) => {
   tokenService.removeToken();

@@ -65,7 +65,7 @@ exports.register = catchAsync(async (req, res, next) => {
   // Inserting data into the db
   const userData = await db.query(
     `INSERT INTO users (name, username, email ,tagline)
-    VALUES ('${name}', '${username}', '${email}', '${tagline}') returning *`
+    VALUES ('${name}', '${username}', '${email}', NULLIF('${photo}', ''), NULLIF('${tagline}', '')) returning *`
   );
 
   // Creating Token
