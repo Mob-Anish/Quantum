@@ -8,6 +8,7 @@ import {
   userLogin,
   userInfo,
   googleAuth,
+  userProfile,
 } from "./Reducers/userReducers";
 
 import { activeUI } from "./Reducers/activeReducers";
@@ -21,6 +22,7 @@ const reducer = combineReducers({
   userLogin,
   userInfo,
   googleAuth,
+  userProfile,
   postImageCover,
   createStory,
 });

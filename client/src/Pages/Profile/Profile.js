@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import "./Profile.css";
 import ProfleImg from "../../Assets/img/prof.png";
@@ -5,6 +6,7 @@ import * as routes from "../../Constants/routes";
 
 const Profile = () => {
   const { username } = useParams();
+
   console.log(username);
 
   return (

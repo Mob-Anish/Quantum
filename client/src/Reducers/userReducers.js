@@ -59,6 +59,22 @@ export const userInfo = (state = {}, action) => {
   }
 };
 
+export const userProfile = (state = {}, action) => {
+  switch (action.type) {
+    case userConstants.USER_PROFILE_SUCCESS:
+      return {
+        userProfile: action.payload,
+        success: true,
+      };
+    case userConstants.USER_PROFILE_FAIL:
+      return {
+        error: action.payload,
+      };
+    default:
+      return state;
+  }
+};
+
 export const userVerify = (state = {}, action) => {
   switch (action.type) {
     case userConstants.USER_VERIFY_SUCCESS:
