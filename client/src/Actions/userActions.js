@@ -178,6 +178,23 @@ export const updateUserInfo =
     }
   };
 
+export const getUserProfile = (username) => async (dispatch) => {
+  try {
+    const { data } = await userServices.getUser(username);
+
+    dispatch({
+      type: userConstants.USER_PROFILE_SUCCESS,
+      payload: data,
+    });
+  } catch (err) {
+    console.log(err);
+    dispatch({
+      type: userConstants.USER_PROFILE_FAIL,
+      payload: handleError(err),
+    });
+  }
+};
+
 // Logout user from system
 export const logout = () => (dispatch) => {
   tokenService.removeToken();

@@ -16,9 +16,13 @@ exports.getUser = catchAsync(async (req, res, next) => {
     return next(new AppError("Oops not found 💁", 404));
   }
 
+  const postData = await db.query(
+    `SELECT * FROM posts WHERE user_id = ${user[0].id}`
+  );
+
   return res.status(200).json({
     status: "success",
-    data: user[0],
+    data: [user[0], postData.rows[0]],
   });
 });
 

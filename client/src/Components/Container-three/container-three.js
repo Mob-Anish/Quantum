@@ -93,7 +93,10 @@ const containerThree = () => {
                 <h4>({userInfo.username})</h4>
               </div>
               <div className="user__profile--list">
-                <Link to={routes.PROFILE} className="user__view__profile">
+                <Link
+                  to={`${userInfo && userInfo.username}`}
+                  className="user__view__profile"
+                >
                   <h3>🙅 &nbsp; &nbsp;Profile</h3>
                 </Link>
                 <Link to={routes.SETTINGS} className="user__account__settings">

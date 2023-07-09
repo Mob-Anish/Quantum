@@ -1,13 +1,24 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import * as userActions from "../../Actions/userActions";
 import "./Profile.css";
 import ProfleImg from "../../Assets/img/prof.png";
 import * as routes from "../../Constants/routes";
 
 const Profile = () => {
   const { username } = useParams();
+  const dispatch = useDispatch();
 
-  console.log(username);
+  const userProfileData = useSelector((state) => state.userProfile);
+  const { userProfile, userStories } = userProfileData;
+  console.log(userProfile, userStories);
+
+  useEffect(() => {
+    if (username) {
+      dispatch(userActions.getUserProfile(username));
+    }
+  }, [username]);
 
   return (
     <div className="quantum__profile--container">

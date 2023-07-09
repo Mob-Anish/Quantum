@@ -63,7 +63,8 @@ export const userProfile = (state = {}, action) => {
   switch (action.type) {
     case userConstants.USER_PROFILE_SUCCESS:
       return {
-        userProfile: action.payload,
+        userProfile: action.payload[0],
+        userStories: action.payload[1],
         success: true,
       };
     case userConstants.USER_PROFILE_FAIL:

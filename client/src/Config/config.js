@@ -7,6 +7,7 @@ const config = {
       googleAuthenticate: "/users/google-authenticate",
       register: "/users/register",
       update: "/users/update",
+      getUser: "/users",
     },
     post: {
       uploadImage: `/posts/uploadImage`,

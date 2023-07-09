@@ -44,3 +44,11 @@ export const updateUser = async (body, userId) => {
 
   return data;
 };
+
+export const getUser = async (username) => {
+  const { data } = await http.get(
+    config.apiEndPoint.user.getUser + `/${username}`
+  );
+
+  return data;
+};
