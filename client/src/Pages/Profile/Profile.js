@@ -5,6 +5,11 @@ import * as userActions from "../../Actions/userActions";
 import "./Profile.css";
 import ProfleImg from "../../Assets/img/prof.png";
 import * as routes from "../../Constants/routes";
+import { userInfo } from "../../Reducers/userReducers";
+import { cld } from "../../Utils/cloudinary";
+import { fill } from "@cloudinary/url-gen/actions/resize";
+import { autoGravity } from "@cloudinary/url-gen/qualifiers/gravity";
+import { wordBreak, imageUrlBreak } from "../../Utils/wordBreak";
 
 const Profile = () => {
   const { username } = useParams();
@@ -18,7 +23,15 @@ const Profile = () => {
     if (username) {
       dispatch(userActions.getUserProfile(username));
     }
-  }, [username]);
+  }, []);
+
+  if (!userProfile || !userStories) {
+    return (
+      <div>
+        <h1>Data not found</h1>
+      </div>
+    );
+  }
 
   return (
     <div className="quantum__profile--container">
@@ -32,26 +45,52 @@ const Profile = () => {
         </div>
         <div className="profile">
           <div className="image__holder">
-            <Link to="/">
+            <Link to={`/${username}`}>
               <div className="shape__outer circle">
-                <div className="shape__inner circle bg-image"></div>
+                {userProfile && !userProfile.photo && (
+                  <div className="shape__inner circle word--profile">
+                    {wordBreak(userProfile)}
+                  </div>
+                )}
+                {userProfile && userProfile.photo && (
+                  <img
+                    src={cld
+                      .image(
+                        `${imageUrlBreak(userProfile && userProfile.photo)}`
+                      )
+                      // .image(`${imageUrlBreak(userInfo.photo)}`)
+                      .resize(
+                        fill().width(250).height(250).gravity(autoGravity())
+                      )
+                      .quality("auto")
+                      .format("auto")
+                      .toURL()}
+                    alt="cover--image"
+                    className="shape__inner circle"
+                  />
+                )}
               </div>
             </Link>
           </div>
           <div className="name" style={{ margin: "2rem 0 6rem 0" }}>
             <h1 className="fullname">
-              <Link to="/">Hinata Shoyo</Link>
+              <Link to={`/${username}`}>{userProfile && userProfile.name}</Link>
             </h1>
             <h2
               className="username"
               style={{ fontSize: "1.6rem", marginTop: ".5rem" }}
             >
-              <Link to="/">@Shoya</Link>
+              <Link to={`/${username}`}>
+                @{userProfile && userProfile.username}
+              </Link>
             </h2>
           </div>
           <div className="tagline">
             <h2 style={{ marginBottom: "1rem" }}>About Me :</h2>
-            <p style={{ fontSize: "1.5rem", lineHeight: "1.375" }}>
+            <p
+              className="line-clamp"
+              style={{ fontSize: "1.5rem", lineHeight: "1.375" }}
+            >
               Senior Software Engineer. Google Developers Expert. Entrepreneur.
               Mountain Climber. Cat Lover. Gardener. World traveler.
             </p>
@@ -67,11 +106,15 @@ const Profile = () => {
             <Link
               to="#"
               onClick={(e) => {
-                window.location.href = "mailto:shoyo6334@gmail.com";
+                window.location.href = `mailto:${
+                  userProfile && userProfile.email
+                }`;
                 e.preventDefault();
               }}
             >
-              <span style={{ fontSize: "1.5rem" }}>📭 shoyo6334@gmail.com</span>
+              <span style={{ fontSize: "1.5rem" }}>
+                📭 {userProfile && userProfile.email}
+              </span>
             </Link>
           </div>
         </div>

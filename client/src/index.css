@@ -157,3 +157,12 @@ button {
   cursor: pointer;
   vertical-align: middle;
 }
+
+.line-clamp {
+  display: -webkit-box;
+  line-clamp: 3;
+  -webkit-line-clamp: 3;
+  box-orient: vertical;
+  -webkit-box-orient: vertical;  
+  overflow: hidden;
+}

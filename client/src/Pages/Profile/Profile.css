@@ -37,11 +37,18 @@
 }
 
 .quantum__profile--container .shape__inner {	
-    height: 130px;
-    width: 130px;
-    background: url(https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=300&h=300&fit=crop&crop=faces) no-repeat center;
-    background-size: cover;
+    height: 13rem;
+    width: 13rem;
     margin: auto;
+}
+
+.quantum__profile--container .word--profile{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: radial-gradient(73.23% 106% at 34.94% 108.33%, #b265bd 0%, #7758D1 100%);
+    font-size: 5rem;
 }
 
 .quantum__profile--container .circle {
