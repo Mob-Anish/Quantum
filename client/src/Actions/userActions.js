@@ -187,7 +187,6 @@ export const getUserProfile = (username) => async (dispatch) => {
       payload: data,
     });
   } catch (err) {
-    console.log(err);
     dispatch({
       type: userConstants.USER_PROFILE_FAIL,
       payload: handleError(err),

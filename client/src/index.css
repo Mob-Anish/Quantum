@@ -158,7 +158,7 @@ button {
   vertical-align: middle;
 }
 
-.line-clamp {
+.line-clamp-3 {
   display: -webkit-box;
   line-clamp: 3;
   -webkit-line-clamp: 3;

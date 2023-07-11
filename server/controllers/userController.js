@@ -22,7 +22,7 @@ exports.getUser = catchAsync(async (req, res, next) => {
 
   return res.status(200).json({
     status: "success",
-    data: [user[0], postData.rows[0]],
+    data: [user[0], postData.rows],
   });
 });
 
