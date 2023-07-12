@@ -14,7 +14,7 @@
 }
 
 .quantum__introduction__content .quantum__introduction__image .img-holder {
-    background-image: url('../../Assets/img/quantum.jpg');
+    background-image: url('https://res.cloudinary.com/hologram/image/upload/v1689174778/QuantumImages/rlajgb5xsflcfeuyxhwv.jpg');
     background-position: center;
     background-size: cover;
     background-repeat: no-repeat;
@@ -32,7 +32,7 @@
 }
 
 .quantum__main__content .quantum__founder__note .img-holder{
-    background-image: url('../../Assets/img/Wreck.jpg');
+    background-image: url('https://res.cloudinary.com/hologram/image/upload/v1689172900/QuantumImages/uqwtscs5rivwjcg7m4ef.jpg');
     background-position: 36%;
     background-size: cover;
     background-repeat: no-repeat;

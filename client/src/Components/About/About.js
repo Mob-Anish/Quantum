@@ -19,7 +19,11 @@ const About = () => {
         <h1>Technologies Used</h1>
         <h1>Creator & Developer</h1>
         <div className="creator__image">
-          <a href={userInfo.photo} target="_blank" rel="noreferrer">
+          <a
+            href="https://res.cloudinary.com/hologram/image/upload/v1689172900/QuantumImages/uqwtscs5rivwjcg7m4ef.jpg"
+            target="_blank"
+            rel="noreferrer"
+          >
             <img
               src={cld
                 .image("QuantumImages/uqwtscs5rivwjcg7m4ef")

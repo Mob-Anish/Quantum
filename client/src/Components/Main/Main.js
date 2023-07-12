@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { IoSearchOutline } from "react-icons/io5";
 import { useSelector, useDispatch } from "react-redux";
 import MainContent from "../Main-Content/mainContent";
+import About from "../About/About";
 import Feed from "../Feed/Feed";
 
 const main = () => {
@@ -38,7 +39,7 @@ const main = () => {
         )}
         {activeFeed ? <Feed /> : ""}
         {activeExplore ? <h1>This is explore</h1> : ""}
-        {activeAbout ? <h1>This is about</h1> : ""}
+        {activeAbout ? <About /> : ""}
       </div>
     </div>
   );

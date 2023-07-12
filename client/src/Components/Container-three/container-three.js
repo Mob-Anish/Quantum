@@ -1,6 +1,5 @@
 import "./container-three.css";
 import { Link, useNavigate } from "react-router-dom";
-import ProfleImg from "../../Assets/img/prof.png";
 import { RiDeleteBack2Fill } from "react-icons/ri";
 import * as routes from "../../Constants/routes";
 import * as displayFn from "../../Utils/displayFn";
@@ -111,7 +110,9 @@ const containerThree = () => {
         ) : (
           <div className="container__profile__login">
             <img
-              src={ProfleImg}
+              src={
+                "https://res.cloudinary.com/hologram/image/upload/v1689174843/QuantumImages/rkeewgvhh62zfwzuyofh.png"
+              }
               alt="profile--icon"
               style={{
                 height: "5rem",
