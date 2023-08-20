@@ -5,11 +5,11 @@ import * as userActions from "../../Actions/userActions";
 import "./Profile.css";
 import ProfleImg from "../../Assets/img/prof.png";
 import * as routes from "../../Constants/routes";
-import { userInfo } from "../../Reducers/userReducers";
 import { cld } from "../../Utils/cloudinary";
 import { fill } from "@cloudinary/url-gen/actions/resize";
 import { autoGravity } from "@cloudinary/url-gen/qualifiers/gravity";
 import { wordBreak, imageUrlBreak } from "../../Utils/wordBreak";
+import moment from "moment";
 
 const Profile = () => {
   const { username } = useParams();
@@ -23,7 +23,7 @@ const Profile = () => {
     if (username) {
       dispatch(userActions.getUserProfile(username));
     }
-  }, []);
+  }, [username]);
 
   return (
     <div className="quantum__profile--container">
@@ -89,7 +89,9 @@ const Profile = () => {
           <div className="membership__date">
             <h2 style={{ marginBottom: "1rem" }}>Joined :</h2>
             <span style={{ fontSize: "1.5rem" }}>
-              📅 Member Since Jul, 2022
+              📅 Member Since{" "}
+              {userProfile &&
+                moment(userProfile.createdat).format("MMMM Do YYYY")}
             </span>
           </div>
           <div className="email__address">
