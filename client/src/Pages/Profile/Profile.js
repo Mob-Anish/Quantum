@@ -91,7 +91,7 @@ const Profile = () => {
             <span style={{ fontSize: "1.5rem" }}>
               📅 Member Since{" "}
               {userProfile &&
-                moment(userProfile.createdat).format("MMMM Do YYYY")}
+                moment(userProfile.createdat).format("MMMM DD, YYYY")}
             </span>
           </div>
           <div className="email__address">
